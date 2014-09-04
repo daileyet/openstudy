@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="notesApp">
+	<head>
+		<title>Hello AngularJS</title>
+
+		<style>
+			.done {
+				background-color: green;
+			}
+			.pending {
+				background-color: red;
+			}
+		</style>
+
+		<script	src="js/angular.js"></script>
+		<script src="js/notesApp.js"></script>
+	</head>
+	<body ng-controller="MainCtrl as ctrl">
+		<!--<h1>Hello <span ng-bind="name"></span></h1>
+		<input type="text" ng-model="name" placeholder="Enter your name" />-->
+		<!--{{ctrl.message}} AngularJS.<br />
+		<button ng-click="ctrl.changeMessage()">Change Message</button>-->
+		<div ng-repeat="note in ctrl.notes" ng-class="ctrl.getNoteClass(note.done)">
+			<span class="label">{{note.label}}</span>
+			<span class="assigine" ng-show="note.assignee" ng-bind="note.assignee"></span>
+		</div>
+	</body>
+</html>
+

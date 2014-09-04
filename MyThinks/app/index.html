@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="open-thinks@outlook.com">
+		<title>Festival</title>
+		<link rel="stylesheet" href="vendors/foundation-5.3.0/css/normalize.css" />
+		<link rel="stylesheet" href="vendors/foundation-5.3.0/css/foundation.css" />
+		<link rel="stylesheet" href="app.css" />
+		<script type="text/javascript" src="vendors/jquery/jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="vendors/modernizr.js" ></script>
+		<script type="text/javascript" src="vendors/foundation-5.3.0/js/foundation.min.js" ></script>
+		<script type="text/javascript" src="vendors/angularjs/1.3.0-beta.15/angular.js" ></script>
+		<script type="text/javascript" src="app.js" ></script>
+		<script type="text/javascript" src="scripts/services.js" ></script>
+	</head>
+	<body ng-app="festivalApp" ng-controller="MonthCtrl as ctrl">
+		<div class="off-canvas-wrap" data-offcanvas>
+			<div class="inner-wrap">
+				<nav class="top-bar" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1>
+							<a href="#">
+								Festival
+							</a></h1>
+						</li>
+						<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+						<li class="toggle-topbar menu-icon">
+							<a href="#" class="right-off-canvas-toggle">
+								<span></span>
+							</a>
+						</li>
+					</ul>
+					<section class="top-bar-section hidden-for-small-only">
+						<!-- Right Nav Section -->
+						<ul class="right">
+
+							<li class="has-dropdown">
+								<a href="#">
+									More
+								</a>
+								<ul class="dropdown">
+									<li>
+										<a href="#">
+											About
+										</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+				</nav>
+
+				<aside class="right-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li>
+							<label>Navgation</label>
+						</li>
+						<li ng-repeat="mon in ctrl.months" >
+							<a href="#{{mon.key}}">
+								{{mon.value}}
+							</a>
+						</li>
+						<li>
+							<label>About</label>
+						</li>
+					</ul>
+				</aside>
+
+				<div data-magellan-expedition="fixed">
+					<dl class="sub-nav" >
+						<dd   data-magellan-arrival="{{mon.key}}" ng-repeat="mon in ctrl.months" >
+							<a href="#{{mon.key}}">
+								<span class="hidden-for-small-only">{{mon.value}}</span>
+								<span class="show-for-small-only">{{mon.key}}</span>
+							</a>
+						</dd>
+					</dl>
+				</div>
+
+				<section id="main-content" class="main-section">
+					<div id="festvial-container" >
+						<div ng-repeat="seaon in ctrl.seasons" data-season="{{seaon.key}}" ng-class="seaon.bg_class">
+							<div ng-repeat="mon in seaon.months">
+								<a name="{{ctrl.getMonth(mon).key}}"></a>
+								<div data-magellan-destination="{{ctrl.getMonth(mon).key}}" data-month="{{ctrl.getMonth(mon).key}}" >
+
+									<div class="row text-center">
+										<div class="medium-4 large-4 columns">
+											<img src="http://foundation.zurb.com/assets/img/homepage/faster-for-users.svg">
+											<h4>Faster for Users</h4>
+											<p>
+												Users will feel the speed.
+												<br>
+												Interchange now enables HTML partials for device specific content. Smoother animations and transitions happen with hardware acceleration. The default styles are all updated.
+											</p>
+										</div>
+										<div class="medium-4 large-4 columns">
+											<img src="http://foundation.zurb.com/assets/img/homepage/faster-to-code.svg">
+											<h4>Faster to Code</h4>
+											<p>
+												For the nerd in all of you,
+												<br>
+												we've built a new command line tool to spin up projects fast and added Libsass, speeding up your SCSS changes by 5X. Our
+												<a href="templates.html">
+													HTML Templates
+												</a>
+												have even been brought up to speed.
+											</p>
+										</div>
+										<div class="medium-4 large-4 columns">
+											<img src="http://foundation.zurb.com/assets/img/homepage/faster-to-learn.svg">
+											<h4>Faster to Learn</h4>
+											<p>
+												We overhauled our documentation with all new and more detailed code examples. And we're now supporting Foundation with a new
+												<a href="/forum">
+													forum
+												</a>
+												and expert training so you can get started building even faster.
+											</p>
+										</div>
+									</div>
+
+									<div class="row text-center">
+										<div class="medium-3 large-3 columns ">
+											<img src="http://foundation.zurb.com/assets/img/learn/features/semantic.svg">
+											<h3>Semantic</h3>
+											<p>
+												Everything is semantic. You can have the cleanest markup without sacrificing the utility and speed of Foundation.
+											</p>
+										</div>
+										<div class="medium-3 large-3 columns">
+											<a href="mobility.html">
+												<img src="http://foundation.zurb.com/assets/img/learn/features/responsive.svg">
+												<h3>Mobile First</h3>
+											</a>
+											<p>
+												You can build for small devices first. Then, as devices get larger and larger, layer in more complexity for a complete responsive design.
+											</p>
+										</div>
+										<div class="medium-3 large-3 columns">
+											<img src="http://foundation.zurb.com/assets/img/learn/features/customizable.svg">
+											<h3>Customizable</h3>
+											<p>
+												You can customize your build to include or remove certain elements, as well as define the size of columns, colors, font size and more.
+											</p>
+										</div>
+										<div class="medium-3 large-3 columns">
+											<img src="http://foundation.zurb.com/assets/img/learn/features/training.svg">
+											<h3>Professional</h3>
+											<p>
+												Millions of designers and developers depend on Foundation. Now we have business support, training and consulting to help grow your product or service.
+											</p>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--end of inner-wrap-->
+		</div><!--end of off-canvas-wrap-->
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
+</html>

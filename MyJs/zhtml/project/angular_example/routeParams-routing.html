@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>AngularJS Routing</title>
+		<script src="http://code.angularjs.org/1.2.16/angular.js"></script>
+		<script src="http://code.angularjs.org/1.2.16/angular-route.js"></script>
+	</head>
+
+	<body ng-app="resolveApp">
+
+		<h2>AngularJS Routing Application</h2>
+
+		<div ng-view></div>
+
+		<script type="text/javascript">
+			angular.module('resolveApp', ['ngRoute']).config(['$routeProvider',
+			function($routeProvider) {
+				$routeProvider.when('/', {
+					template : '<h1>Main Page</h1>'
+				}).when('/detail/:detId/:q', {
+					template : '<h2>Loaded {{myCtrl.detailId}}' + ' and query String is {{myCtrl.qStr}}</h2>',
+					controller : ['$routeParams',
+					function($routeParams) {
+						this.detailId = $routeParams.detId;
+						this.qStr = $routeParams.q;
+					}],
+					controllerAs : 'myCtrl'
+				});
+
+			}]);
+		</script>
+	</body>
+</html>

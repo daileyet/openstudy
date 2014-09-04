@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>My Open Task</title>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"> -->
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+		<link rel="stylesheet" href="../../../css/openthinks.task.main.css" />
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+		<script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+		<![endif]-->
+
+	</head>
+	<body>
+		<!-------------------------------------------------------------------------------------------->
+		<!----------------------------------------Navbar Start---------------------------------------->
+		<!-------------------------------------------------------------------------------------------->
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="navbar-header">
+				<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">
+					Open-thinks <span class="label"><small>My Task</small></span>
+				</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle"  data-toggle="dropdown" >
+							<i class="icon-user"></i><b class="caret"></b><span class="label">&nbsp;</span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li>
+								<a href="#">
+									Setting
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Administrator
+								</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="#">
+									Logout
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div><!--Navbar End-->
+		
+
+	   <div class="container-fluid" id="setting-main" >
+	   	<div class="row-fluid">
+			<div class="col-md-3" id="setting-left">
+				<ul class="nav nav-pills nav-stacked">
+				  <li ><a href="#profile" data-toggle="tab" >Profile</a></li>
+				  <li class="active"><a  href="#taskgroup" data-toggle="tab" data-url="http://127.0.0.1:8020/MyJsEffect/open/open-task-groups.html">Task Group</a></li>
+				</ul>
+			</div>
+			
+			<div class="col-md-9" id="setting-right">
+				<div class="tab-content">
+				  <div class="tab-pane fade" id="profile">This is Profile setting panel, will coming soon...</div>
+				  <div class="tab-pane fade in active" id="taskgroup" >
+				  	
+						
+
+				  </div>
+				</div>
+			</div>
+		</div>
+	   </div>
+
+
+       <div id="footer">
+			<div class="container">
+				<p class="text-muted">
+					&copy; open-thinks 2013~2014
+				</p>
+			</div>
+		</div>
+		
+		
+		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		
+		
+		<script>
+			$('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+				var $tab = $(e.target);
+				$($tab.attr("href")).load($tab.data("url"));
+			});
+
+	 </script>
+		
+	</body>
+</html>

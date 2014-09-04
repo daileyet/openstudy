@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My Messager</title>
+		<style>
+			.ot-msg {
+				border: 1px solid gray;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				width: 200px;
+			}
+
+			.ot-msg-body {
+				padding: 2px;
+				padding-left: 10px;
+			}
+
+
+ 			.update-changes-dialog{
+ 				padding:2px;
+ 				border:1px solid gray;
+ 			}
+ 			.update-changes-dialog table{
+ 				margin:0;
+ 				padding:0;
+ 				width:100%;
+ 			}
+ 			
+ 			.update-changes-dialog table tr{
+ 				margin:0;
+ 				padding:0;
+ 			}
+ 			
+ 			.update-changes-dialog table td{
+ 				margin:0;
+ 				padding:0;
+ 				border:1px solid gray;
+ 			}
+		</style>
+	</head>
+	<body>
+		<div class="ot-msg">
+
+			<div class="ot-msg-body">
+				<span>
+					<img src="../img/warning_16.png"/>
+				</span>
+				<span class="ot-msg-title"></span>
+			</div>
+
+		</div>
+
+		<section  class="uRegion uWhiteRegion uMessageRegion clearfix upgrade-warning" >
+			<div class="uRegionContent clearfix">
+				<a class="uCloseMessage" href="javascript:void(0)"></a>
+				<img alt="" class="uCheckmarkIcon" src="/i/f_spacer.gif">
+				<div class="uMessageText">
+					You selections have been confirmed.
+				</div>
+			</div>
+		</section>
+
+		<script	src="../js/jquery-2.0.0.min.js"></script>
+		<script>
+			var uc = [{
+				customer : 'Abeam',
+				pod : 'ABC',
+				current_old : 'REL5',
+				current_new : 'REL7',
+				status_old : 'Scheduled',
+				status_new : 'Completed'
+			}, {
+				customer : 'J.K',
+				pod : 'TBC',
+				current_old : 'REL5',
+				current_new : 'REL7',
+				status_old : 'Scheduled',
+				status_new : 'Completed'
+			}, {
+				customer : 'A Wstomer',
+				pod : 'JDH',
+				current_old : 'REL5',
+				current_new : 'REL7',
+				status_old : 'Scheduled',
+				status_new : 'Completed'
+			}];
+
+			(function() {
+				
+				this.showChanges = function() {
+					var $details = $("<div class='update-changes-dialog' title='Update rows'></div>");
+					if($('div.update-changes-dialog').length>0){
+						$details=$('div.update-changes-dialog');
+						$details.empty();
+					}
+					var $table = $("<table></table>");
+					for (var i = 0; i < uc.length; i++) {
+						var e = uc[i];
+						var $tr = $("<tr></tr>");
+						for (var j in e) {
+							$tr.append('<td>' + e[j] + '</td>');
+						}
+						$table.append($tr);
+					}
+					$details.append($table).appendTo('body').dialog({
+						resizeable:true,
+						height:300,
+						modal:true
+					});
+				}
+				
+				
+				showChanges();
+			})();
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,58 @@
+*{
+	font-size: 13px;
+}
+
+.background-image-overlay {
+	display: block;
+	background: url(data/images/background-image-overlay.png) repeat;
+	background-color: lightgray;
+}
+
+.background-image-summer {
+	display: block;
+	z-index: -2;
+	/*background: url(data/images/bg/summer-bg.jpg) no-repeat fixed ;*/
+}
+
+.background-image-spring {
+	display: block;
+	z-index: -2;
+	/*background: url(data/images/bg/spring-bg.jpg) no-repeat fixed;*/
+}
+
+.background-image-autumn {
+	display: block;
+	z-index: -2;
+	/*background: url(data/images/bg/autumn-bg.jpg) no-repeat fixed;*/
+}
+
+.background-image-winter {
+	display: block;
+	z-index: -2;
+	/*background: url(data/images/bg/winter-bg.jpg) no-repeat fixed;*/
+}
+
+.transbox {
+	/* Fallback for web browsers that doesn't support RGBa */
+	background: #7f7f7f;
+	/* RGBa with 0.6 opacity */
+	background: rgba(0,0,0,0.5);
+	/* For IE 5.5 - 7*/
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+	/* For IE 8*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+
+body{
+	color: #333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+}
+
+
+
+.click-add-panel{
+	display:none;
+}
+

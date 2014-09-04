@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+
+Name: example/javabean/visualui/MyPanelBean.class
+Java-Bean: True

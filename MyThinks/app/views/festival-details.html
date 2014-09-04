@@ -1,0 +1,20 @@
+<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
+	<li ng-if='existImg'>
+		<ul class="example-orbit" data-orbit>
+			<li ng-repeat="fsimg in fsi.images">
+				<img ng-src="{{fsimg.url}}" />
+				<div class="orbit-caption">
+					{{fsimg.caption}}
+				</div>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<p>
+			{{fsi.desc}}
+		</p>
+	</li>
+</ul>
+<script>
+//	$(document).foundation();	
+</script>

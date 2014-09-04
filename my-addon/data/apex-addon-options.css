@@ -1,0 +1,94 @@
+.apex-addon-options{
+	width:auto;
+	border:1px solid black;
+	border-radius: 5px;
+}
+
+.apex-addon-options-head{
+	border:0px solid black;
+	background:black;color:white;
+	padding:3px;
+}
+.apex-addon-options-body{
+	padding:3px;
+}
+.apex-addon-options-workspaces{
+	margin-top:3px;
+}
+ul.workspaces {
+	background: gray;
+	padding: 0px;
+	border:2px solid gray;
+	list-style-type:none;
+	border-radius: 3px;
+	margin-top:2px;;
+}
+
+
+li {
+	background: white;
+	margin-bottom: 1px;
+	padding: 3px;
+}
+li:hover {
+	background: #F0F0F0;
+}
+li:last-child {
+	margin-bottom: 0px;
+}
+
+
+li.highlight {
+	background: #FFFFCC;
+}
+
+li.blank {
+	text-align: center;
+	color: gray;
+	cursor: pointer;
+}
+
+li.blank:hover {
+	color: red;
+}
+
+input[type='text'], input[type='password'] {
+	width: 150px;
+	border:1px solid black;
+	border-radius: 2px;
+	margin-top:2px;
+}
+li a {
+	text-decoration: none;
+	color:black;
+}
+li a:hover {
+	text-decoration: underline;
+}
+
+.input-error {
+	border: 1px solid red;
+}
+
+button.apex-addon-options-workspaces-save {
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABsklEQVQ4ja3MseqqcBjG8W6kQIooBJEj/xDlR+YFRAQRQdfjkDQ0BC5tXUEQDUEoQklSkYEUEsk5VgSVFO3P2ZSzhMN54bu8PHxSqf9xsiyH1WoVsixDlmUoigJFUaCqKrrdLlRVjX6yLKNSqTwJIb8iQJIktFotSJIESZJgGAZs28Z+v8fxeMThcMB8Poeu69GmXC6HEUAIQbPZBCEEhBCYpgnXdXE+n3G/33G9XkEIwWg0ijaEEESAIAhoNBoQBAGCIGC5XOJ0OuH5fOL9fiMMQ4iiiMlkAlEUoyKA53m0223UajXU63Xoug7f9/F4PPD5fBCGIYIggGEY4Hk+KgJ+fn6QpFKp9E8RwHEcxuMxVqtVoobDITiOiwGWZXG73fB6vRK12+3AsmwMMAyDIAjgeR4Gg8HXPM/DZrMBwzAxQNM0fN/H5XJJlG3boGk6BgqFAjzPg+M40DTta47jYLFYoFgsxkA+n4fruvA8L1GmaSKfz8dANpuF4ziwLAu9Xu9rlmVhNpshl8vFAEVRWK/X2G63iZpOp6AoKgbS6fRvTdPQ7/cT1el0kMlk/qRSqdRfQcNAlbfzaX4AAAAASUVORK5CYII=');
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	border: 0;
+	cursor: pointer;
+}
+
+button.apex-addon-options-workspaces-del {
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA9klEQVQ4jaXTyy4EURgE4G/BLHkOl7WFZGKEjUhcHkwLEvEmLlsJia3BQ1iIMc3CCIs+LWd+PR2ikn9TXVU5p/r8/MQCCtziMU0f+1hs0H9jGocY4XPCjHCETjR3cNZijHMRQ46zjzfYxkvGldjFdcad1Ob57NhXmE18N4WUWE3cDC6T9qPupMhSt8LVuugFbiPTH1C1XRPDZJqEZQwy/T08hYIGSRixhOegHWogX7HeENBLhlxbxiuUWGu5wkoIeWC8xJ1gaCpxUyhxDu/+/htHqmcP9rLU3z6kIj/WFE5DQW1zrtqdMfxrmXLU69zHW5o7E9b5C+ORizSkrnamAAAAAElFTkSuQmCC');
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	border: 0;
+	cursor: pointer;
+}
+
+.apex-addon-options-workspaces-btns {
+	float: right;
+}
+

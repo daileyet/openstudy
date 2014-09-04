@@ -1,0 +1,58 @@
+<form ng-submit="submit()">
+
+	<div class="row">
+		<div class="large-6 columns">
+			<label>Festival Name
+				<input type="text" ng-model="name" name="fsi-name" required pattern="[a-zA-Z]+" />
+			</label>
+		</div>
+		<div class="large-6 columns">
+			<div class="row collapse">
+				<label>Festival Date
+				</label>
+				<div class="small-3 columns">
+					<span class="prefix">{{mon}}</span>
+				</div>
+				<div class="small-9 columns">
+					<input type="number" min="1" max="31" ng-model="date" name="fsi-date" required/>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 medium-12 large-12 columns">
+			<textarea ng-model="desc" placeholder="Description"></textarea>
+		</div>
+	</div>
+
+	<div class="row ">
+		<div class="small-12 medium-12 large-12 columns">
+			<legend style="background: none;">Festival Images</legend>
+			<ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+				<li class="click-add-success">
+					<a class="th" href="http://www.bitauto.com/hot/jieqi/allimg/guyu/5.png" target="_blank">
+						<img src="http://www.bitauto.com/hot/jieqi/allimg/guyu/5.png" alt="">
+					</a>
+				</li>
+				<li class="click-add-action">
+					<a href="javascript:void(0)" ng-click="showAddPanel()">
+						<img src="data/images/photo_galery_album-128.png">
+					</a>
+					<div class="row click-add-panel">
+						<input type="text" name="fsi-picture-name" placeholder="Description" />
+						<input type="url" name="fsi-picture-url" placeholder="URL" />
+						<a href="javascript:void(0)" class="tiny button secondary" ng-click="createImage()">Apply</a>
+						<a href="javascript:void(0)" class="tiny button secondary" ng-click="hideAddPanel()">Cancel</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<input type="submit" id="submit" value="Submit" class="button [tiny small large]" />
+		</div>
+	</div>
+</form>

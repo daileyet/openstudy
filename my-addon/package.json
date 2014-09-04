@@ -1,0 +1,45 @@
+{
+	"name": "apex-dev-addon",
+	"title": "apex-dev-addon",
+	"id": "jid1-FFqGYWL6B7XSmA",
+	"description": "Oracle Apex Developer addon",
+	"author": "dailey.dai@oracle.com",
+	"license": "MPL 2.0",
+	"version": "0.3",
+	"preferences": [
+		{
+			"name": "apex_tab_url",
+			"title": "Oracle APEX URL Type",
+			"description": "Go oracle/oraclecorp apex when add-on tab clicking",
+			"type": "radio",
+			"value": "https://apex.oraclecorp.com/pls/apex/f?p=4550:1:0:::::",
+			"options": [
+				{
+					"value": "https://apex.oracle.com/pls/apex/f?p=4550:1:0:::::",
+					"label": "Oracle"
+				}, {
+					"value": "https://apex.oraclecorp.com/pls/apex/f?p=4550:1:0:::::",
+					"label": "Oraclecorp"
+				}
+			]
+		}, {
+			"name": "apex_workspace_RESTful",
+			"title": "APEX Workspace RESTful Query URL",
+			"description": "Oracle APEX workspace information RESTful query URL(etc. https://xxx/#APP_ID#), response type is json, and data structure like {worksapce:'workspace name'}",
+			"type": "string",
+			"value": "https://apex.oraclecorp.com/pls/apex/hcmca_test/addons/#APP_ID#"
+		}, {
+			"name": "apex_options",
+			"title": "Oracle APEX Developer Add-on Options",
+			"description": "Oracle APEX Options",
+			"type": "string",
+			"value": "{}",
+			"hidden": true
+		}, {
+			"type": "control",
+			"label": "My APEX",
+			"name": "configure",
+			"title": "Accounts configuration for APEX"
+		}
+	]
+}

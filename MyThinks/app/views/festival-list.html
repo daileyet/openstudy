@@ -1,0 +1,39 @@
+<section id="main-content" class="main-section">
+	<div id="festvial-container" class="row">
+
+		<div ng-repeat="seaon in seasons" data-season="{{seaon.key}}" ng-class="seaon.bg_class">
+			<div ng-repeat="mon in seaon.months" class="months-block">
+				<div class="months-block-header">
+					<a name="{{getMonth(mon).key}}" ng-mouseover="ctrlMonthBar($event,true)" >{{getMonth(mon).key}}</a>
+					<span class="months-block-bar hide" ><a href="#/add/{{getMonth(mon).key}}"  data-reveal-id="view-container"> <i class="fa fa-plus-square"></i></a></span>
+				</div>
+				<div data-magellan-destination="{{getMonth(mon).key}}" data-month="{{getMonth(mon).key}}" class="months-block-content">
+					<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+						<li data-festival={{fsi.name}} ng-repeat="fsi in getFestival(mon)">
+							<div class="box0">
+								<div class="fsi-first clearfix">
+									<div class="left ">
+										<span class="">{{fsi.date}}</span>
+									</div>
+									<div class="right">
+										<a href="#/festivals/{{getMonth(mon).key}}/{{fsi.date}}" class="button [tiny small large]" data-reveal-id="view-container">
+															{{fsi.name}}</a>
+									</div>
+								</div>
+								<div class="fsi-third" >
+									<a class="th [radius]" href="javascript:void(0)" ng-if="getMainImage(fsi)!=null">
+										<img ng-src="{{getMainImage(fsi)}}">
+									</a>
+									<!--<p>
+										{{fsi.desc}}
+									</p>-->
+								</div>
+							</div>
+						</li>
+					</ul>
+					<!--end ul-->
+				</div><!--end data-month-->
+			</div><!--end month ng-repeat-->
+		</div>
+	</div>
+</section>

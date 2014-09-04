@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Temp</title>
+		<style>
+			.print-columns-table {
+				margin: 0;
+				padding: 0;
+				width: auto;
+				min-width: 300px;
+				border: dashed
+			}
+			.print-columns-table .print-columns-tr {
+				width: 400px;
+			}
+			.print-columns-table .print-columns-tr td.column-label {
+				font-weight: bold;
+				border-bottom: 1px solid gray;
+			}
+
+			.print-columns-table .print-columns-tr td.column-value {
+				margin-left: 5px;
+				padding-left: 10px;
+				text-align: left;
+				border-bottom: 1px solid gray;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-2.0.0.min.js" ></script>
+		<script type="text/javascript" src="js/open-details.js" ></script>
+	</head>
+	<body>
+		<table class="print-columns-table">
+			<tr class="print-columns-tr">
+				<td class="column-label" data-param0='a' data-param1 = "1">Column1_Name</td>
+				<td class="column-value">Column1_value</td>
+			</tr>
+			<tr class="print-columns-tr">
+				<td class="column-label" data-param0='j' data-param1 = "2">Column2_Name</td>
+				<td class="column-value">Column2_value</td>
+			</tr>
+			<tr class="print-columns-tr">
+				<td class="column-label" data-param0='c' data-param1 = "3">Column13_Name</td>
+				<td class="column-value">Column13_value</td>
+			</tr>
+			</div >
+			<img src="data:image/png;base64,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"  />
+			
+			
+			
+			<script>
+				function invokeCustDetails(cust) {
+					apex.server.process('CALL_GET_CUST', {
+						"x01" : cust,
+					}, {
+						"dataType" : "html",
+						"success" : function(data) {
+							$("#cust-details-container").html(data);
+							$("#cust-details-container").css("display", "block").css("position", "absolute").css("width", "400px").css("height", "500px");
+						}
+					});
+
+				}
+
+				/*
+				var r = new RegExp("{\\s*\\d+\\s*}", "gi");
+				var r2 = new RegExp("\\d+");
+				var str = "select * from dual where c1={ 1  } and c2>{ 0 } and c3 > {1}";
+				var match = str.match(r);
+				//alert(match.length);
+				var query_params = [];
+				var query_
+				var index = 0;
+				if (match != null) {
+				for (var i = 0, j = match.length; i < j; i++) {
+				var m = match[i];
+				var match2 = m.match(r2);
+				if (match2 != null && match2.length > 0) {
+				query_params[index] = "param" + match2[0];
+				index++;
+				}
+				}
+				}
+
+				var query_vals = ['abc', '123'];
+
+				for ( index = 0; index < query_params.length; index++) {
+				var param_holder = query_params[index].substr("param".length);
+				//alert(query_vals[param_holder]);
+				var param_val = query_vals[param_holder]
+				var r = new RegExp("{\\s*" + param_holder + "\\s*}", "gi");
+				str = str.replace(r, param_val);
+				}
+				//alert(str)
+				*/
+				//config.invoker_class 			string
+				//config.plugin_name			string 			option
+				//config.$target      			jquery object	internal
+				//config.query_template			string
+				//config.query_param_prefix		string data-param1 data-param2 option
+				//config.width					number 			option
+				//				opendetails.setup({
+				//					invoker_class : 'column-label',
+				//					query_template : 'select * from dual where c1={ 0 } and c2>{ 1 } and c3 = {0} '
+				//				});
+
+			</script>
+	</body>
+</html>

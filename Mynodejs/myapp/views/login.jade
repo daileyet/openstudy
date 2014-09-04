@@ -1,0 +1,15 @@
+extends layout
+
+block content
+   h1= title
+   hr
+   form(method='post')
+      label Username:
+      br
+      input(type='text', name='username')
+      br
+      label Password:
+      br
+      input(type='password', name='password')
+      br
+      input(type='submit')

@@ -1,0 +1,18 @@
+.print-columns-table {
+	margin: 0;
+	padding: 0;
+	width: auto;
+	min-width: 300px;
+}
+.print-columns-table .print-columns-tr {
+	width: 400px;
+}
+.print-columns-table .print-columns-tr td.column-label {
+	font-weight: bold;
+}
+
+.print-columns-table .print-columns-tr td.column-value {
+	margin-left: 5px;
+	padding-left: 10px;
+	text-align: left;
+}

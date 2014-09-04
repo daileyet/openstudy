@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Html5 File Read</title>
+		<script>
+			window.onload = function() {
+				var result = document.getElementById("dis");
+				var img_area = document.getElementById("destination");
+				if ( typeof (FileReader) === 'undefined') {
+					result.innerHTML = "抱歉，你的浏览器不支持 FileReader，请使用现代浏览器操作！";
+				} else {
+					var imgStr=getBase64Image(document.getElementById("source"));
+					
+					img_area.innerHTML="<img src='"+imgStr+"' />";
+				}
+			}
+			var getBase64Image = function(img) {
+				try {
+					var canvas = document.createElement('canvas');
+					canvas.width = img.width;
+					canvas.height = img.height;
+					var ctx = canvas.getContext('2d');
+					ctx.drawImage(img, 0, 0);
+					var imgType = img.src.match(/\.(jpg|jpeg|png|gif)$/i);
+					if (imgType && imgType.length) {
+						imgType = imgType[1].toLowerCase() == 'jpg' ? 'jpeg' : imgType[1].toLowerCase();
+					} else {
+						throw 'Invalid image type for canvas encoder: ' + img.src;
+					}
+					return canvas.toDataURL('image/' + imgType);
+				} catch (e) {
+					console && console.log(e);
+					return 'error';
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<img src="../img/square_loading.gif"  id="source"/>
+		<div id="destination" style="border:#3276B1 1px solid;width: 300px;height:80px;"></div>
+
+		<div id="dis">
+			
+			
+			
+		</div>
+	</body>
+</html>

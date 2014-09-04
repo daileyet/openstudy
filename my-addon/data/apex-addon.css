@@ -1,0 +1,72 @@
+#apex-addon-firefox{
+	font-size:12px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	min-height: 25px;
+	padding-top:5px;
+	position:fixed;
+	right:0px;
+	top:82px;
+	width:250px;
+	border:1px solid gray;
+	border-radius:5px;
+	padding:2px;
+	z-index:998;
+	background:black;
+	display:none
+}
+
+#apex-addon-firefox table{
+	border:0px solid gray;
+	width:100%;
+	background:white;
+}
+#apex-addon-firefox table td{
+	vertical-align:middle;
+	padding:3px;
+}
+
+
+#apex-addon-firefox a{
+	font-size:12px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color:#4B66A7;
+	text-decoration: none;
+}
+
+.apex-addon-sso{
+	
+}
+
+.apex-addon-sso a{
+	font-size:12px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color:#4B66A7;
+	text-decoration: none;
+}
+
+.apex-addon-login{
+	
+}
+
+.apex-addon-login a{
+	font-size:12px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color:#4B66A7;
+	text-decoration: none;
+}
+
+.apex-addon-quick-link{
+	
+}
+
+
+.apex-addon-quick-link .apex-addon-links{
+	
+}
+
+.apex-addon-quick-link .apex-addon-links a{
+	font-size:12px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color:#4B66A7;
+	text-decoration: none;
+}

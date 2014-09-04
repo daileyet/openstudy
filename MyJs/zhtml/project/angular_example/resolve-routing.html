@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>AngularJS Routing</title>
+		<script src="http://code.angularjs.org/1.2.16/angular.js"></script>
+		<script src="http://code.angularjs.org/1.2.16/angular-route.js"></script>
+	</head>
+
+	<body ng-app="resolveApp">
+
+		<h2>AngularJS Routing Application</h2>
+
+		<div ng-view></div>
+
+		<script type="text/javascript">
+			angular.module('resolveApp', ['ngRoute']).value('Constant', {
+				MAGIC_NUMBER : 42
+			}).config(['$routeProvider',
+			function($routeProvider) {
+				$routeProvider.when('/', {
+					template : '<h1>Main Page, no resolves</h1>'
+				}).when('/protected', {
+					template : '<h2>Protected Page</h2>',
+					resolve : {
+						immediate : ['Constant',
+						function(Constant) {
+							return Constant.MAGIC_NUMBER * 4;
+						}],
+						async : ['$http',
+						function($http) {
+							return $http.get('/MyThinks/data/month.json').then(function(response){
+								
+							});
+						}]
+
+					},
+					controller : ['$log', 'immediate', 'async',
+					function($log, immediate, async) {
+						$log.log('Immediate is ', immediate);
+						$log.log('Server returned for async', async);
+					}]
+
+				});
+
+			}]);
+		</script>
+	</body>
+</html>

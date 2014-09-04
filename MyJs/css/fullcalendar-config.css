@@ -1,0 +1,25 @@
+/**
+*	FullCalendar Config Css
+*	@author open-thinks@outlook.com
+*	@since  4/30/2014
+-----------------------------------------------------------------------*/
+td[data-date] div.fc-day-number{/*css for day number every row cell*/
+	width:100%;
+	float:right;
+	background:LightGray;
+	text-align:right
+}
+
+#ot-loading-img{/*css for loading img*/
+	
+}
+
+
+a.ot-more-link{/*css for more link*/
+	text-decoration:none;
+	font-weight: bold;
+}
+
+#ot-more-dialog{/*css for clicked more dialog*/
+	padding:2px;
+}

@@ -1,0 +1,9 @@
+{
+  "name": "my-awesome-car",
+  "version": "0.0.1",
+  "dependencies": {
+    "wheels": "2.0.1",
+    "control": "0.1.2",
+    "air": "0.2.4"
+  }
+}
