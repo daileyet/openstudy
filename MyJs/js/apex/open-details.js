@@ -1,6 +1,11 @@
 //** Open details info in oracle Apex
 //** Author: dailey.dai@oracle.com
 //** Current version 1.0 (Mar 22th, 14)
+/**
+ * @change
+ * 10/9/2014
+ * config.width represent width and height
+ */
 String.prototype.trim= function(){  
     return this.replace(/(^\s*)|(\s*$)/g, "");  
 }
@@ -11,7 +16,7 @@ var opendetails = {
 	//config.$target      			jquery object	internal
 	//config.query_template			string								this.action.attribute02
 	//config.query_param_prefix		string 			option				
-	//config.width					number 			option				this.action.attribute04
+	//config.width					string 			option				this.action.attribute04
 	//config.ajax_process			string 							    this.action.attribute05
 	//config.load_url    			string 			option				
 	//config.ajax_identifier        string                              
@@ -26,8 +31,11 @@ var opendetails = {
 	},
 
 	init : function(config) {
-		if (!config.width)
-			config.plugin_name = "400";
+		if (!config.width){
+			config.width = "400,450";
+			config.height=config.width.split(',')[1].trim();
+			config.width=config.width.split(',')[0].trim();
+		}
 		if (!config.plugin_name)
 			config.plugin_name = "";
 		if (!config.query_param_prefix) {
@@ -39,7 +47,21 @@ var opendetails = {
 		if(config.css){
 			//$("<link rel='stylesheet' href='"+config.css+"'/>").append($("head"));
 		}
-		config.width = parseInt(config.width);
+		var sArry=config.width.split(',');
+		if(sArry.length>=2){
+			config.height=sArry[1].trim();
+			config.width=sArry[0].trim();
+			try{
+				config.width = parseInt(config.width);
+				config.height = parseInt(config.height);
+			}catch(err){
+			    config.height=450;
+				config.width=400;
+			}
+		}else{
+		    config.height=450;
+			config.width=400;
+		}
 		config.container_name = "open-details-container" + config.plugin_name;
 		config.loading_name = "open-details-loading" + config.plugin_name;
 		opendetails.build(config);
@@ -112,7 +134,8 @@ var opendetails = {
 						config.$container.html(data);
 						config.$container.dialog({
 							position : [jsEvent.pageX, jsEvent.pageY],
-							width : config.width
+							width : config.width,
+							height: config.height
 						});
 					}
 				});
@@ -126,7 +149,8 @@ var opendetails = {
 						config.$container.html(data);
 						config.$container.dialog({
 							position : [jsEvent.pageX, jsEvent.pageY],
-							width : config.width
+							width : config.width,
+							height: config.height
 						});
 					}
 				});

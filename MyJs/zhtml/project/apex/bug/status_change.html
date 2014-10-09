@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Status Change</title>
+		<style>
+			.status-symbol{
+				width: 40px;
+				height: 40px;
+				background-color:#fff0ca;
+				border-radius: 40px;
+				display: inline-block;
+			}
+			
+			.status-text{
+				width: auto;
+				height: 40px;
+				display: inline-block;
+				margin-top: -200px;
+			}
+			
+			.newline{
+				width: 0px;
+				height: 10px;
+				display: block;
+			}
+			
+			*{
+				font-size:8px;
+			}
+			
+			.status-container{
+				position:relative;
+				background-color:#D3DFEB;
+				overflow: hidden;
+				width: 300px;
+				height: 400px;
+			}
+			
+			.status-content{
+				position:relative;
+				width: auto;
+				height:100%;
+			}
+			
+			.link-line{
+				width: 5px;
+				height:100%;
+				background-color:#fff0ca;
+				margin-left:18px;
+				margin-top:-200%;
+				position:relative;
+			}
+			
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="status-container">
+	        <div class="status-content">
+				<div class="status-symbol"></div><div class="status-text">Open</div>
+				<div class="newline"></div>
+				<div class="status-symbol"></div><div class="status-text">Waiting on development</div>
+				<div class="newline"></div>
+				<div class="status-symbol"></div><div class="status-text">Waiting for additional information</div>
+				<div class="newline"></div>
+				<div class="status-symbol"></div><div class="status-text">Waiting on Moving to Production</div>
+			</div>
+			<div class="link-line">
+				
+			</div>
+		</div>
+	</body>
+
+</html>

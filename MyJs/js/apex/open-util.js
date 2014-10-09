@@ -1,4 +1,4 @@
-//** Utilities
+//** Utilities 
 //** Author: open-thinks@outlook.com
 //** Current version 1.0 (Mar 22th, 14)
 String.prototype.trim = function() {
@@ -68,6 +68,57 @@ Dates = {
             NaN
         );
     }
+}
+
+
+/**
+* Used in Apex 
+* @param {string} msg : notify message, could be text/html
+* @param {string} type : value in ['success','warning']
+* @param {boolean} sigleton : only one instance for each type
+ */
+function buildNotifyMsg(msg, type, sigleton) {
+    var options = {
+        success: {
+            notifyClass: 'open-success',
+            iconClass: 'uCheckmarkIcon',
+            notifyMsg: msg
+        },
+        warning: {
+            notifyClass: 'open-warning',
+            iconClass: 'uWarningIcon',
+            notifyMsg: msg
+        },
+        ignore: false
+    }
+    $('div.uMessageText').each(function() {
+        if ($(this).html().trim() == msg.trim()) options.ignore = true;
+    });
+    if (options.ignore) return;
+    if (typeof sigleton == 'boolean' && sigleton == true) {
+        //remove existing instance
+        $('section.' + options[type].notifyClass).remove();
+    }
+    var nextTop, $last = $('section.' + options[type].notifyClass + ':last'),
+    nextTop = $last.length == 0 ? 0 : $last.position().top + $last.height() + 2;
+    $('<section  class="uRegion uWhiteRegion uMessageRegion clearfix ' + options[type].notifyClass + '" >' + '<div class="uRegionContent clearfix"><a class="uCloseMessage" href="javascript:void(0)"></a><img alt="" class="' + options[type].iconClass + '" >' + '<div class="uMessageText">' + options[type].notifyMsg + '</div></div></section>').appendTo('body').css('top', nextTop + 'px').css('opacity', '0').animate({
+        opacity: 1
+    },
+    1000).find('a.uCloseMessage').click(function() {
+        var $section = $(this).parents('section.' + options[type].notifyClass);
+        $section.fadeOut('solw',
+        function() {
+            $section.nextAll('section.' + options[type].notifyClass).each(function() {
+                var nTop = $(this).position().top - $section.height() - 2,
+                nTop = nTop < 0 ? 0 : nTop;
+                $(this).animate({
+                    top: nTop
+                },
+                800);
+            });
+            $section.remove();
+        });
+    });
 }
 
 
