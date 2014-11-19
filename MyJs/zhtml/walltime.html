@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Wall Time</title>
+		<script type="text/javascript" src="../js/external/walltime-data.js" ></script>
+		<script type="text/javascript" src="../js/external/walltime.js" ></script>
+		
+	</head>
+	<body>
+		
+		<script>
+			
+			var today =new Date()
+			,
+			chicagoWallTime = WallTime.UTCToWallTime(today, "America/Chicago"),
+			backToUTCTIme = WallTime.WallTimeToUTC("America/Chicago", chicagoWallTime);
+			
+			
+			document.write(chicagoWallTime.toString())
+			document.write('<BR>')
+			document.write(today.getDate())
+			document.write('<BR>')
+			document.write('GMT = '+today.toGMTString())
+			document.write('<BR>')
+			document.write('ISO = '+today.toISOString())
+			document.write('<BR>')
+			document.write('UTC = '+today.toUTCString())
+			
+		</script>
+		
+	</body>
+</html>

@@ -1,5 +1,8 @@
 (function($, options) {
-
+	/**
+	 * @author minjdai
+	 * @desc   self service upgrade review list
+	 */
 
 	function preview(sCust) {
 		var preDiv = "upg-preview-to-request";

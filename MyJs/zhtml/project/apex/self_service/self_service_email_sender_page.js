@@ -1,10 +1,14 @@
 (function($, options) {
+	/**
+	 * @author minjdai
+	 * @desc   self service upgrade picked list
+	 */
 
 	/**
 	 * call ajax process to update upgrade customer into table
 	 * @param  sCust   Customer name
 	 * @param  sAction SAVE,DELETE
-	 * 
+	 *
 	 */
 	function _updateUpgCust(sCust, isChecked) {
 		var sAction = 'SAVE';
@@ -13,15 +17,17 @@
 		} else {
 			sAction = 'DELETE';
 		}
-		apex.server.process(options.ajaxStoreCustName, {
-			x01: sCust,
-			x02: sAction
-		}, {
-			dataType: 'json',
-			success: function(data) {
-				refreshReport($(options.affectedElement));
-			}
-		});
+		if (!isLock()) {
+			apex.server.process(options.ajaxStoreCustName, {
+				x01: sCust,
+				x02: sAction
+			}, {
+				dataType: 'json',
+				success: function(data) {
+					refreshReport($(options.affectedElement));
+				}
+			});
+		}
 	}
 
 	function preview(sCust) {
@@ -62,29 +68,39 @@
 		});
 	}
 
+	function isLock() {
+		if (options.isLocked == 'N') {
+			return false;
+		}
+		return true;
+	}
+
 	//bind click handler for add customer into picked customer list
 	$(options.triggerElement).click(function() {
-		var $trigger=$(this);
+		var $trigger = $(this);
 		var sCust = $trigger.data('cust');
-		_updateUpgCust(sCust,$trigger.prop("checked"));
+		_updateUpgCust(sCust, $trigger.prop("checked"));
 	});
 	//bind click handler for add all customer in one page
 	if ($(options.allTriggerElement).length == 0) {
 		$('<input name="UPG_CUST_OPTION_ALL" type="checkbox"/><span>Select/Un-select All</span>').insertAfter($('#apexir_CONTROL_PANEL'));
 	}
+
+
+
 	$(options.allTriggerElement).click(function() {
 		var $trigger = $(this);
 		var isChecked = $trigger.prop("checked");
 		$(options.triggerElement).prop("checked", isChecked);
-		var arrCust=[];
+		var arrCust = [];
 		$(options.triggerElement).each(function() {
 			var sCust = $(this).data('cust');
-			if($.inArray(sCust,arrCust)==-1){
+			if ($.inArray(sCust, arrCust) == -1) {
 				arrCust.push(sCust);
 			}
 		})
-		var sCust=arrCust.join(';');
-		_updateUpgCust(sCust,isChecked);
+		var sCust = arrCust.join(';');
+		_updateUpgCust(sCust, isChecked);
 	});
 	//=====================================================================
 	//=====================================================================
@@ -94,6 +110,10 @@
 		$(options.triggerElement + '[data-cust="' + scheckCust + '"]').prop("checked", true);
 	});
 
+	if(isLock()){
+		$(options.triggerElement).prop("disabled", true);;
+		$(options.allTriggerElement).prop("disabled", true);;
+	}
 	bindPreviewEvent();
 
 	$.fn.rebindPreviewEvent = function() {
@@ -110,5 +130,6 @@
 	ajaxStoreCustName: 'STORE_PICKED_CUST',
 	ajaxShowEmailName: 'Print_Upgrade_Request_Email',
 	affectedElement: '#picked-cust-list',
-	pickedElement: '.picked-cust-list-entry'
+	pickedElement: '.picked-cust-list-entry',
+	isLocked: '&CURRENT_REQUEST_APPROVAL.'
 })
