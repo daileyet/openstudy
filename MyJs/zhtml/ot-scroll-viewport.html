@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+ <head> 
+  <title>Status of the {{REPORT_RELEASE_DISPLAY}} Upgrade Customer SR's : {{REPORT_DATE}}}</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <style type="text/css">
+table.tftable {font-size:12px;color:#333333;border-width: 1px;border-color: #a9a9a9;border-collapse: collapse;}
+table.tftable th {font-size:12px;background-color:#d3dfeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #a9a9a9;text-align:left;}
+table.tftable tr {background-color:#f2f2f4;}
+table.tftable td {font-size:12px;border-width: 1px;padding: 8px;border-style: solid;border-color: #a9a9a9;}
+</style>
+<script type="text/javascript" src="../zhtml/project/apex/upgrade/open-scroll-dynamic.js" ></script>
+
+ </head> 
+ <body bgcolor="#ffffff" text="#000000">
+  <br />Hi All, 
+  <br /> 
+  <br /> Please find the {{REPORT_RELEASE_DISPLAY}} Upgrade SR's Status Summary and Details.&nbsp;Summary and Details Report(s) are also available at 
+  <font face="Calibri"><span style="font-size: 10pt; font-family: &quot;Times New&quot;,Roman,&quot;,&quot;,serif;"><big><big><a href="https://apex.oraclecorp.com/pls/apex/f?p={{APP_ID}}:26:101156390135108::NO" moz-do-not-send="true">Issue Management Tool</a>.<br /> <br /> </big></big></span></font> 
+  <big><span style="font-weight: bold; font-family: Calibri;">Summary of HCM Upgrade PODs:</span></big>
+  <br /> 
+  <br /> 
+  <table class="tftable" id="tfhover" style="font-family: Calibri; color: black; width: 512px; height: 113px;" border="1"> 
+   <tbody> 
+    <tr style="font-weight: bold;"> 
+     <td style="background-color: rgb(211, 223, 235); text-align: center; height: 48px;"><font color="#000099"><big><span style="font-weight: bold;"># HCM PODs Scheduled for&nbsp; {{REPORT_RELEASE}} Upgrade</span></big></font></td> 
+     <th colspan="1" rowspan="1" style="color: rgb(0, 0, 153); text-align: center; height: 48px; background-color: rgb(211, 223, 235); width: 153px;"><font color="#000099"><big><span style="font-weight: bold;"># HCM PODs Upgraded to {{REPORT_RELEASE}}&nbsp;</span></big></font></th> 
+     <td style="background-color: rgb(211, 223, 235); color: rgb(0, 0, 153); width: 92px; text-align: center;"><big>Percentage</big></td> 
+    </tr> 
+    {{Summary of HCM Upgrade PODs}}
+    <tr style="font-weight: bold;"> 
+     <td style="text-align: center; height: 42px;"><b><span style="font-size: 12pt; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; color: black;">{{{1}}}</span></b></td> 
+     <td style="text-align: center; height: 42px; width: 153px;"><b><span style="font-size: 12pt; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; color: black;">{{{2}}}</span></b></td> 
+     <td style="text-align: center; width: 92px; color: rgb(0, 153, 0);"><b><span style="font-size: 12pt; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; color: rgb(51, 204, 0);">{{{3}}}</span></b></td> 
+    </tr> 
+    {{Summary of HCM Upgrade PODs}}
+   </tbody> 
+  </table>
+  <br />
+  <b><span style="font-size: 13.5pt; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; color: black;"></span></b>
+  <big><span style="font-weight: bold; font-family: Calibri;">Summary of Open SRs - By Customer:</span></big>
+  <big><span style="font-weight: bold; font-family: Calibri;"></span></big>
+  <big><span style="font-weight: bold; font-family: Calibri;"></span></big>
+  <br />
+  <br />
+  <table summary="" class="apexir_WORKSHEET_DATA" id="14491405522572646729" border="1" cellpadding="0" cellspacing="0">
+   <tbody>
+    <tr id="ClariFit_irColGrpRow">
+     <th style="border-right: 1px solid rgb(221, 221, 221); background: rgb(191, 191, 191) none repeat scroll 0%; text-align: center; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" rowspan="2" colspan="1" class="APEX_ROWSPAN">
+      <div id="apexir_CUSTOMER_NAME" onclick="gReport.controls.widget(this.id)" style="background: rgb(191, 191, 191) none repeat scroll 0%; text-align: center; text-decoration: none; cursor: default; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+       Customer Name
+      </div></th>
+     <th style="border-right: 1px solid rgb(221, 221, 221); background: rgb(181, 164, 202) none repeat scroll 0%; text-align: center; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" colspan="6" class="SR Status">
+      <div style="background: rgb(181, 164, 202) none repeat scroll 0%; text-decoration: none; cursor: default; text-align: center; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+       SR Status
+      </div></th>
+     <th style="border-right: 1px solid rgb(221, 221, 221); background: rgb(174, 201, 120) none repeat scroll 0%; text-align: center; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" colspan="7" class="SR Root Cause">
+      <div style="background: rgb(174, 201, 120) none repeat scroll 0%; text-decoration: none; cursor: default; text-align: center; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+       SR Root Cause
+      </div></th>
+    </tr>
+    <tr>
+     <th style="background: rgb(181, 164, 202) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="TRI_REQ">
+      <div id="apexir_TRI_REQ" onclick="gReport.controls.widget(this.id)" style="background: rgb(181, 164, 202) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       Triage Required
+      </div></th>
+     <th style="background: rgb(181, 164, 202) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="TRI_INIT">
+      <div id="apexir_TRI_INIT" onclick="gReport.controls.widget(this.id)" style="background: rgb(181, 164, 202) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       Triage Initiated
+      </div></th>
+     <th style="background: rgb(181, 164, 202) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="DEV_SUP_REQ_ADDL">
+      <div id="apexir_DEV_SUP_REQ_ADDL" onclick="gReport.controls.widget(this.id)" style="background: rgb(181, 164, 202) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       Dev/Support 
+       <br />Requested 
+       <br />Additional Info
+      </div></th>
+     <th style="background: rgb(181, 164, 202) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="CODE_FIX_DEVD">
+      <div id="apexir_CODE_FIX_DEVD" onclick="gReport.controls.widget(this.id)" style="background: rgb(181, 164, 202) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       Fix 
+       <br />Delivered
+       <br />(Patch Available / Waiting for Approval / Waiting for Patching Window)
+      </div></th>
+     <th style="background: rgb(181, 164, 202) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="DEV_SUP_REQ_CLS">
+      <div id="apexir_DEV_SUP_REQ_CLS" onclick="gReport.controls.widget(this.id)" style="background: rgb(181, 164, 202) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       Dev/Support 
+       <br />Requested 
+       <br />Close
+      </div></th>
+     <th style="background: rgb(181, 164, 202) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="TOTAL1">
+      <div id="apexir_TOTAL1" onclick="gReport.controls.widget(this.id)" style="background: rgb(181, 164, 202) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       Total
+      </div></th>
+     <th style="background: rgb(174, 201, 120) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="REGRESSION">
+      <div id="apexir_REGRESSION" onclick="gReport.controls.widget(this.id)" style="background: rgb(174, 201, 120) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       Regression
+      </div></th>
+     <th style="background: rgb(174, 201, 120) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="CUST_PERCEIVED">
+      <div id="apexir_CUST_PERCEIVED" onclick="gReport.controls.widget(this.id)" style="background: rgb(174, 201, 120) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       Customer Perceived Regressions
+      </div></th>
+     <th style="background: rgb(174, 201, 120) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="KNOWN_ISSUE">
+      <div id="apexir_KNOWN_ISSUE" onclick="gReport.controls.widget(this.id)" style="background: rgb(174, 201, 120) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       Known Issue
+      </div></th>
+     <th style="background: rgb(174, 201, 120) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="OPERATIONAL">
+      <div id="apexir_OPERATIONAL" onclick="gReport.controls.widget(this.id)" style="background: rgb(174, 201, 120) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       Operations
+      </div></th>
+     <th style="background: rgb(174, 201, 120) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="INFO_REQUIED">
+      <div id="apexir_INFO_REQUIED" onclick="gReport.controls.widget(this.id)" style="background: rgb(174, 201, 120) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       Info Requested/User Education
+      </div></th>
+     <th style="background: rgb(174, 201, 120) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="NOT_IDENTIFIED">
+      <div id="apexir_NOT_IDENTIFIED" onclick="gReport.controls.widget(this.id)" style="background: rgb(174, 201, 120) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       Not Identified
+      </div></th>
+     <th style="background: rgb(174, 201, 120) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="TOTAL2">
+      <div id="apexir_TOTAL2" onclick="gReport.controls.widget(this.id)" style="background: rgb(174, 201, 120) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       Total
+      </div></th>
+    </tr> 
+    {{Summary of Open SRs - By Customer}}
+    <tr class="even">
+     <td headers="CUSTOMER_NAME" style="text-align: left; font-family: Calibri; font-weight: bold;">{{{CUSTOMER_NAME}}}</td>
+     <td style="background: Lavender none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="TRI_REQ" align="center"><small><a href="https://apex.oraclecorp.com/pls/apex/f?p={{APP_ID}}:2:104948128884452:IR_REPORT_50840364:NO:RIR,CIR:IR_CUSTOMER_NAME,IR_STATUS,IR_REVIEW_STATUS,IR_SR_STATUS,IRNEQ_NON_UPGRADE_SR:{{{CUSTOMER_NAME}}},Open,Publish,Triage%20Required,Y">{{{TRI_REQ}}}</a></small></td>
+     <td style="background: Lavender none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="TRI_INIT" align="center"><small><a href="https://apex.oraclecorp.com/pls/apex/f?p={{APP_ID}}:2:104948128884452:IR_REPORT_50840364:NO:RIR,CIR:IR_CUSTOMER_NAME,IR_STATUS,IR_REVIEW_STATUS,IR_SR_STATUS,IRNEQ_NON_UPGRADE_SR:{{{CUSTOMER_NAME}}},Open,Publish,Triage%20Initiated,Y">{{{TRI_INIT}}}</a></small></td>
+     <td style="background: Lavender none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="DEV_SUP_REQ_ADDL" align="center"><small><a href="https://apex.oraclecorp.com/pls/apex/f?p={{APP_ID}}:2:104948128884452:IR_REPORT_50840364:NO:RIR,CIR:IR_CUSTOMER_NAME,IR_STATUS,IR_SR_STATUS,IRNEQ_NON_UPGRADE_SR:{{{CUSTOMER_NAME}}},Open,Dev%2FSupport%20Requested%20Additional%20Info,Y">{{{DEV_SUP_REQ_ADDL}}}</a></small></td>
+     <td style="background: Lavender none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="CODE_FIX_DEVD" align="center"><small><a href="https://apex.oraclecorp.com/pls/apex/f?p={{APP_ID}}:2:104948128884452:IR_REPORT_50840364:NO:RIR,CIR:IR_CUSTOMER_NAME,IR_STATUS,IR_REVIEW_STATUS,IR_SR_STATUS,IRNEQ_NON_UPGRADE_SR:{{{CUSTOMER_NAME}}},Open,Publish,Fix%20Available,Y">{{{CODE_FIX_DEVD}}}</a></small></td>
+     <td style="background: Lavender none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="DEV_SUP_REQ_CLS" align="center"><small><a href="https://apex.oraclecorp.com/pls/apex/f?p={{APP_ID}}:2:104948128884452:IR_REPORT_50840364:NO:RIR,CIR:IR_CUSTOMER_NAME,IR_STATUS,IR_REVIEW_STATUS,IR_SR_STATUS,IRNEQ_NON_UPGRADE_SR:{{{CUSTOMER_NAME}}},Open,Publish,Dev%2FSupport%20Requested%20Close,Y">{{{DEV_SUP_REQ_CLS}}}</a></small></td>
+     <td style="background: Lavender none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="TOTAL1" align="center"><small><a href="https://apex.oraclecorp.com/pls/apex/f?p={{APP_ID}}:2:104948128884452:IR_REPORT_50840364:NO:RIR,CIR:IR_CUSTOMER_NAME,IR_STATUS,IR_REVIEW_STATUS,IRNEQ_NON_UPGRADE_SR,IRNN_SR_STATUS:{{{CUSTOMER_NAME}}},Open,Publish,Y">{{{TOTAL1}}}</a></small></td>
+     <td style="background: LightGoldenrodYellow none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="REGRESSION" align="center"><small><a href="https://apex.oraclecorp.com/pls/apex/f?p={{APP_ID}}:2:104948128884452:IR_REPORT_50840364:NO:RIR,CIR:IR_CUSTOMER_NAME,IR_STATUS,IR_REVIEW_STATUS,IR_SR_ROOT_CAUSE,IRNEQ_NON_UPGRADE_SR:{{{CUSTOMER_NAME}}},Open,Publish,Regression,Y">{{{REGRESSION}}}</a></small></td>
+     <td style="background: LightGoldenrodYellow none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="CUST_PERCEIVED" align="center"><small><a href="https://apex.oraclecorp.com/pls/apex/f?p={{APP_ID}}:2:104948128884452:IR_REPORT_50840364:NO:RIR,CIR:IR_CUSTOMER_NAME,IR_STATUS,IR_REVIEW_STATUS,IR_SR_ROOT_CAUSE,IRNEQ_NON_UPGRADE_SR:{{{CUSTOMER_NAME}}},Open,Publish,Customer%20Perceived%20Regression,Y">{{{CUST_PERCEIVED}}}</a></small></td>
+     <td style="background: LightGoldenrodYellow none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="KNOWN_ISSUE" align="center"><small><a href="https://apex.oraclecorp.com/pls/apex/f?p={{APP_ID}}:2:104948128884452:IR_REPORT_50840364:NO:RIR,CIR:IR_CUSTOMER_NAME,IR_STATUS,IR_REVIEW_STATUS,IR_SR_ROOT_CAUSE,IRNEQ_NON_UPGRADE_SR:{{{CUSTOMER_NAME}}},Open,Publish,Known%20Issue,Y">{{{KNOWN_ISSUE}}}</a></small></td>
+     <td style="background: LightGoldenrodYellow none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="OPERATIONAL" align="center"><small><a href="https://apex.oraclecorp.com/pls/apex/f?p={{APP_ID}}:2:104948128884452:IR_REPORT_50840364:NO:RIR,CIR:IR_CUSTOMER_NAME,IR_STATUS,IR_REVIEW_STATUS,IR_SR_ROOT_CAUSE,IRNEQ_NON_UPGRADE_SR:{{{CUSTOMER_NAME}}},Open,Publish,Operations,Y">{{{OPERATIONAL}}}</a></small></td>
+     <td style="background: LightGoldenrodYellow none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="INFO_REQUIED" align="center"><small><a href="https://apex.oraclecorp.com/pls/apex/f?p={{APP_ID}}:2:104948128884452:IR_REPORT_50840364:NO:RIR,CIR:IR_CUSTOMER_NAME,IR_STATUS,IR_REVIEW_STATUS,IR_SR_ROOT_CAUSE,IRNEQ_NON_UPGRADE_SR:{{{CUSTOMER_NAME}}},Open,Publish,Info%20Requested%20%2F%20User%20Education,Y">{{{INFO_REQUIED}}}</a></small></td>
+     <td style="background: LightGoldenrodYellow none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="NOT_IDENTIFIED" align="center"><small><a href="https://apex.oraclecorp.com/pls/apex/f?p={{APP_ID}}:2:104948128884452:IR_REPORT_50840364:NO:RIR,CIR:IR_CUSTOMER_NAME,IR_STATUS,IR_REVIEW_STATUS,IR_SR_ROOT_CAUSE,IRNEQ_NON_UPGRADE_SR:{{{CUSTOMER_NAME}}},Open,Publish,Not%20Identified,Y">{{{NOT_IDENTIFIED}}}</a></small></td>
+     <td style="background: LightGoldenrodYellow none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="TOTAL2" align="center"><small><a href="https://apex.oraclecorp.com/pls/apex/f?p={{APP_ID}}:2:104948128884452:IR_REPORT_50840364:NO:RIR,CIR:IR_CUSTOMER_NAME,IR_STATUS,IR_REVIEW_STATUS,IRNEQ_NON_UPGRADE_SR,IRNN_SR_ROOT_CAUSE:{{{CUSTOMER_NAME}}},Open,Publish,Y">{{{TOTAL2}}}</a></small></td>
+    </tr> 
+    {{Summary of Open SRs - By Customer}}
+    {{Summary of Open SRs - By Customer - Total}}
+    <tr>
+     <td class="apexir_AGGREGATE_VALUE" style="white-space: nowrap; text-align: center; font-family: Calibri;" headers="CUSTOMER_NAME" align="left"><b>Total</b></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: Lavender none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="TRI_REQ" align="center"><small>{{{TRI_REQ}}}<br /></small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: Lavender none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="TRI_INIT" align="center"><small>{{{TRI_INIT}}}<br /></small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: Lavender none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="DEV_SUP_REQ_ADDL" align="center"><small>{{{DEV_SUP_REQ_ADDL}}}<br /></small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: Lavender none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="CODE_FIX_DEVD" align="center"><small>{{{CODE_FIX_DEVD}}}<br /></small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: Lavender none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="DEV_SUP_REQ_CLS" align="center"><small>{{{DEV_SUP_REQ_CLS}}}<br /></small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: Lavender none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="TOTAL1" align="center"><small>{{{TOTAL1}}}<br /></small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: LightGoldenrodYellow none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="REGRESSION" align="center"><small>{{{REGRESSION}}}<br /></small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: LightGoldenrodYellow none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="CUST_PERCEIVED" align="center"><small>{{{CUST_PERCEIVED}}}<br /></small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: LightGoldenrodYellow none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="KNOWN_ISSUE" align="center"><small>{{{KNOWN_ISSUE}}}<br /></small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: LightGoldenrodYellow none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="OPERATIONAL" align="center"><small>{{{OPERATIONAL}}}<br /></small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: LightGoldenrodYellow none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="INFO_REQUIED" align="center"><small>{{{INFO_REQUIED}}}<br /></small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: LightGoldenrodYellow none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="NOT_IDENTIFIED" align="center"><small>{{{NOT_IDENTIFIED}}}<br /></small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: LightGoldenrodYellow none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="TOTAL2" align="center"><small>{{{TOTAL2}}}</small></td>
+    </tr>
+    {{Summary of Open SRs - By Customer - Total}}
+    <tr>
+     <td colspan="14" rowspan="1"> <font size="-2"><span style="font-style: italic; color: red; font-weight: bold;">Red indicates that Customer production upgrade show stoppers</span><span style="color: red; font-weight: bold;">.</span><br /><span style="font-style: italic; color: black; font-weight: bold;"></span><span style="font-style: italic; color: rgb(51, 51, 255);"></span><span style="font-style: italic; color: black; font-weight: bold;">* Patch Available / Patch waiting for Approval / Patch waiting for Patching Window<br />* This report &nbsp;stop the &nbsp;track of customer SR's &nbsp;whom production got upgraded to {{REPORT_RELEASE_DISPLAY}} level is not in last 3 weeks.<br /></span><span style="font-style: italic; color: black; font-weight: bold;">** This report is based on <a href="https://stbeehive.oracle.com/content/dav/st/HCM%20SAAS%20Upgrade/Documents/Release%208%20-%20Post%20Upgrade%20SR/Fusion%20HCM%20R8%20Upgrade%20SRBUG%20Report.mht">MOS SR Report</a> (Time run: {{REPORT_DATE}}) - Only includes SEV1,&nbsp; SEV2 and SEV3 SRs with an upgrade TAG ({{REPORT_RELEASE}}UPG / R{{REPORT_RELEASE_NUMBER}}).</span></font></td>
+    </tr>
+   </tbody>
+  </table>
+  <br />
+  <big><span style="font-weight: bold; font-family: Calibri;">Details:<br /><br /></span></big>
+  <table summary="" class="apexir_WORKSHEET_DATA" id="13809102229974113757" border="1" cellpadding="0" cellspacing="0">
+   <tbody>
+    <tr id="ClariFit_irColGrpRow">
+     <th style="border-right: 1px solid rgb(221, 221, 221); background: rgb(191, 191, 191) none repeat scroll 0%; text-align: center; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri; font-weight: bold;" rowspan="2" colspan="1" class="APEX_ROWSPAN">
+      <div id="apexir_CUSTOMER_NAME" onclick="gReport.controls.widget(this.id)" style="background: rgb(191, 191, 191) none repeat scroll 0%; text-align: center; text-decoration: none; cursor: default; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+       Customer Name
+      </div></th>
+     <th style="border-right: 1px solid rgb(221, 221, 221); background: rgb(191, 191, 191) none repeat scroll 0%; text-align: center; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" rowspan="2" colspan="1" class="APEX_ROWSPAN">
+      <div id="apexir_STATUS_TOTAL" onclick="gReport.controls.widget(this.id)" style="background: rgb(191, 191, 191) none repeat scroll 0%; text-align: center; text-decoration: none; cursor: default; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+       <small># Issues</small>
+      </div></th>
+     <th style="border-right: 1px solid rgb(221, 221, 221); background: rgb(191, 191, 191) none repeat scroll 0%; text-align: center; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" rowspan="2" colspan="1" class="APEX_ROWSPAN">
+      <div id="apexir_STATUS_CLOSED" onclick="gReport.controls.widget(this.id)" style="background: rgb(191, 191, 191) none repeat scroll 0%; text-align: center; text-decoration: none; cursor: default; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+       <small># Closed</small>
+      </div></th>
+     <th style="border-right: 1px solid rgb(221, 221, 221); background: rgb(191, 191, 191) none repeat scroll 0%; text-align: center; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" rowspan="2" colspan="1" class="APEX_ROWSPAN">
+      <div id="apexir_STATUS_OPEN" onclick="gReport.controls.widget(this.id)" style="background: rgb(191, 191, 191) none repeat scroll 0%; text-align: center; text-decoration: none; cursor: default; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+       <small># Open</small>
+      </div></th>
+     <th style="border-right: 1px solid rgb(221, 221, 221); background: rgb(181, 164, 202) none repeat scroll 0%; text-align: center; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" colspan="5" class="SR Status">
+      <div style="background: rgb(181, 164, 202) none repeat scroll 0%; text-decoration: none; cursor: default; text-align: center; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+       <small>SR Status</small>
+      </div></th>
+     <th style="border-right: 1px solid rgb(221, 221, 221); background: rgb(174, 201, 120) none repeat scroll 0%; text-align: center; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" colspan="6" class="SR Root Cause">
+      <div style="background: rgb(174, 201, 120) none repeat scroll 0%; text-decoration: none; cursor: default; text-align: center; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+       <small>SR Root Cause</small>
+      </div></th>
+     <th style="border-right: 1px solid rgb(221, 221, 221); background: rgb(191, 191, 191) none repeat scroll 0%; text-align: center; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" rowspan="2" colspan="1" class="APEX_ROWSPAN_1">
+      <div id="apexir_SR_NOT_Progressing" onclick="gReport.controls.widget(this.id)" style="background: rgb(191, 191, 191) none repeat scroll 0%; text-align: center; text-decoration: none; cursor: default; color: black; vertical-align: middle; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+       <small>SR/Bug not progressing</small>
+      </div></th>
+    </tr>
+    <tr>
+     <th style="background: rgb(181, 164, 202) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="Tri_Req">
+      <div id="apexir_Tri_Req" onclick="gReport.controls.widget(this.id)" style="background: rgb(181, 164, 202) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       <small>Triage Required</small>
+      </div></th>
+     <th style="background: rgb(181, 164, 202) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="Tri_Init">
+      <div id="apexir_Tri_Init" onclick="gReport.controls.widget(this.id)" style="background: rgb(181, 164, 202) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       <small>Triage Initiated</small>
+      </div></th>
+     <th style="background: rgb(181, 164, 202) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="Dev_Add_Info">
+      <div id="apexir_Dev_Add_Info" onclick="gReport.controls.widget(this.id)" style="background: rgb(181, 164, 202) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       <small>Dev/Support Requested Additional Info</small>
+      </div></th>
+     <th style="background: rgb(181, 164, 202) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="Fix_Available">
+      <div id="apexir_Fix_Available" onclick="gReport.controls.widget(this.id)" style="background: rgb(181, 164, 202) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       <small>Fix Delivered <br />(Patch Available / Waiting for Approval / Waiting for Patching Window)</small>
+      </div></th>
+     <th style="background: rgb(181, 164, 202) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="Dev_Req_Close">
+      <div id="apexir_Dev_Req_Close" onclick="gReport.controls.widget(this.id)" style="background: rgb(181, 164, 202) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       <small>Dev/Support Requested Close</small>
+      </div></th>
+     <th style="background: rgb(174, 201, 120) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="Regression">
+      <div id="apexir_Regression" onclick="gReport.controls.widget(this.id)" style="background: rgb(174, 201, 120) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       <small>Regressions</small>
+      </div></th>
+     <th style="background: rgb(174, 201, 120) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="Cust_Per_Reg">
+      <div id="apexir_Cust_Per_Reg" onclick="gReport.controls.widget(this.id)" style="background: rgb(174, 201, 120) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       <small>Customer Perceived Regressions</small>
+      </div></th>
+     <th style="background: rgb(174, 201, 120) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="Issue">
+      <div id="apexir_Issue" onclick="gReport.controls.widget(this.id)" style="background: rgb(174, 201, 120) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       <small>Known Issues</small>
+      </div></th>
+     <th style="background: rgb(174, 201, 120) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="Operations">
+      <div id="apexir_Operations" onclick="gReport.controls.widget(this.id)" style="background: rgb(174, 201, 120) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       <small>Operations</small>
+      </div></th>
+     <th style="background: rgb(174, 201, 120) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="Info__Edu">
+      <div id="apexir_Info__Edu" onclick="gReport.controls.widget(this.id)" style="background: rgb(174, 201, 120) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       <small>Info Requested/User Education</small>
+      </div></th>
+     <th style="background: rgb(174, 201, 120) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle; font-family: Calibri;" id="Not_Identified">
+      <div id="apexir_Not_Identified" onclick="gReport.controls.widget(this.id)" style="background: rgb(174, 201, 120) none repeat scroll 0%; text-align: center; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; vertical-align: middle;">
+       <small>Not Identified</small>
+      </div></th>
+    </tr> 
+    {{Details - By Customer}}
+    <tr class="even">
+     <td style="font-family: Calibri; font-weight: bold;" headers="CUSTOMER_NAME" align="left">{{{CUSTOMER_NAME}}}</td>
+     <td style="font-family: Calibri;" headers="STATUS_TOTAL" align="center"><small><a href="https://apex.oraclecorp.com/pls/apex/f?p={{APP_ID}}:2:104948128884452:IR_REPORT_50840364:NO:RIR,CIR:IR_CUSTOMER_NAME,IR_REVIEW_STATUS,IRNEQ_NON_UPGRADE_SR,IRNN_STATUS:{{{CUSTOMER_NAME}}},Publish,Y">{{{STATUS_TOTAL}}}</a></small></td>
+     <td style="font-family: Calibri;" headers="STATUS_CLOSED" align="center"><small><a href="https://apex.oraclecorp.com/pls/apex/f?p={{APP_ID}}:2:104948128884452:IR_REPORT_50840364:NO:RIR,CIR:IR_CUSTOMER_NAME,IR_STATUS,IR_REVIEW_STATUS,IRNEQ_NON_UPGRADE_SR:{{{CUSTOMER_NAME}}},Closed,Publish,Y">{{{STATUS_CLOSED}}}</a></small></td>
+     <td style="font-family: Calibri;" headers="STATUS_OPEN" align="center"><small><a href="https://apex.oraclecorp.com/pls/apex/f?p={{APP_ID}}:2:104948128884452:IR_REPORT_50840364:NO:RIR,CIR:IR_CUSTOMER_NAME,IR_STATUS,IR_REVIEW_STATUS,IRNEQ_NON_UPGRADE_SR:{{{CUSTOMER_NAME}}},Open,Publish,Y">{{{STATUS_OPEN}}}</a></small></td>
+     <td style="background: Lavender none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="Tri_Req" align="left"><small>{{{Tri_Req}}}</small></td>
+     <td style="background: Lavender none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="Tri_Init" align="left">
+      <div style="white-space: nowrap; text-align: center;">
+       <small>{{{Tri_Init}}}</small>
+      </div></td>
+     <td style="background: Lavender none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="Dev_Add_Info" align="left"><small>{{{Dev_Add_Info}}}</small></td>
+     <td style="background: Lavender none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="Fix_Available" align="left"><small>{{{Fix_Available}}}</small></td>
+     <td style="background: Lavender none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="Dev_Req_Close" align="left"><small>{{{Dev_Req_Close}}}</small></td>
+     <td style="background: LightGoldenrodYellow none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="Regression" align="left"><small>{{{Regression}}}</small></td>
+     <td style="background: LightGoldenrodYellow none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="Cust_Per_Reg" align="left"><small>{{{Cust_Per_Reg}}}</small></td>
+     <td style="background: LightGoldenrodYellow none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="Issue" align="left"><small>{{{Issue}}}</small></td>
+     <td style="background: LightGoldenrodYellow none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="Operations" align="left"><small>{{{Operations}}}</small></td>
+     <td style="background: LightGoldenrodYellow none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="Info__Edu" align="left"><small>{{{Info__Edu}}}</small></td>
+     <td style="background: LightGoldenrodYellow none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-family: Calibri;" headers="Not_Identified" align="left">
+      <div style="">
+       <div style="white-space: nowrap; text-align: center;">
+        <small>{{{Not_Identified}}}</small>
+       </div>
+      </div></td>
+     <td style="font-family: Calibri;" headers="SR_NOT_Progressing" align="left"><small>{{{SR_NOT_Progressing}}}</small></td>
+    </tr> 
+    {{Details - By Customer}}
+    {{Details - By Customer - Total}}
+    <tr>
+     <td class="apexir_AGGREGATE_VALUE" style="white-space: nowrap; text-align: center; font-family: Calibri; font-weight: bold;" headers="CUSTOMER_NAME" align="left">Total</td>
+     <td class="apexir_AGGREGATE_VALUE" style="white-space: nowrap; text-align: center; font-family: Calibri;" headers="STATUS_TOTAL" align="center"><small>{{{STATUS_TOTAL}}}<br /></small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="white-space: nowrap; text-align: center; font-family: Calibri;" headers="STATUS_CLOSED" align="center"><small>{{{STATUS_CLOSED}}}<br /></small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="white-space: nowrap; text-align: center; font-family: Calibri;" headers="STATUS_OPEN" align="center"><small>{{{STATUS_OPEN}}}<br /></small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: Lavender none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="Tri_Req" align="left"><small>{{{Tri_Req}}}</small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: Lavender none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="Tri_Init" align="left"><small>{{{Tri_Init}}}</small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: Lavender none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="Dev_Add_Info" align="left"><small>{{{Dev_Add_Info}}}</small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: Lavender none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="Fix_Available" align="left"><small>{{{Fix_Available}}}</small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: Lavender none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="Dev_Req_Close" align="left"><small>{{{Dev_Req_Close}}}</small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: LightGoldenrodYellow none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="Regression" align="left"><small>{{{Regression}}}</small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: LightGoldenrodYellow none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="Cust_Per_Reg" align="left"><small>{{{Cust_Per_Reg}}}</small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: LightGoldenrodYellow none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="Issue" align="left"><small>{{{Issue}}}</small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: LightGoldenrodYellow none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="Operations" align="left"><small>{{{Operations}}}</small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: LightGoldenrodYellow none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="Info__Edu" align="left"><small>{{{Info__Edu}}}</small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="background: LightGoldenrodYellow none repeat scroll 0%; white-space: nowrap; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; text-align: center; font-family: Calibri;" headers="Not_Identified" align="left"><small>{{{Not_Identified}}}</small></td>
+     <td class="apexir_AGGREGATE_VALUE" style="white-space: nowrap; text-align: center; font-family: Calibri;" headers="SR_NOT_Progressing" align="left"><small>{{{SR_NOT_Progressing}}}</small></td>
+    </tr>
+    {{Details - By Customer - Total}}
+   </tbody>
+  </table>
+  <br />
+  <br />
+  <br />
+  <big><span style="font-weight: bold; font-family: Calibri;"></span></big> 
+  <table style="text-align: left; width: 1000px; height: 44px;" border="1" cellpadding="1" cellspacing="0">
+   <tbody>
+    <tr>
+     <td style="width: 519px;"><span style="font-family: Arial; font-weight: bold;">Upgrades This Week</span><big style="font-family: Arial; font-weight: bold;">:<br /></big>
+      <table summary="" class="apexir_WORKSHEET_DATA" id="5683209419891742176" border="1" cellpadding="0" cellspacing="0">
+       <tbody>
+        <tr>
+         <th style="font-family: Calibri; background-color: rgb(211, 223, 235);" id="WAVE">
+          <div id="apexir_WAVE" onclick="gReport.controls.widget(this.id)" style="text-align: center;">
+           Wave
+          </div></th>
+         <th style="font-family: Calibri; background-color: rgb(211, 223, 235);" id="PODS">
+          <div id="apexir_PODS" onclick="gReport.controls.widget(this.id)" style="text-align: center;">
+           Pods
+          </div></th>
+         <th style="font-family: Calibri; background-color: rgb(211, 223, 235);" id="TYPE">
+          <div id="apexir_TYPE" onclick="gReport.controls.widget(this.id)" style="text-align: center;">
+           Type
+          </div></th>
+         <th style="font-family: Calibri; background-color: rgb(211, 223, 235);" id="CUSTOMERS">
+          <div id="apexir_CUSTOMERS" onclick="gReport.controls.widget(this.id)" style="text-align: center;">
+           Customer
+          </div></th>
+         <th style="font-family: Calibri; background-color: rgb(211, 223, 235);" id="DUE_DATE">
+          <div id="apexir_DUE_DATE" onclick="gReport.controls.widget(this.id)" style="text-align: center;">
+           Start Date
+          </div></th>
+        </tr> 
+        {{Upgrades This Week}}
+        <tr class="even">
+         <td style="font-family: Calibri;" headers="WAVE" align="right"><small>{{{1}}}</small></td>
+         <td style="font-family: Calibri;" headers="PODS" align="left"><small>{{{2}}}</small></td>
+         <td style="font-family: Calibri;" headers="TYPE" align="left"><small>{{{3}}}</small></td>
+         <td style="font-family: Calibri;" headers="CUSTOMERS" align="left"><small>{{{4}}}</small></td>
+         <td style="font-family: Calibri;" headers="DUE_DATE" align="left"><small>{{{5}}}</small></td>
+        </tr> 
+        {{Upgrades This Week}}
+       </tbody>
+      </table><br /></td>
+     <td><span style="font-family: Arial; font-weight: bold;">Upgrades Next Week</span><big style="font-family: Arial; font-weight: bold;">:</big><br />
+      <table summary="" class="apexir_WORKSHEET_DATA" id="5683209419891742176" border="1" cellpadding="0" cellspacing="0">
+       <tbody>
+        <tr>
+         <td style="font-family: Calibri; font-weight: bold; text-align: center; background-color: rgb(211, 223, 235);">Wave</td>
+         <td style="font-family: Calibri; font-weight: bold; text-align: center; background-color: rgb(211, 223, 235);">Pods</td>
+         <td style="font-family: Calibri; font-weight: bold; text-align: center; background-color: rgb(211, 223, 235);">Type</td>
+         <td style="font-family: Calibri; font-weight: bold; text-align: center; background-color: rgb(211, 223, 235);">Customer</td>
+         <td style="font-family: Calibri; font-weight: bold; text-align: center; background-color: rgb(211, 223, 235);">Start Date</td>
+        </tr>
+        {{Upgrades Next Week}}
+        <tr class="even">
+         <td style="font-family: Calibri;" headers="WAVE" align="right"><small>{{{1}}}</small></td>
+         <td style="font-family: Calibri;" headers="PODS" align="left"><small>{{{2}}}</small></td>
+         <td style="font-family: Calibri;" headers="TYPE" align="left"><small>{{{3}}}</small></td>
+         <td style="font-family: Calibri;" headers="CUSTOMERS" align="left"><small>{{{4}}}</small></td>
+         <td style="font-family: Calibri;" headers="DUE_DATE" align="left"><small>{{{5}}}</small></td>
+        </tr> 
+        {{Upgrades Next Week}}
+       </tbody>
+      </table><br /></td> 
+    </tr> 
+   </tbody> 
+  </table>&nbsp;&nbsp;&nbsp;
+ </body>
+</html>
