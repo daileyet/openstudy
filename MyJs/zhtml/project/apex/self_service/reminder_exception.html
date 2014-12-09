@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			table.apex_ir_html_export {
+				background-color: #F2F2F5;
+				border-width: 1px 1px 0px 1px;
+				border-color: #C9CBD3;
+				border-style: solid;
+			}
+			table.apex_ir_html_export td {
+				color: #000000;
+				font-family: Tahoma, Arial, Helvetica, Geneva, sans-serif;
+				font-size: 9pt;
+				background-color: #EAEFF5;
+				padding: 8px;
+				background-color: #F2F2F5;
+				/*border-color:#ffffff #ffffff #cccccc #ffffff;*/
+				border-color: #ffffff #cccccc #cccccc #ffffff;
+				border-style: solid solid solid solid;
+				border-width: 1px 1px 1px 0px;
+			}
+			table.apex_ir_html_export th {
+				font-family: Tahoma, Arial, Helvetica, Geneva, sans-serif;
+				font-size: 9pt;
+				padding: 8px;
+				background-color: #CFE0F1;
+				/*border-color:#ffffff #ffffff #cccccc #ffffff;*/
+				border-color: #ffffff #cccccc #cccccc #ffffff;
+				border-style: solid solid solid none;
+				border-width: 1px 1px 1px 0px;
+				white-space: nowrap;
+			}
+			table.apex_ir_html_export th[id="UPGRADE_DATE"],
+			table.apex_ir_html_export td[id="UPGRADE_DATE"] {
+				border-right-color: #ffffff;
+			}
+			.note {
+				color: red;
+				font-size: 11px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<p>
+			Hi All,</p>
+		<p>
+			These customers are exceed reminder max number or the reminder interval following these customers final reminders have elapsed in <strong>Self Service Communicator Release #SELF_UPG_RELEASE#</strong>.</p>
+		<p>
+			Please check the customer list as below:</p>
+		<table border="0" cellpadding="0" cellspacing="0" class="apex_ir_html_export">
+			<thead>
+				<tr>
+					<th id="REQUEST_ID">
+						Request ID</th>
+					<th id="CUSTOMER_NAME">
+						Customer Name</th>
+					<th id="REMINDER_COUNT">
+						Reminder Count</th>
+					<th id="LAST_REMINDER_DATE">
+						Last Reminder Date</span>
+					</th>
+					<th id="LAST_REMINDER_AGO">
+						Last Reminder Ago</span>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- {{ -->
+				<tr>
+					<td>
+						#REQUEST_ID#</td>
+					<td>
+						#CUSTOMER_NAME#</td>
+					<td>
+						#REMINDER_COUNT#</td>
+					<td>
+						#LAST_REMINDER_DATE#</td>
+					<td>
+						#LAST_REMINDER_AGO#</td>
+				</tr>
+				<!-- }} -->
+			</tbody>
+		</table>
+		<p>
+			&nbsp;</p>
+		<p>
+			Thank-you,
+			<BR> Upgrade Team</p>
+	</body>
+
+</html>

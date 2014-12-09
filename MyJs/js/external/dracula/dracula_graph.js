@@ -146,7 +146,7 @@ Graph.Renderer.Raphael = function(element, graph, width, height) {
     this.r = Raphael(element, this.width, this.height);
     this.r.setViewBox(0,0,this.width,this.height,true);
     this.r.setSize('100%','100%');
-    this.radius = 40; /* max dimension of a node */
+    this.radius = 50; /* max dimension of a node */
     this.graph = graph;
     this.mouse_in = false;
 
@@ -194,10 +194,16 @@ Graph.Renderer.Raphael = function(element, graph, width, height) {
         selfRef.isDrag && selfRef.isDrag.set.animate({"fill-opacity": .6}, 500);
         selfRef.isDrag = false;
     };
-    this.draw();
+    //this.draw();
 };
 Graph.Renderer.Raphael.prototype = {
 	
+	resize:function(width,height){
+		this.width = width || 400;
+    	this.height = height || 400;
+    	this.r.setSize(this.width ,this.height )
+    	this.r.setViewBox(0,0,this.width,this.height,true);
+	},
 	
     translate: function(point) {
         return [
@@ -258,6 +264,7 @@ Graph.Renderer.Raphael.prototype = {
                 shape = r.set().
                     push(ellipse).
                     push(text);
+                    
                 return shape;
             }
         }

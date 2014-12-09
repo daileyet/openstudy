@@ -3,142 +3,110 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<style type="text/css">
-			#container {
-				width: auto;
-				height: 300px;
-				border: 1px solid gray;
-			}
 		</style>
 		<script type="text/javascript" src="../../../../js/external/dracula/raphael-min.js"></script>
 		<script type="text/javascript" src="../../../../js/external/dracula/raphael-zpd.js"></script>
 		<script type="text/javascript" src="../../../../js/external/dracula/dracula_graffle.js"></script>
 		<script type="text/javascript" src="../../../../js/external/dracula/dracula_graph.js"></script>
 		<script type="text/javascript" src="../../../../js/jquery-2.0.0.min.js"></script>
+		<script type="text/javascript" src="communication_cycle.js"></script>
 	</head>
 
 	<body>
 
 
+		<div id="out-container" style="width:auto;height:200px;overflow-y: auto;border: 1px solid gray;">
+			<div id="container" style="width:100%;height:200px;">
 
-		<div id="container">
-
+			</div>
 		</div>
+		
 
 		<script type="text/javascript">
-			var svg = 'container';
-			var svgSel = '#' + svg;
-
-			var data = [
-
-				{
-					id: '3',
-					label: 'Send Request',
-					date: 'Oct-30-14',
-					href: 'f?p=&APP_ID.:14:&SESSION.:::::'
-				}, {
-					id: '4',
-					label: 'Customer Response 1',
-					date: 'Oct-31-14',
-					href: 'f?p=&APP_ID.:14:&SESSION.:::::'
-				}, {
-					id: '5',
-					label: 'System response select again',
-					date: 'Oct-31-14',
-					href: 'f?p=&APP_ID.:14:&SESSION.:::::'
-				}, {
-					id: '6',
-					label: 'Customer Response 2',
-					date: 'Oct-32-14',
-					href: 'f?p=&APP_ID.:14:&SESSION.:::::'
-				}, {
-					id: '7',
-					label: 'System confirm',
-					date: 'Oct-32-14',
-					href: 'f?p=&APP_ID.:14:&SESSION.:::::'
-				}
+			var datas = [{
+				id: '3',
+				label: 'Send Request',
+				date: 'Oct-30-14'
+			}, {
+				id: '4',
+				label: 'Customer Response(1)',
+				date: 'Oct-31-14'
+			}, {
+				id: '5',
+				label: 'System response select again(1)',
+				date: 'Oct-31-14'
+			}, {
+				id: '6',
+				label: 'Customer Response(2)',
+				date: 'Oct-32-14'
+			}, {
+				id: '7',
+				label: 'System response select again(2)',
+				date: 'Oct-31-14'
+			}, {
+				id: '8',
+				label: 'Customer Response(3)',
+				date: 'Oct-32-14'
+			}, {
+				id: '9',
+				label: 'System confirm',
+				date: 'Oct-32-14'
+			}, {
+				id: '10',
+				label: 'System confirm',
+				date: 'Oct-32-14'
+			}, {
+				id: '11',
+				label: 'System confirm',
+				date: 'Oct-32-14'
+			}, {
+				id: '12',
+				label: 'System confirm',
+				date: 'Oct-32-14'
+			}, {
+				id: '13',
+				label: 'System confirm',
+				date: 'Oct-32-14'
+			}, {
+				id: '14',
+				label: 'System confirm',
+				date: 'Oct-32-14'
+			}, {
+				id: '15',
+				label: 'System confirm',
+				date: 'Oct-32-14'
+			}, {
+				id: '16',
+				label: 'System confirm',
+				date: 'Oct-32-14'
+			}
+			, {
+				id: '17',
+				label: 'System confirm',
+				date: 'Oct-32-14'
+			}, {
+				id: '18',
+				label: 'System confirm',
+				date: 'Oct-32-14'
+			}, {
+				id: '19',
+				label: 'System confirm',
+				date: 'Oct-32-14'
+			}, {
+				id: '20',
+				label: 'System confirm',
+				date: 'Oct-32-14'
+			}, {
+				id: '21',
+				label: 'System confirm',
+				date: 'Oct-32-14'
+			}
 			];
 
-
-			var g = new Graph();
-			var i = 0;
-			var j = data.length;
-
-			var mynoderender = function(paper, node) {
-				/* the default node drawing */
-				var color = Raphael.getColor();
-				var ellipse = paper.ellipse(0, 0, 30, 20).attr({
-					fill: color,
-					stroke: color,
-					"stroke-width": 2,
-					cursor: "move"
-				});
-				/* set DOM node ID */
-				ellipse.node.id = node.id || node.label;
-				var text = paper.text(0, 30, node.label || node.id).attr({
-					'font-weight': 'bold'
-				});
-				if (node.href) {
-					text.attr("href", node.href);
-				}
-				if (node.target) {
-					text.attr("target", node.target);
-				}
-
-				var tooltip = paper.text(0, -30, node.date).attr({
-					opacity: 0
-				});
-
-				shape = paper.set().
-				push(ellipse)
-					.push(text)
-					.push(tooltip);
-
-				ellipse.hover(function() {
-					tooltip.animate({
-						opacity: 1,
-						"fill-opacity": 1
-					}, 500);
-				}, function() {
-					tooltip.animate({
-						opacity: 0
-					}, 300);
-				});
-				return shape;
-			}
-			if (j == 1) {
-				var begin = data[i];
-				g.addNode(begin.id, begin);
-			} else {
-				for (; i < j - 1; i++) {
-					var begin = data[i];
-					var end = data[i + 1];
-					begin.render = mynoderender;
-					end.render = mynoderender;
-					g.addNode(begin.id, begin);
-					g.addNode(end.id, end);
-					g.addEdge(begin.id, end.id, {
-						directed: true
-					})
-				}
-			}
-
-			/* layout the graph using the Spring layout implementation */
-			var layouter = new Graph.Layout.Ordered(g, g.nodes);
-
-			var drender = new Graph.Renderer.Raphael(svg, g, $(svgSel).width(), $(svgSel).height());
-//			window.onresize = function() {
-//				
-//
-//				var objBbox = document.getElementsByTagName('svg')[0].getBBox();
-//				var viewbox = [];
-//				viewbox[0] = objBbox.x;
-//				viewbox[1] = objBbox.y;
-//				viewbox[2] = objBbox.width;
-//				viewbox[3] = objBbox.height;
-//				console.log(viewbox);
-////				drender.r.setViewBox(0,0,$(svgSel).width(),$(svgSel).height(),true);
-//				drender.r.setViewBox.apply(drender.r,viewbox);
-//			};
+			$('#container').emailCycle({
+				data: datas,
+				maxCols:6
+			});
 		</script>
 
 

@@ -131,7 +131,7 @@
 			for (var i = 0; i < fc_te.events.length; i++) {
 				var e = fc_te.events[i];
 				var $eventHolder=$('.fc-day-content', $today);
-				if (i > options.max_event_count) {// process the events which exceed max number
+				if (i >= options.max_event_count) {// process the events which exceed max number
 					var $morePanel=$('.ot-fw');
 					if($morePanel.length==0){//create more window region
 						
@@ -259,8 +259,11 @@
 			var start = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 			var end = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
 
+
+					
 			$(options.containerSel + ' .fc-day-content div').remove();
 			$(options.containerSel + ' img.fc-content-loading').show();
+			$('.ot-fw-title').text('More Events for '+$.datepicker.formatDate('MM dth yy', today));
 			
 			$('.ot-fw-content').empty()
 			$('.ot-fw').hide();
@@ -283,7 +286,7 @@
 	containerSel: '#events-container',
 	call_process: 'FETCH_TODAY_EVENTS',
 	selDateItem: 'P1_EVENT_DATE',
-	max_event_count: 6,
+	max_event_count: 7,
 	details_link: 'https://apex.oraclecorp.com/pls/apex/f?p=17346:113:::NO:::',
 	enableNav: false
 })
