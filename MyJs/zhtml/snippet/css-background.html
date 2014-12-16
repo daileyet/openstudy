@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>CSS3背景</title>
+	</head>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			margin: 2px;
+		}
+		.block1 {
+			background: linear-gradient(left, blue, orange, black);
+			background: -webkit-linear-gradient(top, blue, orange, black);
+		}
+		.block2 {
+			background: -webkit-radial-gradient(20% 35%, white, black);
+			border-radius: 50px;
+		}
+		.block2:hover {
+			-webkit-transform: translateX(100px) rotate(360deg) ;
+			-webkit-transition: all 2s ease-in-out;
+		}
+		
+		.block3{
+			background: -webkit-radial-gradient(20% 35%, white, black);
+			-webkit-box-reflect: below 1px -webkit-linear-gradient(top,transparent,transparent 60%, rgba(255,255,255,0.8));
+		}
+		
+		.blocks{
+			width: auto;
+			display: -webkit-box;
+			-webkit-box-orient: horizontal;
+		}
+		
+		#box1{
+			-webkit-box-flex: 2;
+			background: blue;
+		}
+		
+		#box2{
+			-webkit-box-flex: 1;
+			background: green;
+		}
+		
+		#box3{
+			-webkit-box-flex: 1;
+			background: olive;
+		}
+	</style>
+
+	<body>
+
+		<div class="block1"></div>
+
+		<div class="block2"></div>
+		
+		<div class="block3"></div>
+		<div></div>
+		<div class="blocks">
+			<div id="box1"></div>
+			<div id="box2"></div>
+			<div id="box3"></div>
+		</div>
+
+	</body>
+
+</html>

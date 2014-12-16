@@ -1,0 +1,38 @@
+body {
+	width: auto;
+	margin: 0;
+	padding: 0;
+	border-radius: 5px;
+	background: -webkit-linear-gradient(bottom left, rgba(125, 200, 250, 0.75), rgba(222, 231, 233, 0.7));
+	background: -moz-linear-gradient(bottom left, rgba(125, 200, 250, 0.75), rgba(222, 231, 233, 0.7));
+	background-attachment: fixed;
+}
+header {
+	width: auto;
+	text-align: center;
+}
+footer {} section.main-content {
+	width: auto;
+	display: -moz-box;
+	display: -webkit-box;
+	box-align: center;
+	/*border-radius: 5px;*/
+	padding: 3px;
+}
+section.main-content aside {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	padding: 3px;
+	/*float: left;*/
+}
+section.main-content article {
+	-webkit-box-flex: 4;
+	-moz-box-flex: 3;
+	/*float: right;*/
+}
+section.main-content article .lyric {
+	width: auto;
+}
+.audio-list a {
+	display: list-item;
+}

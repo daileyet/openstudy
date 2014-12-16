@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Audio - 动听音乐</title>
+		<meta name="description" content="动听音乐在线列表" />
+		<meta name="author" content="openthinks" />
+		<meta name="copyright" content="openthinks" />
+		<!--<link rel="shortcut icon" href="favicon.ico">
+		<link rel="apple-touch-icon" href="favicon.ico">-->
+		<!--		<meta name="viewport" content="width=device-width,user-scalable=no" />-->
+		<link rel="stylesheet" href="audio.css">
+		<script type="text/javascript" src="../js/jquery-2.0.0.min.js"></script>
+	</head>
+
+	<body>
+		<header>动听音乐 - 有道</header>
+		<nav></nav>
+		<section class="main-content">
+			<aside>
+				<div class="audio-list">
+					<a href="">Seven Years - Norah Jones</a>
+				</div>
+
+			</aside>
+			<article>
+				<audio id="youaudio" src="http://xue.youdao.com//zx/wp-content/uploads/2014/12/We-Are-Young.mp3" autoplay="autoplay" controls="controls" preload="auto">
+					Your browser not support HTML5 audio.
+				</audio>
+
+				<div class="audio-llyric">
+					<pre>
+Spinning, laughing, dancing to her favorite song
+旋转着，欢笑着，为她最爱的音乐翩翩起舞
+A little girl with nothing wrong is all alone
+小女孩一切都好却孤单一人
+Eyes wide open
+她张大双眼
+Always hoping for the sun
+总是期盼着阳光
+And she'll sing her song to anyone that comes along
+她对每个孤独的人都哼唱着她的歌谣
+Fragile as a leaf in autumn
+脆弱如秋天的落叶
+Just falling to the ground
+飘落到地上
+Without a sound
+悄无声息
+Crooked little smile on her face
+脸上一丝狡黠的笑容
+Tells a tale of grace
+讲述着希腊的神话
+That's all her own
+这就是她的全部
+Fragile as a leaf in autumn
+脆弱如秋天的落叶
+Just falling to the ground
+飘落到地上
+Without a sound
+悄无声息
+Spinning laughing dancing to her favorite song
+旋转着，欢笑着，为她最爱的音乐翩翩起舞
+She's a little girl with nothing wrong
+她这个小姑娘一切都好
+And she's all alone
+只是独自一人
+A little girl with nothing wrong
+小姑娘一切都好
+And she's all alone
+只是独自一人
+					</pre>
+				</div>
+			</article>
+		</section>
+		<footer>
+		</footer>
+
+		<script>
+			$(document).ready(function() {
+				var remote_url = 'http://xue.youdao.com';
+				var current_play_index = 0;
+				var playlist = [{
+						name: 'We Are Young - Fun.',
+						url: '/zx/wp-content/uploads/2014/12/We-Are-Young.mp3'
+					}, {
+						name: 'Seven Years - Norah Jones',
+						url: '/zx/wp-content/uploads/2014/12/Seven-Years.mp3'
+					},{
+						name:'Stop And Stare - OneRepublic',
+						url:'/zx/wp-content/uploads/2014/12/Stop-And-Stare.mp3'
+					}
+
+				];
+
+				$(".audio-list").empty();
+				$.each(playlist, function(i, e) {
+					$('<a data-index="' + i + '" href="javascript:void(0)">' + e.name + '</a>').appendTo(".audio-list");
+				});
+
+
+				$(".audio-list a").unbind("click").click(function() {
+					var index = $(this).data("index");
+					current_play_index = index;
+					var audioSrc = playlist[index].url;
+					$("#youaudio")[0].src = remote_url + audioSrc;
+					$("#youaudio")[0].play();
+				});
+
+				$("#youaudio")[0].onended = function() {
+					current_play_index = parseInt(current_play_index) + 1;
+					if (current_play_index >= playlist.length) {
+						current_play_index = 0;
+					}
+					var audioSrc = playlist[current_play_index].url;
+					$("#youaudio")[0].src = remote_url + audioSrc;
+					$("#youaudio")[0].play();
+				}
+			});
+		</script>
+	</body>
+
+</html>

@@ -7,6 +7,7 @@
 	-webkit-transform: skew(-15deg) rotate(-5deg);
 	-moz-transform: skew(-15deg) rotate(-5deg);
 	-o-transform: skew(-15deg) rotate(-5deg);
+	-ms-transform: skew(-15deg) rotate(-5deg);
 	transform: skew(-15deg) rotate(-5deg);
 	left: 15px;
 }
@@ -14,6 +15,7 @@
 	-webkit-transform: skew(15deg) rotate(5deg);
 	-moz-transform: skew(15deg) rotate(5deg);
 	-o-transform: skew(15deg) rotate(5deg);
+	-ms-transform: skew(15deg) rotate(5deg);
 	transform: skew(15deg) rotate(5deg);
 	right: 15px;
 }
@@ -23,6 +25,8 @@
 	content: ' ';
 	-webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 	-moz-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+	-o-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+	-ms-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 	position: absolute;
 	bottom: 30px;
@@ -35,6 +39,8 @@
 	content: ' ';
 	-webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 	-moz-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+	-o-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+	-ms-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 	position: absolute;
 	top:26px;
