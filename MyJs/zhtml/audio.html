@@ -12,6 +12,8 @@
 		<!--		<meta name="viewport" content="width=device-width,user-scalable=no" />-->
 		<link rel="stylesheet" href="audio.css">
 		<script type="text/javascript" src="../js/jquery-2.0.0.min.js"></script>
+		<script type="text/javascript" src="youdao_music_data.js"></script>
+		<script type="text/javascript" src="audio.js"></script>
 	</head>
 
 	<body>
@@ -25,11 +27,11 @@
 
 			</aside>
 			<article>
-				<audio id="youaudio" src="http://xue.youdao.com//zx/wp-content/uploads/2014/12/We-Are-Young.mp3" autoplay="autoplay" controls="controls" preload="auto">
+				<audio id="youaudio"  autoplay="autoplay" controls="controls" preload="auto">
 					Your browser not support HTML5 audio.
 				</audio>
 
-				<div class="audio-llyric">
+				<div class="audio-lyric">
 					<pre>
 Spinning, laughing, dancing to her favorite song
 旋转着，欢笑着，为她最爱的音乐翩翩起舞
@@ -78,44 +80,11 @@ And she's all alone
 
 		<script>
 			$(document).ready(function() {
-				var remote_url = 'http://xue.youdao.com';
-				var current_play_index = 0;
-				var playlist = [{
-						name: 'We Are Young - Fun.',
-						url: '/zx/wp-content/uploads/2014/12/We-Are-Young.mp3'
-					}, {
-						name: 'Seven Years - Norah Jones',
-						url: '/zx/wp-content/uploads/2014/12/Seven-Years.mp3'
-					},{
-						name:'Stop And Stare - OneRepublic',
-						url:'/zx/wp-content/uploads/2014/12/Stop-And-Stare.mp3'
-					}
-
-				];
-
-				$(".audio-list").empty();
-				$.each(playlist, function(i, e) {
-					$('<a data-index="' + i + '" href="javascript:void(0)">' + e.name + '</a>').appendTo(".audio-list");
+				youdao.music.init({
+					listSel: '.audio-list',
+					playSel: '#youaudio',
+					lyricSel:'.audio-lyric'
 				});
-
-
-				$(".audio-list a").unbind("click").click(function() {
-					var index = $(this).data("index");
-					current_play_index = index;
-					var audioSrc = playlist[index].url;
-					$("#youaudio")[0].src = remote_url + audioSrc;
-					$("#youaudio")[0].play();
-				});
-
-				$("#youaudio")[0].onended = function() {
-					current_play_index = parseInt(current_play_index) + 1;
-					if (current_play_index >= playlist.length) {
-						current_play_index = 0;
-					}
-					var audioSrc = playlist[current_play_index].url;
-					$("#youaudio")[0].src = remote_url + audioSrc;
-					$("#youaudio")[0].play();
-				}
 			});
 		</script>
 	</body>

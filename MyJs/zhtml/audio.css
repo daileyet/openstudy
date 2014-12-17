@@ -26,8 +26,8 @@ section.main-content aside {
 	/*float: left;*/
 }
 section.main-content article {
-	-webkit-box-flex: 4;
-	-moz-box-flex: 3;
+	-webkit-box-flex: 6;
+	-moz-box-flex: 6;
 	/*float: right;*/
 }
 section.main-content article .lyric {
