@@ -2,17 +2,20 @@
 	function PlayListEndException() {
 		this.name = 'PlayListEndException';
 	}
+	var RESOURCE_URL = 'https://apex.oracle.com/pls/apex/open-thinks/youdao/music/api/list';
+
 	var youdao = this.youdao = this.youdao || {};
 
 	var youdaoMusic = youdao.music = {
 		YOUDAO_PATH: 'http://xue.youdao.com',
+
 		options: {
 			listSel: '',
 			playSel: ''
 		},
 		init: function(ops) {
 			youdaoMusic.options = ops;
-			youdaoMusic.playlist.init(youdao.musicSrc)
+			youdaoMusic.playlist.render(RESOURCE_URL);
 			youdaoMusic.player.init($(youdaoMusic.options.playSel)[0]);
 		}
 	}
@@ -22,18 +25,13 @@
 		listLength: 0,
 		loop: true,
 		items: [],
-		init: function(listData) {
-			playlist.items = listData;
-			playlist.listLength = listData.length;
-			$(youdaoMusic.options.listSel).empty();
-			$.each(playlist.items, function(i, e) {
-				$('<a data-index="' + i + '" href="javascript:void(0)">' + e.name + '</a>').appendTo(youdaoMusic.options.listSel);
-			});
-			$(youdaoMusic.options.listSel+" a").unbind("click").click(function() {
-				var index = $(this).data("index");
-				playlist.currntPlay=parseInt(index);
-				player.play();
-			});
+		navNext: null,
+		navPrevious: null,
+		render: function(fetchUrl) {
+			playlist.navNext = null;
+			playlist.navPrevious = null;
+			playlist.items = [];
+			playlist.fetch(fetchUrl);
 		},
 		getCurrentPlay: function() {
 			return playlist.items[playlist.currntPlay];
@@ -48,8 +46,59 @@
 				}
 			}
 			playlist.currntPlay = playlist.currntPlay + 1;
+		},
+		fetch: function(url) {
+			$.getJSON(url, function(data) {
+				if (data.next) {
+					playlist.navNext = data.next.$ref;
+				}
+				if (data.previous) {
+					playlist.navPrevious = data.previous.$ref;
+				}
+				if (data.items) {
+					playlist.items = data.items;
+				}
+				playlist.updateUI();
+
+			})
+		},
+		updateUI: function() {
+			var listData = playlist.items;
+			playlist.listLength = listData.length;
+			var $listConent = $(youdaoMusic.options.listSel+' .content');
+			var $listNav = $(youdaoMusic.options.listSel+' .nav');
+			$listConent.empty();
+			$listNav.empty();
+			
+			if(playlist.navPrevious){
+				$listNav.append('<button name="PP">&lt;</button>');
+			}
+			if(playlist.navNext){
+				$listNav.append('<button name="PN">&gt;</button>');
+			}
+			
+			$.each(playlist.items, function(i, e) {
+				$('<a data-index="' + i + '" href="javascript:void(0)">' + e.name + '</a>').appendTo($listConent);
+			});
+			$("a",$listConent).unbind("click").click(function() {
+				var index = $(this).data("index");
+				playlist.currntPlay = parseInt(index);
+				player.play();
+			});
+			
+			$("button",$listNav).unbind('click').click(function(){
+				var clickedBtnName = $(this).attr('name');
+				var updateUrl = (clickedBtnName =='PN'  ? playlist.navNext : playlist.navPrevious);
+				playlist.render(updateUrl);
+			});
 		}
 	};
+
+
+
+
+
+
 	var player = youdaoMusic.player = {
 		audio: new Audio(),
 		init: function(audio) {
@@ -64,7 +113,7 @@
 			}
 		},
 		play: function() {
-			player.audio.src = youdaoMusic.YOUDAO_PATH + playlist.getCurrentPlay().url;
+			player.audio.src = youdaoMusic.YOUDAO_PATH + playlist.getCurrentPlay().audio_url;
 			player.audio.play();
 		}
 	}

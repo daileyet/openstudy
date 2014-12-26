@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>APEX RESTful</title>
+	</head>
+
+	<body>
+
+		<form method="POST" action="https://apex.oracle.com/pls/apex/open-thinks/youdao/music/api/add">
+			<input name="NAME" />
+			<input name="AUDIO_URL" />
+			<input type="submit" />
+		</form>
+
+		<script>
+			var text = '<div class="post_list"> <h2><a href="/zx/archives/115900" title="All About That Bass—Meghan Trainor">All About That Bass—Meghan Trainor</a></h2> <div class="info">有态度的词典君 | <a href="/zx/archives/category/relax/music" title="View all posts in 动听英乐" rel="category tag">动听英乐</a> | 2014-11-19</div> <div class="excerpt">';
+
+			var reg_music_list_item_date = new RegExp('\\d{4}-\\d{2}-\\d{2}', 'gmi');
+			var match = text.match(reg_music_list_item_date);
+			
+		    alert(match)
+			
+		</script>
+	</body>
+
+</html>
