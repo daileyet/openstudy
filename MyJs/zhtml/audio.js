@@ -3,6 +3,7 @@
 		this.name = 'PlayListEndException';
 	}
 	var RESOURCE_URL = 'https://apex.oracle.com/pls/apex/open-thinks/youdao/music/api/list';
+	var LYRIC_URL 	 = 'https://apex.oracle.com/pls/apex/open-thinks/youdao/music/api/lyric/';
 
 	var youdao = this.youdao = this.youdao || {};
 
@@ -11,7 +12,8 @@
 
 		options: {
 			listSel: '',
-			playSel: ''
+			playSel: '',
+			lyricSel:''
 		},
 		init: function(ops) {
 			youdaoMusic.options = ops;
@@ -59,7 +61,6 @@
 					playlist.items = data.items;
 				}
 				playlist.updateUI();
-
 			})
 		},
 		updateUI: function() {
@@ -84,6 +85,10 @@
 				var index = $(this).data("index");
 				playlist.currntPlay = parseInt(index);
 				player.play();
+				var lyric_url = LYRIC_URL+playlist.getCurrentPlay().id
+				$.get(lyric_url,function(html){
+					$(youdaoMusic.options.lyricSel).html(html);
+				});
 			});
 			
 			$("button",$listNav).unbind('click').click(function(){

@@ -9,18 +9,19 @@
 	<body>
 
 		<form method="POST" action="https://apex.oracle.com/pls/apex/open-thinks/youdao/music/api/add">
-			<input name="NAME" />
-			<input name="AUDIO_URL" />
+			<input name="NAME" /><BR>
+			<input name="PAGE_URL" /><BR>
+			<input name="AUDIO_URL" /><BR>
+			<input name="UPDATE_ON" /><BR>
+			<textarea name="LYRIC"></textarea><BR>
 			<input type="submit" />
 		</form>
 
 		<script>
-			var text = '<div class="post_list"> <h2><a href="/zx/archives/115900" title="All About That Bass—Meghan Trainor">All About That Bass—Meghan Trainor</a></h2> <div class="info">有态度的词典君 | <a href="/zx/archives/category/relax/music" title="View all posts in 动听英乐" rel="category tag">动听英乐</a> | 2014-11-19</div> <div class="excerpt">';
-
-			var reg_music_list_item_date = new RegExp('\\d{4}-\\d{2}-\\d{2}', 'gmi');
-			var match = text.match(reg_music_list_item_date);
-			
-		    alert(match)
+		window.onload=function(){
+			document.getElementsByName('LYRIC')[0].innerText = text;
+		}
+		
 			
 		</script>
 	</body>

@@ -5,11 +5,9 @@ body {
 	border-radius: 5px;
 	background: -moz-linear-gradient(top left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6));
 	background: -webkit-linear-gradient(top left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6));
-	/*background-attachment: fixed;*/
 	
 	background: url(../img/bg.jpg);
-	overflow-x: hidden;
-	overflow-y: hidden;
+	background-attachment: fixed;
 	color: #fff;
 }
 header {
@@ -64,7 +62,6 @@ section.main-content .audio-lyric {
 }
 .audio-list {
 	min-width: 100px;
-	height: 99%;
 	position: relative;
 	/*background: -webkit-linear-gradient(bottom left, rgba(125, 200, 250, 1), rgba(222, 231, 233, 1));
 	background: -webkit-linear-gradient(top left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6));*/
