@@ -3,7 +3,7 @@
 		this.name = 'PlayListEndException';
 	}
 	var RESOURCE_URL = 'https://apex.oracle.com/pls/apex/open-thinks/youdao/music/api/list';
-	var LYRIC_URL 	 = 'https://apex.oracle.com/pls/apex/open-thinks/youdao/music/api/lyric/';
+	var LYRIC_URL = 'https://apex.oracle.com/pls/apex/open-thinks/youdao/music/api/lyric/';
 
 	var youdao = this.youdao = this.youdao || {};
 
@@ -13,7 +13,7 @@
 		options: {
 			listSel: '',
 			playSel: '',
-			lyricSel:''
+			lyricSel: ''
 		},
 		init: function(ops) {
 			youdaoMusic.options = ops;
@@ -66,34 +66,30 @@
 		updateUI: function() {
 			var listData = playlist.items;
 			playlist.listLength = listData.length;
-			var $listConent = $(youdaoMusic.options.listSel+' .content');
-			var $listNav = $(youdaoMusic.options.listSel+' .nav');
+			var $listConent = $(youdaoMusic.options.listSel + ' .content');
+			var $listNav = $(youdaoMusic.options.listSel + ' .nav');
 			$listConent.empty();
 			$listNav.empty();
-			
-			if(playlist.navPrevious){
+
+			if (playlist.navPrevious) {
 				$listNav.append('<button name="PP">&lt;</button>');
 			}
-			if(playlist.navNext){
+			if (playlist.navNext) {
 				$listNav.append('<button name="PN">&gt;</button>');
 			}
-			
+
 			$.each(playlist.items, function(i, e) {
 				$('<a data-index="' + i + '" href="javascript:void(0)">' + e.name + '</a>').appendTo($listConent);
 			});
-			$("a",$listConent).unbind("click").click(function() {
+			$("a", $listConent).unbind("click").click(function() {
 				var index = $(this).data("index");
 				playlist.currntPlay = parseInt(index);
 				player.play();
-				var lyric_url = LYRIC_URL+playlist.getCurrentPlay().id
-				$.get(lyric_url,function(html){
-					$(youdaoMusic.options.lyricSel).html(html);
-				});
 			});
-			
-			$("button",$listNav).unbind('click').click(function(){
+
+			$("button", $listNav).unbind('click').click(function() {
 				var clickedBtnName = $(this).attr('name');
-				var updateUrl = (clickedBtnName =='PN'  ? playlist.navNext : playlist.navPrevious);
+				var updateUrl = (clickedBtnName == 'PN' ? playlist.navNext : playlist.navPrevious);
 				playlist.render(updateUrl);
 			});
 		}
@@ -119,7 +115,13 @@
 		},
 		play: function() {
 			player.audio.src = youdaoMusic.YOUDAO_PATH + playlist.getCurrentPlay().audio_url;
+			$('a[data-index!="' + playlist.currntPlay + '"]').removeClass('audio-list-active');
+			$('a[data-index="' + playlist.currntPlay + '"]').addClass('audio-list-active');
 			player.audio.play();
+			var lyric_url = LYRIC_URL + playlist.getCurrentPlay().id
+			$.get(lyric_url, function(html) {
+				$(youdaoMusic.options.lyricSel).html(html);
+			});
 		}
 	}
 
