@@ -4,7 +4,6 @@
 	}
 	var RESOURCE_URL = 'https://apex.oracle.com/pls/apex/open-thinks/youdao/music/api/list';
 	var LYRIC_URL = 'https://apex.oracle.com/pls/apex/open-thinks/youdao/music/api/lyric/';
-
 	var youdao = this.youdao = this.youdao || {};
 
 	var youdaoMusic = youdao.music = {
@@ -22,6 +21,9 @@
 		}
 	}
 
+	/**
+	 *playlist
+	 */
 	var playlist = youdaoMusic.playlist = {
 		currntPlay: 0,
 		listLength: 0,
@@ -99,7 +101,9 @@
 
 
 
-
+	/**
+	 *player
+	 */
 	var player = youdaoMusic.player = {
 		audio: new Audio(),
 		init: function(audio) {
@@ -125,4 +129,9 @@
 		}
 	}
 
-})()
+})();
+
+(function() {
+	var youdao = this.youdao = this.youdao || {};
+	var youdaoMusicSrc = youdao.musicSrc = [];
+})();
