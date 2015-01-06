@@ -10,6 +10,7 @@
 		<script src="./js/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="./js/jquery/jquery.widget.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="./js/jquery/jquery.mousewheel.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/widgets/weather.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<script src="./js/metro.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="./js/start-screen.js" type="text/javascript" charset="utf-8"></script>
@@ -32,7 +33,7 @@
 
 			<div class="tile-group six">
 
-				<a class="tile double bg-lightBlue live" data-role="live-tile" data-effect="slideUp" data-click="transform">
+				<a widgets-id="email" class="tile double bg-lightBlue live" data-role="live-tile" data-effect="slideUp" data-click="transform">
 					<div class="tile-content email">
 						<div class="email-image">
 							<img src="images/obama.jpg">
@@ -72,7 +73,7 @@
 				</a>
 				<!-- end tile -->
 
-				<a class="tile double bg-violet" data-click="transform">
+				<a widgets-id="calendar" class="tile double bg-violet" data-click="transform">
 					<div class="tile-content">
 						<div class="text-right padding10 ntp">
 							<h1 class="fg-white no-margin">10</h1>
@@ -98,13 +99,13 @@
 				<!-- end tile -->
 
 				<!-- small tiles -->
-				<a href="#" class="tile half bg-darkRed" data-click="transform">
+				<a widgets-id="camera" href="#" class="tile half bg-darkRed" data-click="transform">
 					<div class="tile-content icon">
 						<span class="icon-camera"></span>
 					</div>
 				</a>
 
-				<a href="#" class="tile half bg-darkOrange" data-click="transform">
+				<a widgets-id="bus" href="#" class="tile half bg-darkOrange" data-click="transform">
 					<div class="tile-content icon">
 						<span class="icon-bus"></span>
 					</div>
@@ -123,7 +124,7 @@
 				</a>
 				<!-- end small tiles -->
 
-				<a class="tile double double-vertical bg-steel" data-click="transform">
+				<a widgets-id="weather" class="tile double double-vertical bg-steel" data-click="transform">
 					<div class="tile-content" style="background: url(images/clouds2.png)">
 						<div class="padding10">
 							<h1 class="fg-white ntm">57&deg;</h1>
@@ -134,7 +135,6 @@
 							<p class="tertiary-text fg-white no-margin">Tomorrow</p>
 							<p class="tertiary-text fg-white">64&deg;/54&deg; Mostly Clear</p>
 						</div>
-
 					</div>
 					<div class="tile-status">
 						<div class="label">Weather</div>
@@ -153,7 +153,7 @@
 				</div>
 				<!-- end tile -->
 
-				<a href="//apex.oracle.com/pls/apex/f?p=17512:2::::::" class="tile bg-lightBlue" data-click="transform">
+				<a widgets-id="music" href="//apex.oracle.com/pls/apex/f?p=17512:2::::::" class="tile bg-lightBlue" data-click="transform">
 					<div class="tile-content icon">
 						<span class="icon-music"></span>
 					</div>
@@ -171,7 +171,7 @@
 					</div>
 				</a>
 
-				<a class="tile double bg-lightBlue" data-click="transform">
+				<a widgets-id="desktop" class="tile double bg-lightBlue" data-click="transform">
 					<div class="tile-content image">
 						<img src="images/windows_8_default_13_wallpaper.jpg">
 					</div>
@@ -180,7 +180,7 @@
 					</div>
 				</a>
 
-				<a href="//openbolg.sinaapp.com/" class="tile double bg-darkGreen" data-click="transform">
+				<a widgets-id="blog" href="//openbolg.sinaapp.com/" class="tile double bg-darkGreen" data-click="transform">
 					<div class="tile-content icon">
 						<span class="icon-blogger"></span>
 					</div>
@@ -194,28 +194,28 @@
 			<div class="tile-group two">
 				<div class="tile-group-title">Office</div>
 				
-				<a href="https://office.live.com/start/Word.aspx" class="tile half bg-darkBlue" data-click="transform">
+				<a widgets-id="ms-word" href="https://office.live.com/start/Word.aspx" class="tile half bg-darkBlue" data-click="transform">
 					<div class="tile-content icon">
 						<img src="images/word.png">
 					</div>
 				</a>
-				<a href="https://office.live.com/start/excel.aspx" class="tile half bg-darkGreen" data-click="transform">
+				<a widgets-id="ms-excel" href="https://office.live.com/start/excel.aspx" class="tile half bg-darkGreen" data-click="transform">
 					<div class="tile-content icon">
 						<img src="images/excel.png">
 					</div>
 				</a>
 				
-				<a href="https://blu170.mail.live.com/" class="tile half bg-lightBlue" data-click="transform">
+				<a widgets-id="ms-outlook" href="https://blu170.mail.live.com/" class="tile half bg-lightBlue" data-click="transform">
 					<div class="tile-content icon">
 						<img src="images/outlook.png">
 					</div>
 				</a>
-				<a href="https://office.live.com/start/PowerPoint.aspx" class="tile half bg-orange" data-click="transform">
+				<a widgets-id="ms-powerpoint" href="https://office.live.com/start/PowerPoint.aspx" class="tile half bg-orange" data-click="transform">
 					<div class="tile-content icon">
 						<img src="images/powerpoint.png">
 					</div>
 				</a>
-				<a class="tile  bg-cobalt" data-click="transform">
+				<a widgets-id="ms-onedrive" class="tile  bg-cobalt" data-click="transform">
 					<!--<div class="tile-content icon" style="background-image:url(images/logos5o.png);background-position:-290px -12px; background-size: 364px 273px;" -->
 						<div class="tile-content icon" style="background-image:url(images/logos5o.png);background-position:-338px 8px; " 
 					>
@@ -224,7 +224,7 @@
 						<div class="label">OneDrive</div>
 					</div>
 				</a>
-				<a href="https://www.onenote.com/notebooks/" class="tile half bg-darkPink" data-click="transform">
+				<a widgets-id="ms-onenote" href="https://www.onenote.com/notebooks/" class="tile half bg-darkPink" data-click="transform">
 					<div class="tile-content icon">
 						<img src="images/onenote.png">
 					</div>
@@ -234,19 +234,39 @@
 			<!-- End tile group -->
 
 			<div class="tile-group double">
-				<div class="tile-group-title">Games</div>
-				<div class="tile bg-dark" data-click="transform">
+				<div class="tile-group-title">Bookmarks</div>
+				<div class="tile  bg-darkBlue" data-click="transform">
 					<div class="tile-content icon">
-						<img src="images/Crysis-2-icon.png">
+						<img src="images/apex-db-apps.png"/>
 					</div>
 					<div class="brand">
-						<div class="label">Crysis 2</div>
+						<div class="label">Oracle APEX</div>
+					</div>
+				</div>
+				<div class="tile half bg-darkGreen" data-click="transform">
+					<div class="tile-content icon">
+						<span class="icon-android"></span>
+					</div>
+				</div>
+				<div class="tile half bg-darkOrange" data-click="transform">
+					<div class="tile-content icon">
+						<span class="icon-apple"></span>
+					</div>
+				</div>
+				<div class="tile half bg-black" data-click="transform">
+					<div class="tile-content icon">
+						<span class="icon-github-2"></span>
+					</div>
+				</div>
+				<div class="tile half bg-lightOlive opacity bg-hover-darkMagenta" data-click="transform">
+					<div class="tile-content icon">
+						<div class="icon-pencil"></div>
 					</div>
 				</div>
 			</div>
 			<!-- End group -->
 
-			<div class="tile-group double">
+			<!--<div class="tile-group double">
 				<div class="tile double" data-click="transform">
 					<div class="tile-content image-set">
 						<img src="images/1.jpg">
@@ -277,10 +297,15 @@
 						<span class="label">Images</span>
 					</div>
 				</div>
-			</div>
+			</div>-->
 
-
+			<img src="http://apistore.baidu.com/microservice/weather?cityid=101010100"/>
 		</div>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				ot.widgets.weather.render();
+			});
+		</script>
 	</body>
 
 </html>
