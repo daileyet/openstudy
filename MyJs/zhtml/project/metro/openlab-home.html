@@ -3,17 +3,19 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>有道音乐</title>
-		<link rel="stylesheet" type="text/css" href="./css/metro-bootstrap.css" />
-		<link rel="stylesheet" type="text/css" href="./css/metro-bootstrap-responsive.css" />
-		<link rel="stylesheet" type="text/css" href="./css/iconFont.css" />
-		<script src="./js/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="./js/jquery/jquery.widget.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="./js/jquery/jquery.mousewheel.js" type="text/javascript" charset="utf-8"></script>
+		<title>Open Thinks - Labs</title>
+		<link rel="stylesheet" type="text/css" href="css/metro-bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/metro-bootstrap-responsive.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconFont.css" />
+		<script src="js/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery/jquery.widget.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery/jquery.mousewheel.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/metro.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/start-screen.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/widgets/weather.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/widgets-conf.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/widgets-loader.js" type="text/javascript" charset="utf-8"></script>
 	</head>
-	<script src="./js/metro.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="./js/start-screen.js" type="text/javascript" charset="utf-8"></script>
 	<style>
 	</style>
 	</head>
@@ -126,7 +128,7 @@
 
 				<a widgets-id="weather" class="tile double double-vertical bg-steel" data-click="transform">
 					<div class="tile-content" style="background: url(images/clouds2.png)">
-						<div class="padding10">
+						<div class="padding10" style="display: none;">
 							<h1 class="fg-white ntm">57&deg;</h1>
 							<h2 class="fg-white no-margin">San Francisco</h2>
 							<h5 class="fg-white no-margin">Party Cloudy</h5>
@@ -153,7 +155,7 @@
 				</div>
 				<!-- end tile -->
 
-				<a widgets-id="music" href="//apex.oracle.com/pls/apex/f?p=17512:2::::::" class="tile bg-lightBlue" data-click="transform">
+				<a widgets-id="music" class="tile bg-lightBlue" data-click="transform">
 					<div class="tile-content icon">
 						<span class="icon-music"></span>
 					</div>
@@ -162,7 +164,7 @@
 					</div>
 				</a>
 
-				<a href="#" class="tile bg-darkOrange" data-click="transform">
+				<a class="tile bg-darkOrange" data-click="transform">
 					<div class="tile-content icon">
 						<span class="icon-help"></span>
 					</div>
@@ -180,7 +182,7 @@
 					</div>
 				</a>
 
-				<a widgets-id="blog" href="//openbolg.sinaapp.com/" class="tile double bg-darkGreen" data-click="transform">
+				<a widgets-id="blog" class="tile double bg-darkGreen" data-click="transform">
 					<div class="tile-content icon">
 						<span class="icon-blogger"></span>
 					</div>
@@ -193,43 +195,42 @@
 
 			<div class="tile-group two">
 				<div class="tile-group-title">Office</div>
-				
-				<a widgets-id="ms-word" href="https://office.live.com/start/Word.aspx" class="tile half bg-darkBlue" data-click="transform">
+
+				<a widgets-id="ms-word" class="tile half bg-darkBlue" data-click="transform">
 					<div class="tile-content icon">
 						<img src="images/word.png">
 					</div>
 				</a>
-				<a widgets-id="ms-excel" href="https://office.live.com/start/excel.aspx" class="tile half bg-darkGreen" data-click="transform">
+				<a widgets-id="ms-excel" class="tile half bg-darkGreen" data-click="transform">
 					<div class="tile-content icon">
 						<img src="images/excel.png">
 					</div>
 				</a>
-				
-				<a widgets-id="ms-outlook" href="https://blu170.mail.live.com/" class="tile half bg-lightBlue" data-click="transform">
+
+				<a widgets-id="ms-outlook" class="tile half bg-lightBlue" data-click="transform">
 					<div class="tile-content icon">
 						<img src="images/outlook.png">
 					</div>
 				</a>
-				<a widgets-id="ms-powerpoint" href="https://office.live.com/start/PowerPoint.aspx" class="tile half bg-orange" data-click="transform">
+				<a widgets-id="ms-powerpoint" class="tile half bg-orange" data-click="transform">
 					<div class="tile-content icon">
 						<img src="images/powerpoint.png">
 					</div>
 				</a>
 				<a widgets-id="ms-onedrive" class="tile  bg-cobalt" data-click="transform">
 					<!--<div class="tile-content icon" style="background-image:url(images/logos5o.png);background-position:-290px -12px; background-size: 364px 273px;" -->
-						<div class="tile-content icon" style="background-image:url(images/logos5o.png);background-position:-338px 8px; " 
-					>
+					<div class="tile-content icon" style="background-image:url(images/logos5o.png);background-position:-338px 8px; ">
 					</div>
 					<div class="brand">
 						<div class="label">OneDrive</div>
 					</div>
 				</a>
-				<a widgets-id="ms-onenote" href="https://www.onenote.com/notebooks/" class="tile half bg-darkPink" data-click="transform">
+				<a widgets-id="ms-onenote" class="tile half bg-darkPink" data-click="transform">
 					<div class="tile-content icon">
 						<img src="images/onenote.png">
 					</div>
 				</a>
-				
+
 			</div>
 			<!-- End tile group -->
 
@@ -237,7 +238,7 @@
 				<div class="tile-group-title">Bookmarks</div>
 				<div class="tile  bg-darkBlue" data-click="transform">
 					<div class="tile-content icon">
-						<img src="images/apex-db-apps.png"/>
+						<img src="images/apex-db-apps.png" />
 					</div>
 					<div class="brand">
 						<div class="label">Oracle APEX</div>
@@ -299,13 +300,9 @@
 				</div>
 			</div>-->
 
-			<img src="http://apistore.baidu.com/microservice/weather?cityid=101010100"/>
 		</div>
-		<script type="text/javascript">
-			$(document).ready(function(){
-				ot.widgets.weather.render();
-			});
-		</script>
+
+
 	</body>
 
 </html>
