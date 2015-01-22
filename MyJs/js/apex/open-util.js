@@ -1,5 +1,5 @@
 //** Utilities 
-//** Author: open-thinks@outlook.com
+//** Author: dailey.dai@oracle.com
 //** Current version 1.0 (Mar 22th, 14)
 String.prototype.trim = function() {
 	return this.replace(/(^\s*)|(\s*$)/g, "");

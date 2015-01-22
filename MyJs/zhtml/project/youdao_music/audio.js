@@ -42,7 +42,6 @@
 		},
 		next: function() {
 			if (playlist.currntPlay + 1 >= playlist.listLength) {
-
 				if (!playlist.loop) throw new PlayListEndException();
 				else {
 					playlist.currntPlay = 0;
@@ -68,6 +67,7 @@
 		updateUI: function() {
 			var listData = playlist.items;
 			playlist.listLength = listData.length;
+			playlist.currntPlay = 0;
 			var $listConent = $(youdaoMusic.options.listSel + ' .content');
 			var $listNav = $(youdaoMusic.options.listSel + ' .nav');
 			$listConent.empty();
