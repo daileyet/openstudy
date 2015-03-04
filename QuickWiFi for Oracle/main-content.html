@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/icomoon.css" />
+		<style>
+			#grid {
+				margin-top: -1px;
+			}
+		</style>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			var listP = null,
+				scanP = null;
+			var icon_clicked = function(_id) {
+				var nodeList = document.querySelectorAll('#data-plane .mui-table-view-cell')
+				for (var i = 0, j = nodeList.length; i < j; i++) {
+					var nodeLi = nodeList[i];
+					if (nodeLi.classList.contains(_id + '-quick')) {
+						nodeLi.classList.remove('mui-hidden');
+					} else {
+						nodeLi.classList.add('mui-hidden');
+					}
+				}
+			}
+
+			var callSacn = function() {
+				scanP = plus.webview.create("scaner.html", "scaner");
+				scanP.show();
+			}
+
+			mui.plusReady(function() {
+				if (mui.os.android) {
+					plus.screen.lockOrientation("portrait-primary");
+				}
+				listP = plus.webview.currentWebview();
+				//TODOD
+				window.addEventListener('homedesc', function(event) {
+					icon_clicked('home');
+				});
+			});
+
+
+			var wifiUrl = 'https://webauth-redirect.oracle.com/fs/customwebauth/login.html?switch_url=https://webauth-redirect.oracle.com/login.html&ap_mac=34:db:fd:36:bc:c0&wlan=clear-guest';
+
+			function loadWiFiPorto() {
+				var pass_currentview = document.getElementsByName("password")[0].value;
+				var name_currentview = document.getElementsByName("username")[0].value;
+				var wifi = plus.webview.create(wifiUrl, 'owifi', {}, {
+					username: name_currentview,
+					password: pass_currentview
+				});
+				wifi.appendJsFile('js/mui.min.js');
+				wifi.appendJsFile('js/oracle-wifi-auth.js');
+			}
+
+			function scaned(t, r) {
+				document.getElementsByName("password")[0].value = r;
+				loadWiFiPorto();
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<ul id="grid" class="mui-table-view mui-grid-view mui-grid-9">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+					<a href="javascript:icon_clicked('address')" id="address-clicked">
+						<span class="mui-icon icon-IE"></span>
+						<div class="mui-media-body">密码网址</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+					<a href="javascript:icon_clicked('manual')" id="manual-clicked">
+						<span class="mui-icon icon-keyboard">
+                    <div class="mui-media-body" >就是手贱</div></a></li>
+			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				<a href="javascript:callSacn()" id="scan-clicked">
+					<span class="mui-icon icon-qrcode"></span>
+						<div class="mui-media-body">扫一扫</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+					<a href="javascript:icon_clicked('about')" id="about-clicked">
+						<span class="mui-icon mui-icon-info"></span>
+						<div class="mui-media-body">关于</div>
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view" id="data-plane">
+				<li class="mui-table-view-divider">&nbsp;</li>
+				<li class="mui-table-view-cell manual-quick mui-hidden">
+					<div>
+						<input type="text" name="username" id="w_name" value="guest" placeholder="用户名" />
+						<input type="text" name="password" id="w_pass" value="" placeholder="密码" />
+						<button class="mui-btn mui-btn-primary" onclick="loadWiFiPorto()">Go<span class="mui-icon mui-icon-arrowright"></span>
+						</button>
+					</div>
+				</li>
+				<li class="mui-table-view-cell address-quick mui-hidden">
+					<input type="text" name="address" id="w_address" value="https://openthinks.neocities.org/index.html" />
+				</li>
+				<li class="mui-table-view-cell home-quick">
+					<p>
+						特别声明：<BR>
+						仅供Oracle苏州内部员工使用，用于登录内部WiFi:clear-guest<BR>
+						在使用本软件时，即表示你认可并遵守Oracle相关安全访问策略。
+					</p>
+				</li>
+				<li class="mui-table-view-cell about-quick mui-hidden">
+					<p>Open thinks</p>
+					<p>dailey.dai@oracle.com</p>
+					<Br>
+					<p>
+						HTML5+
+						<BR> MUI
+						<BR> HBuilder
+					</p>
+				</li>
+			</ul>
+
+		</div>
+	</body>
+
+</html>

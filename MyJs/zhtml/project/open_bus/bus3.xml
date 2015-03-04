@@ -1,0 +1,27 @@
+<string xmlns="http://tempuri.org/">
+	<Document TaskGuid="2E14AD58-9333-4787-9A66-A242B35FC5BC" DataGuid="175ecd8d-c39d-4116-83ff-109b946d7cb4" DataType="ColumnInfo">
+		<Guid Type="GUID">175ecd8d-c39d-4116-83ff-109b946d7cb4</Guid>
+		<ColumnName Type="TEXT">出行服务</ColumnName>
+		<ParentId Type="GUID">61784043-0e06-4b90-a5e8-9ba081a2bd2b</ParentId>
+		<ParentName Type="TEXT">便捷交通</ParentName>
+		<ColumnPath Type="TEXT"></ColumnPath>
+		<ProjTempletsGuid Type="GUID"></ProjTempletsGuid>
+		<ProjTempletsName Type="TEXT"></ProjTempletsName>
+		<ListTempletsGuid Type="GUID"></ListTempletsGuid>
+		<ListTemplesName Type="TEXT"></ListTemplesName>
+		<NaviShowtf Type="LONG">1</NaviShowtf>
+		<Auditing Type="TEXT"></Auditing>
+		<AuditingOrganGuid Type="GUID"></AuditingOrganGuid>
+		<AuditingTime Type="DATE"></AuditingTime>
+		<AuditingStatus Type="LONG"></AuditingStatus>
+		<Remark Type="TEXT"></Remark>
+		<Status Type="LONG">1</Status>
+		<CreateTime Type="DATE">2013/7/18 0:00:00</CreateTime>
+		<CreatorGuid Type="GUID">be11e99f-c928-48f5-b68f-8f961510c1bc</CreatorGuid>
+		<CreatorName Type="TEXT"></CreatorName>
+		<PageType Type="LONG">0</PageType>
+		<SinglePageGuid Type="GUID"></SinglePageGuid>
+		<Order Type="LONG">3</Order>
+		<OutID Type="LONG"></OutID>
+	</Document>
+</string>

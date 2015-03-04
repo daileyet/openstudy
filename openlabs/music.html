@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>有道 - 动听音乐</title>
+		<meta name="description" content="动听音乐在线列表" />
+		<meta name="author" content="openthinks" />
+		<meta name="copyright" content="openthinks" />
+		<!--<link rel="shortcut icon" href="favicon.ico">
+		<link rel="apple-touch-icon" href="favicon.ico">-->
+		<meta name="viewport" content="width=device-width,user-scalable=no" />
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/youdao-music.min.css">
+		<script type="text/javascript" src="js/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="js/youdao-music.min.js"></script>
+	</head>
+
+	<body>
+		<header>动听音乐 - 有道</header>
+		<nav></nav>
+		<section class="main-content">
+			<aside>
+				<div class="audio-list">
+					<div class="nav"></div>
+					<div class="content"></div>
+				</div>
+
+			</aside>
+			<article>
+				<div class="audio-controll">
+					<audio id="youaudio"  autoplay="autoplay" controls="controls" preload="auto">
+						Your browser not support HTML5 audio.
+					</audio>
+				</div>
+				<div class="audio-lyric">
+					No Lyric ..
+				</div>
+			</article>
+		</section>
+		<footer>
+		</footer>
+
+		<script>
+			$(document).ready(function() {
+				youdao.music.init({
+					listSel: '.audio-list',
+					playSel: '#youaudio',
+					lyricSel:'.audio-lyric'
+				});
+			});
+		</script>
+	</body>
+
+</html>

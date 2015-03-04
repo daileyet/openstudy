@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		<title>二维码生成</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="apple-touch-icon" href="images/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/metro-bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/metro-bootstrap-responsive.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconFont.css" />
+		<script src="js/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery/jquery.widget.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery/jquery.mousewheel.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/metro.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/widgets/barcode-gen.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			.my-list {
+				display: block;
+				width: 100%;
+				border-width: 0px 0px 1px;
+				border-style: none none solid;
+				border-color: -moz-use-tet-color -moz-use-text-color #E1E1E1;
+				font-family: "Segoe UI_", "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+				-moz-border-top-colors: none;
+				-moz-border-right-colors: none;
+				-moz-border-bottom-colors: none;
+				-moz-border-left-colors: none;
+				border-image: none;
+				padding: 2px 0px;
+				color: #555;
+				margin-bottom: 0px;
+			}
+			.open-navbar {} .open-navbar div:hover {
+				margin-top: 18px;
+			}
+			.open-navbar div:hover span {
+				display: inline;
+				user-select: none;
+			}
+			.open-navbar div span {
+				-webkit-user-select: none;
+				/* Chrome/Safari */
+				
+				-moz-user-select: none;
+				/* Firefox */
+				
+				-ms-user-select: none;
+				/* IE10+ */
+				/* Rules below not implemented in browsers yet */
+				
+				-o-user-select: none;
+				user-select: none;
+			}
+			.open-navbar div:active span {
+				color: red;
+			}
+			.open-navbar div span {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body class="metro">
+
+		<div class="container">
+			<div style="position:fixed;top:-18px;margin: auto;z-index: 999;" class="open-navbar">
+				<div title="主页" style="cursor:pointer;margin-left:1px;border-bottom:1px solid #004050;color:whitesmoke;opacity:.8;float:left;border-bottom-left-radius:5px ;border-bottom-right-radius:5px ;background-color: #0067B0;width: 70px;height:25px; line-height:25px;text-align: center;"><span>Index</span>
+				</div>
+				<div style="cursor:pointer;margin-left:1px;border-bottom:1px solid #004050;color:whitesmoke;opacity:.8;float:left;border-bottom-left-radius:5px ;border-bottom-right-radius:5px ;background-color: #007100;width: 70px;height:25px;line-height:25px;text-align: center;"><span>Music</span>
+				</div>
+
+			</div>
+			<fieldset>
+				<legend>
+					二维码简易生成器
+				</legend>
+				<div class="input-control text" data-role="input-control">
+					<input placeholder="type text" type="text" id="barcode" data-param="text" />
+					<button type="button" class="btn-clear" tabindex="-1"></button>
+				</div>
+				<div class="listview-outlook" data-role="listview" id="barcodeOption">
+					<div class="list-group collapsed">
+						<a href="" class="group-title">Options</a>
+						<div class="group-content">
+							<div class="grid">
+								<div class="row my-list ">
+									<div class="span2">
+										<div class="input-control text size1" data-role="input-control">
+											<input type="color" value="#FFFFFF" data-param="bg" />
+										</div>
+										<div class="input-control checkbox " data-role="input-control">
+											<label>
+												<input type="checkbox" checked="yes" data-target="bg" />
+												<span class="check"></span>背景
+											</label>
+										</div>
+									</div>
+									<div class="span2">
+										<div class="input-control text size1" data-role="input-control">
+											<input type="color" value="#000000" data-param="fg" />
+										</div>
+										<div class="input-control checkbox" data-role="input-control">
+											<label>
+												<input type="checkbox" checked="yes" data-target="fg" />
+												<span class="check"></span>前景
+											</label>
+										</div>
+									</div>
+									<div class="span2">
+										<div class="input-control text size1" data-role="input-control">
+											<input type="color" value="" data-param="gc" />
+										</div>
+										<div class="input-control checkbox" data-role="input-control">
+											<label>
+												<input type="checkbox" data-target="gc" />
+												<span class="check"></span>渐变
+											</label>
+										</div>
+									</div>
+									<div class="span3">
+										<div class="input-control text size1" data-role="input-control">
+											<input type="color" value="" data-param="pt" />
+										</div>
+										<div class="input-control checkbox " data-role="input-control">
+											<label>
+												<input type="checkbox" data-target="pt" />
+												<span class="check"></span>定位点外框
+											</label>
+										</div>
+									</div>
+									<div class="span3">
+										<div class="input-control text size1" data-role="input-control">
+											<input type="color" value="" data-param="inpt" />
+										</div>
+										<div class="input-control checkbox" data-role="input-control">
+											<label>
+												<input type="checkbox" data-target="inpt" />
+												<span class="check"></span>定位点内点
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="row my-list">
+									<div class="span2">
+										<label>尺寸大小</label>
+										<div class="input-control number " data-role="input-control">
+											<input type="number" min="200" max="500" value="300" data-param="w" />
+										</div>
+									</div>
+									<div class="span2">
+										<label>静区外边距</label>
+										<div class="input-control number " data-role="input-control">
+											<input type="number" data-param="m" />
+										</div>
+									</div>
+									<div class="span4">
+										<label>logo图片</label>
+										<div class="input-control text" data-role="input-control">
+											<input type="url" value="" data-param="logo" />
+										</div>
+									</div>
+									<div class="span2">
+										<label>纠错等级</label>
+										<div class="input-control select" data-role="input-control">
+											<select class="span1" data-param="el">
+												<option value="" selected="yes"></option>
+												<option value="h">H</option>
+												<option value="q">Q</option>
+												<option value="m">M</option>
+												<option value="l">L</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<button class="image-button bg-darkGreen fg-white image-left large" id="btnGenerator" style="margin-top: 5px">
+					Generate
+					<i class="icon-barcode bg-green fg-white"></i>
+				</button>
+			</fieldset>
+
+			<div class="listview-outlook" data-role="listview" style="margin-top: 10px" id="barcodeDisply">
+				<div class="list-group">
+					<a href="" class="group-title">History</a>
+					<div class="group-content">
+						<div class="barcode-list-header">
+							<div class="list ">
+								<div class="list-content">
+									<div class="list-title toolbar fg-red">
+										<span class="button-set place-right">
+										<!--<button class="mini"><i class="icon-arrow-up"></i>
+
+										</button>
+
+										<button class="mini"><i class="icon-arrow-down"></i>
+
+										</button>-->
+										<button class="mini barcode-remove-all"><i class="icon-remove"></i></button>
+									</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="barcode-list-content">
+
+						</div>
+						<!--place barcode generated image here-->
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script>
+			$(document).ready(function() {
+				ot.widgets.barcodeGen.actionRegiester();
+			});
+		</script>
+	</body>
+
+</html>

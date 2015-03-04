@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta name="misapplication-tap-highlight" content="no" />
+		<meta name="HandheldFriendly" content="true" />
+		<meta name="MobileOptimized" content="320" />
+		<title>My Oracle WiFi</title>
+		<script type="text/javascript" src="../js/common.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			 //取消浏览器的所有事件，使得active的样式在手机上正常生效
+			document.addEventListener('touchstart', function() {
+				return false;
+			}, true);
+			 // 禁止选择
+			document.oncontextmenu = function() {
+				return false;
+			};
+			 // H5 plus事件处理
+			var as = 'slide-in-right',
+				at = 200; // 默认动画时间
+			function plusReady() {
+				// 隐藏滚动条
+				plus.webview.currentWebview().setStyle({
+					scrollIndicator: 'none'
+				});
+				// Android处理返回键
+				plus.key.addEventListener('backbutton', function() {
+					if (confirm('确认退出？')) {
+						plus.runtime.quit();
+					}
+				}, false);
+				compatibleAdjust();
+			}
+			if (window.plus) {
+				plusReady();
+			} else {
+				document.addEventListener('plusready', plusReady, false);
+			}
+			 // DOMContentLoaded事件处理
+			var _domReady = false;
+			document.addEventListener('DOMContentLoaded', function() {
+				_domReady = true;
+				compatibleAdjust();
+			}, false);
+			 // 兼容性样式调整
+			var _adjust = false;
+
+			function compatibleAdjust() {
+					if (_adjust || !window.plus || !_domReady) {
+						return;
+					}
+					_adjust = true;
+					// iOS平台使用div的滚动条
+					if ('iOS' == plus.os.name) {
+						as = 'pop-in';
+						at = 300;
+						document.getElementById('content').className = 'scontent';
+					}
+					// 关闭启动界面
+					setTimeout(function() {
+						plus.navigator.closeSplashscreen();
+					}, 500);
+				}
+				// 处理点击事件
+			var _openw = null;
+
+			function clicked(id) {
+					if (_openw) {
+						return;
+					}
+					_openw = preate[id];
+					if (_openw) {
+						if (_openw.showded) {
+							_openw.show(as, at);
+						} else {
+							_openw.show(as, at);
+							_openw.showded = true;
+						}
+						_openw = null;
+					} else {
+						var wa = plus.nativeUI.showWaiting();
+						_openw = plus.webview.create(id, id, {
+							scrollIndicator: 'none',
+							scalable: false,
+							popGesture: 'hide'
+						}, {
+							preate: true
+						});
+						preate[id] = _openw;
+						_openw.addEventListener('loaded', function() { //叶面加载完成后才显示
+							//		setTimeout(function(){//延后显示可避免低端机上动画时白屏
+							wa.close();
+							_openw.show(as, at);
+							_openw.showded = true;
+							_openw = null;
+							//		},200);
+						}, false);
+						_openw.addEventListener('close', function() { //页面关闭后可再次打开
+							_openw = null;
+							preate[id] && (preate[id] = null); //兼容窗口的关闭
+						}, false);
+					}
+				}
+				// 预创建二级页面
+			var preate = {};
+		</script>
+		<style>
+			.fbt {
+				margin-bottom: 3px;
+				background-color: #FFCC33;
+				padding: 3px;
+				padding-top: 6px;
+				width: auto;
+				height: 25px;
+				text-align: center;
+				vertical-align: middle;
+				font-weight: bold;
+				-moz-user-select: none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+				-khtml-user-select: none;
+				user-select: none;
+				border: #103E5C solid 1px;
+			}
+			.fbt:active {
+				box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.5);
+				border: #1E90FF solid 1px;
+			}
+			.fbt-big {
+				background-color: #1E90FF;
+				color: white;
+			}
+			.data-plane {
+				width: 100%;
+				margin-bottom: 5px;
+			}
+			.data-plane input {
+				height: 25px;
+				margin-bottom: 3px;
+			}
+			body {
+				padding: 5px;
+			}
+			.button-plane div {
+				display: inline-block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--<iframe src="" style="width: 100%;"></iframe>-->
+		<div class="data-plane">
+			<div>
+				<input type="text" name="usename" value="guest" />
+				<input type="text" name="password" value="" , placeholder="password" />
+			</div>
+		</div>
+		<div class="button-plane">
+			<div class="fbt" onclick='clicked("scaner.html",true,true)'>扫一扫</div>
+			<div class="fbt fbt-big" onclick="loadWiFiPorto()">&gt; Oracle WiFi &lt;</div>
+		</div>
+
+		<script>
+			var wifiUrl = 'https://webauth-redirect.oracle.com/fs/customwebauth/login.html?switch_url=https://webauth-redirect.oracle.com/login.html&ap_mac=34:db:fd:36:bc:c0&wlan=clear-guest';
+
+			function loadWiFiPorto() {
+				var pass_currentview = document.getElementsByName("password")[0].value;
+				var wifi = plus.webview.create(wifiUrl, 'owifi', {}, {
+					username: 'guest',
+					password: pass_currentview
+				});
+				wifi.appendJsFile('js/oracle-wifi-auth.js');
+				wifi.show();
+			}
+
+			function scaned(t, r) {
+				console.log('Type = ' + t + ',Result=' + r);
+				document.getElementsByName("password")[0].value = r;
+				loadWiFiPorto();
+			}
+		</script>
+	</body>
+
+</html>

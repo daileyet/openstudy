@@ -1,0 +1,20 @@
+Americas
+	https://gmp.oracle.com/captcha/files/airespace_pwd.txt
+
+JAPAC
+	https://gmp.oracle.com/captcha/files/airespace_pwd_apac.txt
+
+EMEA
+	https://gmp.oracle.com/captcha/files/airespace_pwd_emea.txt
+
+
+
+https://webauth-redirect.oracle.com/fs/customwebauth/login.html?switch_url=https://webauth-redirect.oracle.com/login.html&ap_mac=34:db:fd:36:bc:c0&client_mac=60:67:20:52:aa:c6&wlan=clear-guest&redirect=www.baidu.com/
+
+
+https://webauth-redirect.oracle.com/fs/customwebauth/login.html?username=guest&password=i5FanCY2
+https://webauth-redirect.oracle.com/fs/customwebauth/login.html?switch_url=https://webauth-redirect.oracle.com/login.html&username=guest&password=i5FanCY2
+
+
+
+https://webauth-redirect.oracle.com/fs/customwebauth/login.html?switch_url=https://webauth-redirect.oracle.com/login.html&ap_mac=34:db:fd:36:bc:c0&client_mac=60:67:20:52:aa:c6&wlan=clear-guest&redirect=openthinks.sinaapp.com/1/openthinks/index.htm

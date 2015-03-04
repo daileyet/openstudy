@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Bug 29649</title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<style>
+			/*div.bug-row:before {
+				content: url(https://apex.oraclecorp.com/i/jtfunexe.gif);
+				margin-left: -20px;
+				display: inline-block;
+					
+				-ms-cursor: pointer;
+				-moz-cursor: pointer;
+				-webkit-cursor: pointer;
+				cursor: pointer;
+			}*/
+			/*div.bug-row:hover:before{
+				-ms-transform: rotate(90deg);
+				-moz-transform: rotate(90deg);
+				-webkit-transform: rotate(90deg);
+				transform: rotate(90deg);
+				
+				-ms-transition: 300s;
+				-moz-transition: 300s;
+				-webkit-transform: 300s;
+				transition:300s;
+			}*/
+			
+			div.bug-row {
+				padding-bottom: 2px;
+			}
+			div.bug-row img {
+				width: 18px;
+				height: 18px;
+				margin-bottom: -5px;
+				background: url(https://apex.oraclecorp.com/i/jtfunexe.gif) no-repeat;
+				cursor: pointer;
+			}
+			div.bug-row img.expand {
+				-ms-transform: translateX(-3px) rotate(90deg);
+				-moz-transform: translateX(-3px) rotate(90deg);
+				-webkit-transform: translateX(-3px) rotate(90deg);
+				transform: -translateX(-3px) rotate(90deg);
+			}
+			div.bug-row div {
+				display: none;
+				border-top: #0067CB 1px solid;
+				background: rgba(211, 222, 255, 0.8);
+				box-shadow: 2px 2px 5px rgba(112, 128, 144, 0.9);
+			}
+			div.bug-row div ul,
+			div.bug-row div ul li {
+				margin: 0;
+				padding: 0;
+				font-size: 10px;
+				list-style: none;
+				display: table-row;
+			}
+			div.bug-row div ul label {
+				font-weight: bold;
+				color: DodgerBlue;
+				padding-left: 2px;
+				display: table-cell;
+			}
+			div.bug-row div ul span {
+				font-weight: bold;
+				display: table-cell;
+				padding-left: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="bug-row">
+			<a target="_blank" href="https://bug.oraclecorp.com/pls/bug/webbug_print.show?c_rptno=18709894">18709894(96)</a>&nbsp;
+			<span>Oracle Fusion Goal Management</span>
+			<div data-file="02-MAY-2014" data-close="05-MAY-2014" data-duration="3">
+			</div>
+		</div>
+		<div class="bug-row">
+			<a target="_blank" href="https://bug.oraclecorp.com/pls/bug/webbug_print.show?c_rptno=18549005">18549005(90)</a>&nbsp;
+			<span>Oracle Fusion Goal Management</span>&nbsp;
+			<a target="_blank" href="https://bug.oraclecorp.com/pls/bug/webbug_print.show?c_rptno=18667738">18667738</a>(Base)
+			<div data-file="02-MAY-2014" data-close="05-MAY-2014" data-duration="3">
+			</div>
+
+			<script>
+
+				(function() {
+					var bugDatesTemplate = '<table><tr><td><label>{file_lable}</label></td><td><span>{file_value}</span></td></tr>' +
+						'<tr><td><label>{closed_lable}</label></td><td><span>{closed_value}</span></td></tr>' +
+						'<tr><td><label>{duration_lable}</label></td><td><span>{duration_value}</span></td></tr></table>';
+
+					bugDatesTemplate = '<ul><li><label>{file_lable}</label><span>{file_value}</span></li>' +
+						'<li><label>{closed_lable}</label><span>{closed_value}</span></li>' +
+						'<li><label>{duration_lable}</label><span>{duration_value}</span></li></ul>';
+					$(document).ready(function() {
+						$('.bug-row div').each(function() {
+							var $each = $(this);
+							var innerHtml =
+								bugDatesTemplate
+								.replace('{file_lable}', 'Bug File Date')
+								.replace('{file_value}', $each.data('file'))
+								.replace('{closed_lable}', 'Bug Closed Date')
+								.replace('{closed_value}', $each.data('close'))
+								.replace('{duration_lable}', 'Bug Duration(days)')
+								.replace('{duration_value}', $each.data('duration'));
+							$each.html(innerHtml);
+						});
+						if ($('.bug-row div').length > 0) {
+							$('<img src="https://apex.oraclecorp.com/i/f_spacer.gif" />').insertBefore($('.bug-row div').parent().children('a:nth-child(1)'));
+							$('div.bug-row img').click(function() {
+								$(this).toggleClass('expand');
+								if ($(this).hasClass('expand')) {
+									$(this).parent().find('div').show();
+								} else {
+									$(this).parent().find('div').hide();
+								}
+							});
+						}
+					});
+				})();
+			</script>
+
+	</body>
+
+</html>

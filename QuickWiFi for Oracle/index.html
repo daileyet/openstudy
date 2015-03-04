@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/icomoon.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-icon mui-icon-home mui-pull-left" href="javascript:homenote()"></a>
+			<h1 class="mui-title">Quick WiFi</h1>
+		</header>
+		<script type="text/javascript">
+				var list = null,
+					main = null;
+			mui.init({
+				swipeBack: false,
+				statusBarBackground: '#f7f7f7',
+				subpages: [{
+					id: 'main-content',
+					url: 'main-content.html',
+					styles: {
+						top: '48px',
+						bottom: 0,
+						bounce: 'vertical'
+					}
+				}]
+			});
+
+			mui.plusReady(function() {
+				if (mui.os.android) {
+					plus.screen.lockOrientation("portrait-primary");
+				}
+				main = plus.webview.currentWebview();
+				//TODOD
+			});
+
+			 //首页返回键处理
+			 //处理逻辑：1秒内，连续两次按返回键，则退出应用；
+			var first = null;
+			mui.back = function() {
+					//首次按键，提示‘再按一次退出应用’
+					if (!first) {
+						first = new Date().getTime();
+						mui.toast('再按一次退出应用');
+						setTimeout(function() {
+							first = null;
+						}, 1000);
+					} else {
+						if (new Date().getTime() - first < 1000) {
+							plus.runtime.quit();
+						}
+					}
+			};
+			
+			function homenote(){
+				list = plus.webview.getWebviewById('main-content');
+				if(list){
+					mui.fire(list,'homedesc');
+				}
+			}
+		</script>
+	</body>
+
+</html>
