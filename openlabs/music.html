@@ -12,7 +12,9 @@
 		<meta name="viewport" content="width=device-width,user-scalable=no" />
 		<link rel="shortcut icon" href="images/favicon.ico" />
 		<link rel="stylesheet" href="css/youdao-music.min.css">
+		<link rel="stylesheet" href="css/navigation.css" />
 		<script type="text/javascript" src="js/jquery/jquery.min.js"></script>
+		<script src="js/widgets/navigation.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" src="js/youdao-music.min.js"></script>
 	</head>
 
@@ -48,6 +50,7 @@
 					playSel: '#youaudio',
 					lyricSel:'.audio-lyric'
 				});
+				ot.widgets.navigation.active('body','Music');
 			});
 		</script>
 	</body>

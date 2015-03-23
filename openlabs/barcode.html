@@ -10,11 +10,13 @@
 		<link rel="stylesheet" type="text/css" href="css/metro-bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="css/metro-bootstrap-responsive.css" />
 		<link rel="stylesheet" type="text/css" href="css/iconFont.css" />
+		<link rel="stylesheet" href="css/navigation.css" />
 		<script src="js/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery/jquery.widget.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery/jquery.mousewheel.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/metro.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/widgets/barcode-gen.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/widgets/navigation.js" type="text/javascript" charset="utf-8"></script>
 		<style>
 			.my-list {
 				display: block;
@@ -32,46 +34,11 @@
 				color: #555;
 				margin-bottom: 0px;
 			}
-			.open-navbar {} .open-navbar div:hover {
-				margin-top: 18px;
-			}
-			.open-navbar div:hover span {
-				display: inline;
-				user-select: none;
-			}
-			.open-navbar div span {
-				-webkit-user-select: none;
-				/* Chrome/Safari */
-				
-				-moz-user-select: none;
-				/* Firefox */
-				
-				-ms-user-select: none;
-				/* IE10+ */
-				/* Rules below not implemented in browsers yet */
-				
-				-o-user-select: none;
-				user-select: none;
-			}
-			.open-navbar div:active span {
-				color: red;
-			}
-			.open-navbar div span {
-				display: none;
-			}
 		</style>
 	</head>
 
 	<body class="metro">
-
 		<div class="container">
-			<div style="position:fixed;top:-18px;margin: auto;z-index: 999;" class="open-navbar">
-				<div title="主页" style="cursor:pointer;margin-left:1px;border-bottom:1px solid #004050;color:whitesmoke;opacity:.8;float:left;border-bottom-left-radius:5px ;border-bottom-right-radius:5px ;background-color: #0067B0;width: 70px;height:25px; line-height:25px;text-align: center;"><span>Index</span>
-				</div>
-				<div style="cursor:pointer;margin-left:1px;border-bottom:1px solid #004050;color:whitesmoke;opacity:.8;float:left;border-bottom-left-radius:5px ;border-bottom-right-radius:5px ;background-color: #007100;width: 70px;height:25px;line-height:25px;text-align: center;"><span>Music</span>
-				</div>
-
-			</div>
 			<fieldset>
 				<legend>
 					二维码简易生成器
@@ -219,6 +186,7 @@
 		<script>
 			$(document).ready(function() {
 				ot.widgets.barcodeGen.actionRegiester();
+				ot.widgets.navigation.active($("div.container"),'Barcode');
 			});
 		</script>
 	</body>

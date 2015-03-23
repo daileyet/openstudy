@@ -27,7 +27,7 @@
 					if($('input[data-target="'+sParam+'"]').prop("checked")){
 						sVal=sVal.replace("#","");
 					}else{
-						return;
+						return true;
 					}
 				}
 				aParams.push(sParam+"="+sVal);
@@ -66,6 +66,9 @@
 		});
 	};
 
+	/**
+	 * entry, need call in page dom ready
+	 */
 	var actionRegiester = barcodeGen.actionRegiester = function(){
 		$("#btnGenerator").click(function() {
 			var listContainer = $("#barcodeDisply .group-content .barcode-list-content");
