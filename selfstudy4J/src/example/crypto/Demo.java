@@ -19,9 +19,9 @@ public class Demo {
 	
 	public static void main(String[] args) throws Exception {
 		
-		testAES();
+//		testAES();
 		
-//		testXOR();
+		testXOR();
 	}
 
 	private static void testAES() throws Exception {
@@ -46,8 +46,10 @@ public class Demo {
 	static void testXOR(){
 		String data = "这是一段测试文本";
 		String XOR = "CRYPT@OPENTHINKS";
+		String XOR2 = "CRYPT2OPENTHINKS";
 		byte[] byteData = data.getBytes();
 		byte[] byteXOR = XOR.getBytes();
+		byte[] byteXOR2 = XOR2.getBytes();
 		for(int i=0;i<16;i++){
 			byteData[i] = (byte) (byteData[i] ^ byteXOR[i]);
 		}
@@ -56,7 +58,7 @@ public class Demo {
 		System.out.println();
 		
 		for(int i=0;i<16;i++){
-			byteData[i] = (byte) (byteData[i] ^ byteXOR[i]);
+			byteData[i] = (byte) (byteData[i] ^ byteXOR2[i]);
 		}
 		System.out.println("再次异或后数据: byte[]:"+showByteArray(byteData));
 		System.out.println("再次异或后数据: string:"+new String(byteData));

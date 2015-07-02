@@ -8,94 +8,75 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileChannel.MapMode;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CompletionService;
+import java.util.concurrent.ExecutorCompletionService;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import example.crypto.DAESer;
 
 public class MappedByteBufferDemo {
-	private static String  showByteArray(byte[] data){
-		if(null == data){
-			return null;
-		}
-		StringBuilder sb = new StringBuilder("{");
-		for(byte b:data){
-			sb.append(b).append(",");
-		}
-		sb.deleteCharAt(sb.length()-1);
-		sb.append("}");
-		return sb.toString();
-	}
+
 	public static void main(String[] args) throws Exception {
-		final String MARK_EOF = "CRYPT@OPENTHINKS";
+		final int MIX_LEN = 32;
 		final String MARK_XOR = "CRYPT@OPENTHINKS";
 		final byte[] BYTE_MARK_XOR = MARK_XOR.getBytes();
-		final  DAESer daeSer = new DAESer("123456");
-		
-		File file = new File("D:\\20140915_143801.jpg");
-		file =new File("D:\\bookmark.html");
+		final DAESer daeSer = new DAESer("123456");
+		final File file = new File("D:\\mypicture.jpg");
+		final RandomAccessFile randomFile = new RandomAccessFile(file, "rw");
+		final FileChannel fileChannel = randomFile.getChannel();
+		final byte[] encryptXOR = daeSer.encrypt(BYTE_MARK_XOR);
+		final int BLOCK_SPACE = 1;
+		// file = new File("D:\\bookmark.html");
 		long fileSize = file.length();
-		System.out.println("File length: "+ fileSize/1024 +"KB");
-		System.out.println("File modify date: "+ new Date(file.lastModified()));
-		RandomAccessFile randomFile = new RandomAccessFile(file, "rw");
-		FileChannel fileChannel = randomFile.getChannel();
-		MappedByteBuffer mappedByteBuffer =  fileChannel.map(MapMode.READ_ONLY, fileSize-32, 32);
-		byte[] buffer = new byte[32];
-		mappedByteBuffer.get(buffer);
-		byte[] decryptMarked;
-		try {
-			decryptMarked = daeSer.decrypt(buffer);
-		} catch (Exception e) {
-			decryptMarked = new byte[]{0};
-		}
-		String endEOF = new String(decryptMarked);
-		System.out.println("32bytes : "+showByteArray(buffer));
-		System.out.println("32bytes=>string : "+endEOF);
-		if(MARK_EOF.equals(endEOF)){
-			System.out.println("This file has been encrypt by OPENTHINKS AES");
-			System.out.println("Decrypt...");
-			//go to first
-			byte[] header = new byte[32];
-			mappedByteBuffer =  fileChannel.map(MapMode.READ_WRITE, 0, 32);
-			mappedByteBuffer.get(header);
-			byte[] encryptXOR = daeSer.encrypt(BYTE_MARK_XOR);
-			for(int i=0;i<32;i++){
-				header[i] = (byte) (header[i] ^ encryptXOR[i]);
-				mappedByteBuffer.put(i, header[i]);
-			}
-			mappedByteBuffer.force();
-			mappedByteBuffer.clear();
-			//go to last
-			byte[] ender = new byte[32];
-			mappedByteBuffer =  fileChannel.map(MapMode.READ_WRITE, fileSize-32, 32);
-			mappedByteBuffer.get(ender);
-			for(int i=0;i<ender.length;i++){
-				mappedByteBuffer.put(i, (byte)0);
-			}
-			mappedByteBuffer.force();
-			mappedByteBuffer.clear();
+		System.out.println("File length: " + fileSize / 1024 + "KB");
+		System.out
+				.println("File modify date: " + new Date(file.lastModified()));
+		
+		long file_block_count = fileSize / MIX_LEN;
+		final ExecutorService executorService =Executors.newCachedThreadPool();
+		final CompletionService<String> competeService = new ExecutorCompletionService<String>(
+				executorService);
+		
+		for (int blockNum = 0; blockNum < file_block_count;) {
+			int blockStart = blockNum * MIX_LEN;
+			competeService.submit(new Callable<String>() {
+				@Override
+				public String call() throws Exception {
+					mixFileBlock(MIX_LEN,blockStart,encryptXOR,fileChannel);
+					return "SUCCESS on "+blockStart;
+				}
+			});
 			
-			System.out.println("Decrypt by OPENTHINKS AES completed!");
+			blockNum = blockNum + BLOCK_SPACE;
 		}
-		else{
-			System.out.println("This file has not been encrypt by OPENTHINKS AES");
-			System.out.println("Encypt...");
-			byte[] marked =MARK_EOF.getBytes();
-			byte[] encryptMarked = daeSer.encrypt(marked);
-			randomFile.seek(fileSize);
-			randomFile.write(encryptMarked);
-			//go to first
-			byte[] header = new byte[32];
-			mappedByteBuffer =  fileChannel.map(MapMode.READ_WRITE, 0, 32);
-			mappedByteBuffer.get(header);
-			byte[] encryptXOR = daeSer.encrypt(BYTE_MARK_XOR);
-			for(int i=0;i<32;i++){
-				header[i] = (byte) (header[i] ^ encryptXOR[i]);
-				mappedByteBuffer.put(i, header[i]);
-			}
-			mappedByteBuffer.force();
-			mappedByteBuffer.clear();
-			System.out.println("Encypt by OPENTHINKS AES completed!");
+		long s_t = new Date().getTime();
+		for(int blockNum = 0; blockNum < file_block_count;){
+			Future<String> future = competeService.take();
+			//System.out.println(future.get());
+			blockNum = blockNum + BLOCK_SPACE;
 		}
+		long e_t = new Date().getTime();
+		System.out.println(e_t-s_t);
+		executorService.shutdown();
 		randomFile.close();
 	}
-	
+
+	private static void mixFileBlock(final int MIX_LEN,
+			final int MIXED_START_POSITION, final byte[] encryptXOR,
+			FileChannel fileChannel) throws Exception {
+		MappedByteBuffer mappedByteBuffer = fileChannel.map(MapMode.READ_WRITE,
+				MIXED_START_POSITION, MIX_LEN);
+		byte[] header = new byte[MIX_LEN];
+		mappedByteBuffer.get(header);
+		for (int i = 0; i < header.length; i++) {
+			header[i] = (byte) (header[i] ^ encryptXOR[i]);
+			mappedByteBuffer.put(i, header[i]);
+		}
+		mappedByteBuffer.force();
+		mappedByteBuffer.clear();
+	}
+
 }
