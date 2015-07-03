@@ -50,6 +50,10 @@ public class Demo {
 		byte[] byteData = data.getBytes();
 		byte[] byteXOR = XOR.getBytes();
 		byte[] byteXOR2 = XOR2.getBytes();
+		
+		System.out.println(showByteArray(byteXOR));
+		
+		
 		for(int i=0;i<16;i++){
 			byteData[i] = (byte) (byteData[i] ^ byteXOR[i]);
 		}
