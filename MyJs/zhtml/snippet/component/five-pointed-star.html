@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>七龙珠</title>
+<style type="text/css">
+*{ margin:0; padding:0;}
+/*编写龙珠的球形及透视效果*/
+.ball{
+width:200px;
+height:200px;
+margin:auto;
+margin-top:20px;
+background-color:#FC0;
+border-radius: 100px;
+position:relative;
+overflow:hidden;
+}
+.ball:before{
+content:" ";
+position:absolute;
+width:10px;
+height:10px;
+background:rgba(255,255,255,0.9);
+border:none;
+border-radius:5px;
+box-shadow:0 0 15px 15px rgba(255,255,255,0.6),0 0 30px 30px rgba(255,255,255,0.5),
+0 0 80px 80px rgba(255,255,255,0.4);
+top:35%;
+left:17%;
+z-index:10;
+}
+.ball:after{
+content:" ";
+position:absolute;
+width:7px;
+height:7px;
+background:rgba(255,255,255,0.7);
+border:none;
+border-radius:5px;
+box-shadow:0 0 15px 15px rgba(255,255,255,0.4),0 0 45px 45px rgba(255,255,255,0.3);
+top:75%;
+left:80%;
+z-index:10;
+}
+.ball span{
+display:block;
+width:400px;
+height:400px;
+background-color:#FF0;
+opacity:0.15;
+border-radius:200px;
+position:absolute;
+top:-23%;
+left:23%;
+}
+/*编写五角星的样式*/
+.star{
+    position: relative;
+    display: block;
+    color: red;
+    width: 0px;
+    height: 0px;
+    border-right: 40px solid transparent;
+    border-bottom: 26px solid red;
+    border-left: 40px solid transparent;
+    
+}
+.star:before {
+    border-bottom: 30px solid red;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -20px;
+    left: -27px;
+    display: block;
+    content: '';
+    -webkit-transform: rotate(-35deg);
+}
+.star:after {
+    position: absolute;
+    display: block;
+    color: red;
+    top: 3px;
+    left: -45px;
+    width: 0px;
+    height: 0px;
+    border-right: 40px solid transparent;
+    border-bottom: 26px solid red;
+    border-left: 40px solid transparent;
+    -webkit-transform: rotate(-70deg);
+    content: '';
+}
+/*对五角星进行定位*/ 
+div[class^="star star"]{ -webkit-transform: rotate(35deg) scale(0.5);}
+div[class^="star star-1"]{ -webkit-transform: rotate(35deg) scale(0.8);}
+div[class^="star star-2"]{ -webkit-transform: rotate(35deg) scale(0.7);}
+div[class^="star star-3"]{ -webkit-transform: rotate(35deg) scale(0.6);}
+
+.star-1-1{ top:45%; left:30%;}
+
+.star-2-1{ top:48%; left:13%;}
+.star-2-2{ top:35%; left:50%;}
+
+.star-3-1{ top:25%; left:30%;}
+.star-3-2{ top:45%; left:13%;}
+.star-3-3{ top:32%; left:50%;}
+
+.star-4-1{ top:33%; left:15%;}
+.star-4-2{ top:20%; left:48%;}
+.star-4-3{ top:40%; left:15%;}
+.star-4-4{ top:27%; left:48%;}
+
+.star-5-1{top:30%; left:15%;}
+.star-5-2{top:17%; left:48%;}
+.star-5-3{top:40%; left:15%;}
+.star-5-4{top:27%; left:48%;}
+.star-5-5{ top:-3%; left:30%;}
+
+.star-6-1{top:36%; left:8%;}
+.star-6-2{top:23%; left:54%;}
+.star-6-3{top:40%; left:18%;}
+.star-6-4{top:27%; left:45%;}
+.star-6-5{top:-4%; left:30%;}
+.star-6-6{ top:-43%; left:30%;}
+
+.star-7-1{top:36%; left:8%;}
+.star-7-2{top:23%; left:54%;}
+.star-7-3{top:40%; left:8%;}
+.star-7-4{top:27%; left:54%;}
+.star-7-5{top:-4%; left:30%;}
+.star-7-6{ top:-43%; left:30%;}
+.star-7-7{top:0; left:30%;}
+</style>
+</head>
+
+<body>
+<div class="ball">
+    <span></span>
+        <div class="star star-1-1"></div>
+    </div>
+    <div class="ball">
+    <span></span>
+        <div class="star star-2-1"></div>
+        <div class="star star-2-2"></div>
+    </div>
+    <div class="ball">
+    <span></span>
+        <div class="star star-3-1"></div>
+        <div class="star star-3-2"></div>
+        <div class="star star-3-3"></div>
+    </div>
+    <div class="ball">
+    <span></span>
+        <div class="star star-4-1"></div>
+        <div class="star star-4-2"></div>
+        <div class="star star-4-3"></div>
+        <div class="star star-4-4"></div>
+    </div>
+    <div class="ball">
+    <span></span>
+        <div class="star star-5-1"></div>
+        <div class="star star-5-2"></div>
+        <div class="star star-5-3"></div>
+        <div class="star star-5-4"></div>
+        <div class="star star-5-5"></div>
+    </div>
+    <div class="ball">
+    <span></span>
+        <div class="star star-6-1"></div>
+        <div class="star star-6-2"></div>
+        <div class="star star-6-3"></div>
+        <div class="star star-6-4"></div>
+        <div class="star star-6-5"></div>
+        <div class="star star-6-6"></div>
+    </div>
+    <div class="ball">
+    <span></span>
+        <div class="star star-7-1"></div>
+        <div class="star star-7-2"></div>
+        <div class="star star-7-3"></div>
+        <div class="star star-7-4"></div>
+        <div class="star star-7-5"></div>
+        <div class="star star-7-6"></div>
+        <div class="star star-7-7"></div>
+    </div>
+</body>
+</html>

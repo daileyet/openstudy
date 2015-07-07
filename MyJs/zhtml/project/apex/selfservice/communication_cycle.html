@@ -1,0 +1,68 @@
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style type="text/css">
+		.expand-float{
+			position: absolute;
+			width: 38px;
+			height:40px;
+			right:0px;
+			top:0px;
+			background:url(expand_left.png);
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			cursor: pointer;
+			z-index: 10000;
+			opacity: .1;
+		}
+		.expand-float:hover{
+			opacity: .5;
+		}
+		.expand-roate{
+			transform: rotate(180deg);
+			-webkit-transform: rotate(180deg);
+			-moz-transform: rotate(180deg);
+			-ms-transform:rotate(180deg);
+		}
+		</style>
+		<script type="text/javascript" src="../../../../js/jquery-2.0.0.min.js"></script>
+		<script type="text/javascript" src="../../../../js/external/dracula/raphael-min.js"></script>
+		<script type="text/javascript" src="../../../../js/external/dracula/dracula_graffle.js"></script>
+		<script type="text/javascript" src="../../../../js/external/dracula/dracula_graph.js"></script>
+		<script src="cycle_data.js"></script>
+		<script src="communication_cycle_layout.js"></script>
+		<script type="text/javascript" src="communication_cycle_v2.js"></script>
+		<!--<script type="text/javascript" src="communication_cycle_prod.js"></script>-->
+	</head>
+
+	<body>
+
+		<div id="out-container" style="width:auto;height:200px;overflow-y: auto;border: 1px solid gray;position: relative;">
+			<div id="container" style="width:100%;height:100%;">
+			</div>
+			<div class="expand-float"></div>
+		</div>
+
+		<script type="text/javascript">
+			$('#container').emailCycle({
+				data: cycle_datas,
+				maxCols: 5,
+				afterRender:function(){
+					console.log('click');
+				}
+			});
+			$('.expand-float').click(function(){
+				var isExpand = $(this).hasClass('expand-roate');
+				if(!isExpand){
+					$('#out-container').css('height',$('#container').height());
+				}else{
+					$('#out-container').css('height',200);
+				}
+				$(this).toggleClass('expand-roate');
+			});
+		</script>
+
+	</body>
+
+</html>

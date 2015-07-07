@@ -140,10 +140,12 @@ Graph.Renderer = {};
  * Renderer implementation using RaphaelJS
  */
 Graph.Renderer.Raphael = function(element, graph, width, height) {
+	this.left_margin = 20;
     this.width = width || 400;
     this.height = height || 400;
     var selfRef = this;
     this.r = Raphael(element, this.width, this.height);
+    this.r.clear();
     this.r.setViewBox(0,0,this.width,this.height,true);
     this.r.setSize('100%','100%');
     this.radius = 50; /* max dimension of a node */
@@ -219,7 +221,7 @@ Graph.Renderer.Raphael.prototype = {
     },
 
     draw: function() {
-        this.factorX = (this.width - 2 * this.radius) / (this.graph.layoutMaxX - this.graph.layoutMinX);
+        this.factorX = (this.width - 3 * this.radius) / (this.graph.layoutMaxX - this.graph.layoutMinX);
         this.factorY = (this.height - 2 * this.radius) / (this.graph.layoutMaxY - this.graph.layoutMinY);
         for (i in this.graph.nodes) {
             this.drawNode(this.graph.nodes[i]);
@@ -237,8 +239,8 @@ Graph.Renderer.Raphael.prototype = {
         if(node.shape) {
             var oBBox = node.shape.getBBox();
             
-            var opoint = { x: oBBox.x + oBBox.width / 2, y: oBBox.y + oBBox.height / 2};
-            node.shape.translate(Math.round(point[0] - opoint.x), Math.round(point[1] - opoint.y));
+            var opoint = { x: oBBox.x + oBBox.width / 2  , y: oBBox.y + oBBox.height / 2};
+            node.shape.translate(Math.round(point[0] - opoint.x)+this.left_margin, Math.round(point[1] - opoint.y));
             this.r.safari();
             return node;
         }/* else, draw new nodes */
@@ -283,7 +285,7 @@ Graph.Renderer.Raphael.prototype = {
         shape.mousedown(this.dragger);
 
         var box = shape.getBBox();
-        shape.translate(Math.round(point[0]-(box.x+box.width/2)),Math.round(point[1]-(box.y+box.height/2)))
+        shape.translate(Math.round(point[0]-(box.x+box.width/2))+this.left_margin,Math.round(point[1]-(box.y+box.height/2)))
         //console.log(box,point);
         node.hidden || shape.show();
         node.shape = shape;

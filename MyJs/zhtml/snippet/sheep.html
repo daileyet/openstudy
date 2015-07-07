@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>我是一只羊</title>
+<style>
+* { margin:0; padding:0;}
+body:before { position:absolute; top:0; bottom:0; left:0; right:0; content:'';
+	background: #67c6dc;
+	background: -webkit-linear-gradient(top, #67c6dc 80%, #9ac25f 80%);
+	background: -moz-linear-gradient(top, #67c6dc 80%, #9ac25f 80%);
+	background: -ms-linear-gradient(top, #67c6dc 80%, #9ac25f 80%);
+	background: linear-gradient(to bottom, #67c6dc 80%, #9ac25f 80%);
+}
+body:after { position:absolute; bottom:10%; left:0; width:100%; content:'click me!!'; font:700 30px 'microsoft yahei'; text-align:center; opacity:.5;}
+
+/* 大白：我是一只响应式的羊... */
+.sheep { position:relative; z-index:1; width:100%; padding:80% 0; background:#FBFBF3; border-radius:40% 50% 30% 30%; cursor:pointer;}
+
+/* 棉花糖 */
+.sheep i { position:absolute; z-index:1; top:0; left:5%; display:block; width:0; height:0; padding:10%; background:#FBFBF3; border-radius:50%;}
+.sheep i:nth-child(2) { top:-3.5%; left:20%;}
+.sheep i:nth-child(3) { top:-5%; left:34%;}
+.sheep i:nth-child(4) { top:-4.5%; left:46%;}
+.sheep i:nth-child(5) { top:0; left:58%;}
+.sheep i:nth-child(6) { top:7%; left:62%; padding:16%;}
+.sheep i:nth-child(7) { top:20%; left:78%; padding:14%;}
+.sheep i:nth-child(8) { top:34%; left:87%;}
+.sheep i:nth-child(9) { top:44%; left:90%;}
+.sheep i:nth-child(10) { top:54%; left:88%; padding:12%;}
+.sheep i:nth-child(11) { top:67%; left:92%;}
+.sheep i:nth-child(12) { top:77%; left:83%; padding:12%;}
+.sheep i:nth-child(13) { top:83%; left:66%; padding:15%;}
+.sheep i:nth-child(14) { top:91%; left:56%;}
+.sheep i:nth-child(15) { top:90%; left:33%; padding:13%;}
+.sheep i:nth-child(16) { top:91%; left:17%;}
+.sheep i:nth-child(17) { top:83%; left:0%; padding:13%;}
+.sheep i:nth-child(18) { top:71%; left:-8%; padding:12%;}
+.sheep i:nth-child(19) { top:60%; left:-11%;}
+.sheep i:nth-child(20) { top:50%; left:-11%;}
+.sheep i:nth-child(21) { top:42%; left:-8%;}
+.sheep i:nth-child(22) { top:32%; left:-10%;}
+.sheep i:nth-child(23) { top:18%; left:-9%; padding:13%;}
+.sheep i:nth-child(24) { top:9%; left:-5%;}
+
+/* 挂羊头，卖xx... */
+.sheep .face { position:absolute; z-index:1; top:15%; left:20%; display:block; width:60%; padding:28% 0; background:#FDE5C9; border-radius:50%; -webkit-transform:rotate(-7deg); -moz-transform:rotate(-7deg); -ms-transform:rotate(-7deg); transform:rotate(-7deg);}
+.sheep .face:before,
+.sheep .face:after { position:absolute; top:55%; left:-6%; display:block; padding:8% 15%; background:#FEB9B2; content:''; opacity:.7; border-radius:50%;}
+.sheep .face:after { left:auto; right:-6%;}
+.sheep .face i { top:-5%; left:-5%; padding:15%;}
+.sheep .face i:nth-child(2) { top:-14%; left:16%;}
+.sheep .face i:nth-child(3) { top:-11%; left:43%;}
+.sheep .face i:nth-child(4) { top:-6%; left:70%;}
+
+.sheep .face .ears:before,
+.sheep .face .ears:after { position:absolute; z-index:1; top:-13%; left:-20%; display:block; padding:19% 8%; background:#FEE1C3; content:''; border-radius:30% 70% 70% 30%/50% 70% 30% 30%; -webkit-transform:rotate(37deg); -moz-transform:rotate(37deg); -ms-transform:rotate(37deg); transform:rotate(37deg);}
+.sheep .face .ears:after { top:-11%; left:auto; right:-13%; border-radius:70% 30% 30% 70%/70% 50% 30% 30%; -webkit-transform:rotate(-37deg); -moz-transform:rotate(-37deg); -ms-transform:rotate(-37deg); transform:rotate(-37deg);}
+
+.sheep .face .eyes li { position:absolute; top:38%; left:20%; display:block; width:9%; height:9%; background:#666; list-style:none; border-radius:50%;}
+.sheep .face .eyes li:before { position:absolute; top:20%; left:50%; display:block; padding:13%; background:#fff; border-radius:50%; content:'';}
+.sheep .face .eyes li:last-child { left:auto; right:20%;}
+.sheep .face .eyes li:last-child:before { left:auto; right:50%;}
+
+.sheep .face .nose { position:absolute; top:50%; left:47%; display:block; width:11%; height:11%; background:#666; border-radius:50%;}
+.sheep .face .nose:before { position:absolute; top:100%; left:45%; display:block; padding:30% 10%; background:#999; content:'';}
+
+.sheep .face .mouth { position:absolute; top:68%; left:35%; display:block; width:36%; height:20%; overflow:hidden; background:#F1697D; border-radius:0 0 50% 50%/0 0 100% 100%;}
+.sheep .face .mouth:before { position:absolute; bottom:0; left:0; display:block; width:100%; height:50%; overflow:hidden; background:#fff; content:''; opacity:.3; border-radius:50% 50% 0 0/100% 100% 0 0;}
+
+/* 正宗xx烤羊腿 */
+.sheep .hands li { position:absolute; top:70%; left:50%; display:block; width:10%; height:30%; background:#FDE4C6; -webkit-transform-origin:0 0; -moz-transform-origin:0 0; -ms-transform-origin:0 0; transform-origin:0 0; -webkit-transform:rotate(-100deg); -moz-transform:rotate(-100deg); -ms-transform:rotate(-100deg); transform:rotate(-100deg);}
+.sheep .hands li:after { position:absolute; top:90%; left:0; display:block; padding:50%; background:#B59682; content:''; border-radius:50%/25% 25% 50% 50%;}
+.sheep .hands li i { top:-10%; left:-100%; padding:80%; border-bottom:2px solid #EAEBDD;}
+.sheep .hands li i:last-child { top:-12%; left:30%; padding:70%;}
+.sheep .hands li:first-child { z-index:1;}
+.sheep .hands li:last-child { top:55%; left:100%; height:20%; -webkit-transform:rotate(-115deg); -moz-transform:rotate(-115deg); -ms-transform:rotate(-115deg); transform:rotate(-115deg);}
+
+.sheep .legs li { position:absolute; bottom:-10%; left:22%; display:block; width:12%; height:10%; background:#E4D8C8;}
+.sheep .legs li:after { position:absolute; top:80%; left:0; display:block; padding:45% 50%; background:#B59682; content:''; border-radius:50%/25% 25% 50% 50%;}
+.sheep .legs li:last-child { left:auto; right:22%; -webkit-transform:rotate(10deg); -moz-transform:rotate(10deg); -ms-transform:rotate(10deg); transform:rotate(10deg);}
+
+/* 红包，可惜里面没钱 */
+.hongbao { position:absolute; top:30%; left:50%; margin-left:200px; display:block; width:100px; height:100px; overflow:hidden; background:#E14E60; border-radius:18%; box-shadow:inset 0 -5px 0 rgba(0,0,0,.1); -webkit-transform:rotate(30deg); -moz-transform:rotate(30deg); -ms-transform:rotate(30deg); transform:rotate(30deg);}
+.hongbao:before { position:absolute; top:-65%; left:0; display:block; padding:50%; background:#DF4255; content:''; border-radius:40%; box-shadow:inset -3px -3px 0 rgba(255,255,255,.3), 2px 2px 0 rgba(0,0,0,.1); -webkit-transform:rotate(45deg); -moz-transform:rotate(45deg); -ms-transform:rotate(45deg); transform:rotate(45deg);}
+.hongbao:after { position:absolute; top:20%; left:0; right:0; margin:auto; display:block; width:34%; height:34%; border:3px solid #FED84F; background:#FBAD15; content:'￥'; color:#F9EC45; font:700 28px/130% 'microsoft yahei'; text-align:center; border-radius:50%; box-shadow:0 1px 1px rgba(0,0,0,.1); text-shadow:0 1px 1px rgba(0,0,0,.1);}
+
+</style>
+</head>
+
+<body>
+
+	<div id="box" class="box" style="position:absolute; bottom:20%; left:0; right:0; margin:auto; width:50px;">
+		<div class="sheep">
+			<i></i><i></i><i></i><i></i><i></i> <i></i><i></i><i></i><i></i><i></i> <i></i><i></i><i></i><i></i><i></i> <i></i><i></i><i></i><i></i><i></i> <i></i><i></i><i></i><i></i><i></i>
+			<div class="face">
+				<i></i><i></i><i></i><i></i>
+				<div class="ears"></div>
+				<ul class="eyes"><li></li><li></li></ul>
+				<div class="nose"></div>
+				<div class="mouth"></div>
+			</div>
+			<ul class="hands"><li><i></i><i></i></li><li></li></ul>
+			<ul class="legs"><li></li><li></li></ul>
+		</div>
+	</div>
+	
+	<div class="hongbao"></div>
+	
+	<script>
+		var sheep = document.getElementById('box');
+		sheep.onclick = function(){
+			this.style.width = parseInt(this.style.width) + 50 + 'px';
+		}
+	</script>
+	
+
+</body>
+</html>

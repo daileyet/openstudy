@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Immediate editor test</title>
+		<script src="../jquery-2.0.0.min.js"></script>
+		<script src="classes_oop.js"></script>
+		<script src="self-service-2-immediate-editor.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<select class="immediate-controller">
+			<option value='1'>abc</option>
+		</select>
+		<script>
+			var element = {
+					controller:'select',
+					data:[
+						{display:'',value:'1'},
+						{display:'',value:'2'}
+					]
+			};
+			var imme_select = 
+			//new window.classes.ImmediateController_Select(element);
+			window.classes.ImmediateController.create(element,$('body'),$('body'));
+			console.log(imme_select.render());
+			console.log(imme_select.type);
+			for(var i in imme_select){
+				console.log(i);
+			}
+			console.log('////////////////////////////////////////////////////');
+			console.log(imme_select.uber.render());
+			console.log(imme_select.uber.type);
+			for(var i in imme_select.uber){
+				console.log(i);
+			}
+		</script>
+	</body>
+</html>

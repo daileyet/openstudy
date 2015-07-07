@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>SQL Editor</title>
+		<link rel="stylesheet" href="lib/codemirror.css">
+		<script src="lib/codemirror.js"></script>
+		<script src="mode/sql/sql.js"></script>
+		<script src="../../../../js/jquery-2.0.0.min.js"></script>
+		<script src="../../../../js/apex/self-service-2-editor-tool.js"></script>
+		<!--<link rel="stylesheet" href="../addon/hint/show-hint.css" />
+		<script src="../addon/hint/show-hint.js"></script>
+		<script src="../addon/hint/sql-hint.js"></script>-->
+		<style>
+			.sqleditor-header, .sqleditor-footer{
+				background-color: whitesmoke;
+				padding: 3px;
+			}
+			.sqleditor-toolbar a{
+				color: darkmagenta;
+				font-size:13px;
+				font-style:italic;				
+				margin-left: 20px;
+			}
+			.sqleditor-toolbar a:hover{
+				color: darkcyan;
+			}
+			.sqleditor-header .CodeMirror, .sqleditor-footer .CodeMirror{
+				height: auto;
+			}
+			.sql-editor-body{
+				background-color: whitesmoke;
+				border-right: 3px solid whitesmoke;
+			}
+			.code-hiden{
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form>
+			<div class="filedset">
+			<textarea id="code" name="code" rows="5">-- receive procedure user define body start
+declare
+--your variable here
+my_body_var1 varchar2(100):='this is a string';
+begin
+--your code here
+dbms_output.put_line('hello, test body string '||my_body_var1);
+end; 
+-- receive procedure user define body end;</textarea>
+<!--</div>-->
+			<!--<div class="sqleditor-footer">
+				<div class="end-code">
+					<code></code>
+				</div>
+			</div>-->
+		</form>
+		<script>
+			var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+				mode: 'text/x-plsql',
+				indentWithTabs: true,
+				smartIndent: true,
+				lineNumbers: true,
+				matchBrackets: true,
+				autofocus: true
+			});
+			
+			var content = "CREATE OR REPLACE PROCEDURE SS_UNIT_OUT_[Unit ID]_[Unit Sequence]\n"
+			+ "AS\n"
+			+ "sys_unit_id constant number:= TO_NUMBER(unit_in_list.get('UNIT_ID')) ;\n"
+			+ "sys_unit_sequence constant number:= TO_NUMBER(unit_in_list.get('UNIT_SEQ'));\n"
+			+ "sys_request_id constant number:= TO_NUMBER(unit_in_list.get('REQUEST_ID'));\n"
+			+ "BEGIN";
+			
+			$('.filedset').sqleditorwrap('SEND',content,'END;');
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Self Service 2 Reselect Contacts</title>
+		<style>
+			.reselct_contacts {
+				border: 1px solid #AAA;
+				width: auto;
+			}
+			.reselct_contacts td {
+				border-left: 1px solid #F0F0F0;
+				border-top: 1px solid #F0F0F0;
+				color: #404040;
+				padding: 8px;
+				transition: background-color 0.1s ease 0s;
+			}
+			.reselct_contacts_header {
+				background-color: #F0F0F0;
+				vertical-align: bottom;
+				padding: 0px;
+				color: #404040;
+				font-weight: 700;
+				border-bottom: 1px solid #E0E0E0;
+			}
+			.reselct_contacts tr td:first-child,
+			.reselct_contacts tr th:first-child {
+				border-left-width: 0px;
+			}
+			.reselct_contacts tr:nth-child(2n) td {
+				background-color: #F8F8F8;
+			}
+			.pretty-checkbox label {
+				display: inline-block;
+				cursor: pointer;
+				position: relative;
+				padding-left: 25px;
+				margin-right: 15px;
+				font-size: 13px;
+			}
+			.pretty-checkbox input[type=checkbox] {
+				display: none;
+			}
+			.pretty-checkbox label:before {
+				content: "";
+				display: inline-block;
+				width: 16px;
+				height: 16px;
+				margin-right: 10px;
+				position: absolute;
+				left: 0;
+				bottom: 1px;
+				background-color: #aaa;
+				box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+			}
+			.pretty-checkbox label:before {
+				border-radius: 3px;
+			}
+			.pretty-checkbox input[type=checkbox]:checked + label:before {
+				content: "\2713";
+				text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+				font-size: 15px;
+				color: #f3f3f3;
+				text-align: center;
+				line-height: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<h3>Checkbox</h3>
+		<span class="pretty-checkbox">
+			<input id="check1" type="checkbox" name="check" value="check2">	
+			<label for="check1">check1</label>
+			<BR>
+			<input id="check2" type="checkbox" name="check" value="check2">
+			<label for="check2">check2</label>
+		</span>
+
+		<table class="reselct_contacts">
+			<tbody>
+				<tr>
+					<th class="reselct_contacts_header" id="CHECK_BOX">
+						<input type="checkbox" />
+					</th>
+					<th class="reselct_contacts_header" id="CUSTOMER_NAME">Customer Name
+					</th>
+					<th class="reselct_contacts_header" id="FIRST_NAME">First Name
+					</th>
+				</tr>
+				<tr>
+					<td headers="">
+						<input type="checkbox" />
+					</td>
+					<td headers="CUSTOMER_NAME">HCM Internal COE</td>
+					<td headers="FIRST_NAME">Michelle</td>
+				</tr>
+				<tr>
+					<td headers="">
+						<input type="checkbox" />
+					</td>
+					<td headers="CUSTOMER_NAME">HCM Internal COE</td>
+					<td headers="FIRST_NAME">Sandy</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+
+</html>

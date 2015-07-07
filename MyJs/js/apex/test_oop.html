@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>OOP Demo</title>
+		<script src="classes_oop.js"></script>
+	</head>
+	<body>
+<script>
+// define class name
+var Person = Class.create();
+// define class method and attribute
+Person.prototype = {
+	init:function(name,age,sex){//this method must be defined
+		this._name = name;//define attribute
+		this._age = age;
+		this._sex = sex;
+	},
+	showInfo:function(){
+		console.log(this._name+','+this._age+','+this._sex);
+	}
+}
+// new a instance of Person
+var peter_P = new Person('Peter Pan',25,'male');
+peter_P.showInfo();	//	Peter Pan,25,male
+
+// define a class which inherit from Person
+var Student = Class.extend(Person,{
+	study:function(){
+		console.log("I am studying now!!!");
+	}
+});
+/* 
+// also can define subclass by this way
+var Student = Class.extend(Person);
+Student.prototype.study=function(){
+	console.log("I am studying now!!!");
+}
+*/
+// new a instance of Student
+var lucy_S = new Student('Lucy Li',20,'female');
+lucy_S.showInfo(); //	Lucy Li,20,female
+lucy_S.study(); //	Lucy Li,20,female
+
+var Doctor = Class.extend(Person,{
+	init:function(name,age,sex,depart){//overwrite init function
+		//call parent init function to initial basic attribute
+		this.uber.init.call(this,name,age,sex);
+		/*
+		//also can call parent init function directly
+		Person.prototype.init.call(this,name,age,sex);
+		*/
+		this._depart = depart;
+	},
+	showInfo:function(){//overwrite showInfo function
+		console.log(this._name+','+this._age+','+this._sex+','+this._depart);
+	},
+	work:function(){
+		console.log("I am working!!!");
+	}
+});
+// new a instance of Doctor
+var socct_D = new Doctor('Socct',40,'male','surgery');
+socct_D.showInfo(); //	Socct,40,male,surgery
+socct_D.work(); //	I am working!!!
+
+function display(person){
+	person.showInfo();
+}
+
+var person = new Student('Lucy Li',20,'female');
+display(person); //	Lucy Li,20,female
+person = new Doctor('Socct',40,'male','surgery');
+display(person); //	Socct,40,male,surgery
+
+
+
+
+</script>
+	</body>
+</html>
