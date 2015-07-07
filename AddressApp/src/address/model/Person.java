@@ -2,6 +2,9 @@ package address.model;
 
 import java.time.LocalDate;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import address.util.LocalDateAdapter;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -96,6 +99,7 @@ public class Person {
 		return this.birthday;
 	}
 
+	@XmlJavaTypeAdapter(LocalDateAdapter.class)
 	public final java.time.LocalDate getBirthday() {
 		return this.birthdayProperty().get();
 	}
