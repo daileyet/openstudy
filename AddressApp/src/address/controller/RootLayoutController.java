@@ -95,6 +95,7 @@ public class RootLayoutController {
 		alert.setTitle("AddressApp");
 		alert.setHeaderText("About");
 		alert.setContentText("Author: Dailey Dai\nWebsite: http://openthinks.xyz");
+		alert.initOwner(mainApp.getPrimaryStage());
 		alert.showAndWait();
 	}
 
@@ -104,5 +105,10 @@ public class RootLayoutController {
 	@FXML
 	private void handleExit() {
 		System.exit(0);
+	}
+	
+	@FXML
+	private void handleShowBirthdayStatistics(){
+		mainApp.showBirthdayStatistics();
 	}
 }

@@ -9,6 +9,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
+import address.controller.BirthdayStatisticsController;
 import address.controller.PersonEditDialogController;
 import address.controller.PersonOverviewController;
 import address.controller.RootLayoutController;
@@ -113,6 +114,31 @@ public class MainApp extends Application {
 		return false;
 		
 	}
+	
+	public void showBirthdayStatistics(){
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(MainApp.class.getResource("view/BirthdayStatistics.fxml"));
+		try {
+			AnchorPane anchorPane = loader.load();
+			Stage dialogStage =new Stage();
+			dialogStage.initOwner(primaryStage);
+			dialogStage.setTitle("Birthday Statistics");
+			dialogStage.initModality(Modality.WINDOW_MODAL);
+			dialogStage.getIcons().add(new Image("file:resources/images/address_book_32.png"));
+			Scene scene =new Scene(anchorPane);
+			dialogStage.setScene(scene);
+			BirthdayStatisticsController birthdayStatisticsController =loader.getController();
+			birthdayStatisticsController.setPersonData(personData);
+			dialogStage.show();
+			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
 
 	/**
 	 * Initializes the root layout.
@@ -200,6 +226,7 @@ public class MainApp extends Application {
 			alert.setTitle("Error");
 			alert.setHeaderText("Could not load data from file:\n" + file.getPath());
 			alert.setContentText(e.getMessage());
+			alert.initOwner(primaryStage);
 			alert.showAndWait();
 		}
 		
@@ -222,6 +249,7 @@ public class MainApp extends Application {
 			alert.setTitle("Error");
 			alert.setHeaderText("Could not save data to file:\n" + file.getPath());
 			alert.setContentText(e.getMessage());
+			alert.initOwner(primaryStage);
 			alert.showAndWait();
 		}
 	}
