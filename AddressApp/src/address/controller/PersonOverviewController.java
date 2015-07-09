@@ -106,7 +106,7 @@ public class PersonOverviewController {
 			alert.setTitle("No Selection");
 			alert.setHeaderText("No Person Selected");
 			alert.setContentText("Please select a person in the table.");
-
+			alert.initOwner(mainApp.getPrimaryStage());
 			alert.showAndWait();
 		}
 	}
@@ -134,6 +134,7 @@ public class PersonOverviewController {
 			alert.setTitle("No Selection");
 			alert.setHeaderText("No Person Selected");
 			alert.setContentText("Please select a person in the table.");
+			alert.initOwner(mainApp.getPrimaryStage());
 			alert.showAndWait();			
 		}
 	}

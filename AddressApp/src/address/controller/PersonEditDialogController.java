@@ -101,6 +101,7 @@ public class PersonEditDialogController {
         	alert.setTitle("Invalid Fields");
         	alert.setHeaderText("Please correct invalid fields");
             alert.setContentText(errorMessage);
+            alert.initOwner(dialogStage);
         	alert.show();
             return false;
         }

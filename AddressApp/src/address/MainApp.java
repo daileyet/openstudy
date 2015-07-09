@@ -4,17 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.prefs.Preferences;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
-
-import address.controller.BirthdayStatisticsController;
-import address.controller.PersonEditDialogController;
-import address.controller.PersonOverviewController;
-import address.controller.RootLayoutController;
-import address.model.Person;
-import address.model.PersonListWrapper;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,11 +11,23 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+
+import resources.images.ResourceLoader;
+import address.controller.BirthdayStatisticsController;
+import address.controller.PersonEditDialogController;
+import address.controller.PersonOverviewController;
+import address.controller.RootLayoutController;
+import address.model.Person;
+import address.model.PersonListWrapper;
 
 public class MainApp extends Application {
 	private Stage primaryStage;
@@ -63,7 +64,7 @@ public class MainApp extends Application {
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("AddressApp");
-		this.primaryStage.getIcons().add(new Image("file:resources/images/address_book_32.png"));
+		this.primaryStage.getIcons().add(ResourceLoader.APP_ICON);
 		initRootLayout();
 		showPersonOverview();
 	}
@@ -102,7 +103,7 @@ public class MainApp extends Application {
 			dialogStage.initOwner(primaryStage);
 			Scene scene =new Scene(anchorPane);
 			dialogStage.setScene(scene);
-			dialogStage.getIcons().add(new Image("file:resources/images/address_book_32.png"));
+			dialogStage.getIcons().add(ResourceLoader.APP_ICON);
 			PersonEditDialogController editDialogController = loader.getController();
 			editDialogController.setDialogStage(dialogStage);
 			editDialogController.setPerson(person);
@@ -124,7 +125,7 @@ public class MainApp extends Application {
 			dialogStage.initOwner(primaryStage);
 			dialogStage.setTitle("Birthday Statistics");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
-			dialogStage.getIcons().add(new Image("file:resources/images/address_book_32.png"));
+			dialogStage.getIcons().add(ResourceLoader.APP_ICON);
 			Scene scene =new Scene(anchorPane);
 			dialogStage.setScene(scene);
 			BirthdayStatisticsController birthdayStatisticsController =loader.getController();
