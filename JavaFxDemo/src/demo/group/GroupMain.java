@@ -38,15 +38,15 @@ public class GroupMain extends Application{
 		    
 		    new Thread(){
 		    	public void run() {
-		    		for(int i=0;i<100;i++){
+		    		for(int i=0;i<500;i++){
 				    	Random random = new Random();
 				    	int index=random.nextInt(500);
+				    	index=i;
 				    	Rectangle rectangle  = (Rectangle) canvas.getChildren().get(index);
 				    	rectangle.setFill(Color.GREEN);
 				    	try {
-							Thread.sleep(100);
+							Thread.sleep(10);
 						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 				    }
