@@ -23,6 +23,8 @@ public class GroupMain extends Application{
 		    Pane canvas = new Pane();
 		    canvas.setStyle("-fx-background-color: white;");
 		    canvas.setPrefSize(200,200);
+		    Group group = new Group();
+		    canvas.getChildren().add(group);
 		    int row_cell_count = 40;
 		    for(int i=0;i<500;i++){
 			    Rectangle rectangle = new Rectangle(10,10,Color.RED);
@@ -31,7 +33,8 @@ public class GroupMain extends Application{
 			    rectangle.relocate(x*11,y*11);
 			    rectangle.setArcWidth(3);
 			    rectangle.setArcHeight(3);
-			    canvas.getChildren().add(rectangle);
+			    group.getChildren().add(rectangle);
+			   
 		    }
 		    
 		    vb.getChildren().add(canvas);
@@ -40,7 +43,7 @@ public class GroupMain extends Application{
 		    	 new Thread(){
 				    	public void run() {
 				    		for(int i=0;i<500;i++){
-						    	Rectangle rectangle  = (Rectangle) canvas.getChildren().get(i);
+						    	Rectangle rectangle  = (Rectangle) group.getChildren().get(i);
 						    	rectangle.setFill(Color.GREEN);
 						    	try {
 									Thread.sleep(10);

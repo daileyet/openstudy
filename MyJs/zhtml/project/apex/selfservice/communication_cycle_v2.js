@@ -3,6 +3,7 @@
  * @author dailey.dai@oracle.com
  * @since 2014/11/10
  * @modified 2014/11/27
+ * @modified 2015/8/13  add dragged area for node shape
  */
 
 (function($, options) {
@@ -17,6 +18,7 @@
 			autoCalcMaxCols: false,
 			params: {},
 			cycleNodeRender: function(paper, node) {
+				paper.safari();
 				/* the default node drawing */
 				var color = node.color || Raphael.getColor();
 				var ellipse = paper.ellipse(0, 0, 40, 20).attr({
@@ -59,7 +61,8 @@
 						"fill-opacity": 0
 					}, 1000);
 				});
-
+				//add only dragged area
+				shape.dragged = paper.set().push(ellipse).push(tooltip);
 				return shape;
 			},
 			width: ($svg.width()),

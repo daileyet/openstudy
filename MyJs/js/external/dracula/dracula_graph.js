@@ -251,6 +251,7 @@ Graph.Renderer.Raphael.prototype = {
            or the default render function instead */
         if(!node.render) {
             node.render = function(r, node) {
+            	this.r.safari()
                 /* the default node drawing */
                 var color = Raphael.getColor();
                 var ellipse = r.ellipse(0, 0, 30, 20).attr({fill: color, stroke: color, "stroke-width": 2,cursor:"move"});
@@ -282,7 +283,12 @@ Graph.Renderer.Raphael.prototype = {
         shape.items.forEach(function(item){ item.set = shape; 
         	//item.node.style.cursor = "move"; 
         });
-        shape.mousedown(this.dragger);
+        // add dragged area for this shape;
+        if(shape.dragged)
+        	shape.dragged.mousedown(this.dragger);
+        else{
+        	shape.mousedown(this.dragger);
+        }
 
         var box = shape.getBBox();
         shape.translate(Math.round(point[0]-(box.x+box.width/2))+this.left_margin,Math.round(point[1]-(box.y+box.height/2)))
