@@ -15,5 +15,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Log4j"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Nuiton-i18n"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Odb"/>
+	<classpathentry kind="lib" path="E:/dev/server/apache-tomcat-7.0.54-windows-x64/apache-tomcat-7.0.54/lib/websocket-api.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
